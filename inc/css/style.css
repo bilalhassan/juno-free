@@ -1,0 +1,163 @@
+/*
+** General ---------------------------------------------------------------------
+*/
+a {
+    text-decoration: none !important;
+}
+
+*:focus {
+    outline: none;
+}
+
+/*
+** Header ----------------------------------------------------------------------
+*/
+header#masthead {
+    background-color: #33373b;
+}
+
+div#site-branding {
+    padding: 50px;
+    text-align: center;
+}
+
+#site-branding a {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+}
+
+/*
+** Main Navigation -------------------------------------------------------------
+*/
+div#site-navigation {
+    background-color: #72c4c0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+div#site-navigation .main-navigation {
+    float: none;
+}
+
+ul#primary-menu {
+    display: inline-block;
+    padding-top: 5px;
+}
+
+ul#primary-menu > li.menu-item {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 15px;
+    letter-spacing: .2em;
+    font-size: 12px;
+}
+
+ul#primary-menu > li.menu-item > a {
+    color: #fff;
+}
+
+ul#primary-menu > li.menu-item.current-menu-item > a {
+    color: #33373b;
+}
+
+/*
+** Slicknav Mobile Menu --------------------------------------------------------
+*/
+div.slicknav_menu {
+    display: none;
+    background: none;
+}
+
+@media (max-width:767px) {
+    
+    ul#primary-menu {
+        display: none;
+    }
+    
+    div.slicknav_menu {
+        display: block;
+    }
+
+}
+
+ul.slicknav_nav ul.sub-menu {
+    box-shadow: none;
+    position: relative;
+    float: none;
+    left: 0 !important;
+    top: inherit;
+    margin-left: 0;
+    border-left: 5px solid #f5f5f5;
+}
+
+ul.slicknav_nav > li:last-of-type {
+    margin-bottom: 15px;
+}
+
+ul.slicknav_nav ul.sub-menu ul.sub-menu {
+    margin-left: 15px;
+    border: none;
+}
+
+div.slicknav_menu li {
+    display: block;
+    margin-left: 0;
+}
+
+.slicknav_nav > li > .slicknav_item {
+    margin-left: 0;
+    padding-left: 0;   
+}
+
+.slicknav_nav a {
+    font-size: 14px !important;
+    line-height: 16px;
+    color: #666;
+} 
+
+ul.slicknav_nav ul.sub-menu li a {
+    font-size: 12px !important;
+}
+
+.slicknav_nav a:hover {
+    background: none;
+}
+
+.slicknav_nav .slicknav_row:hover {
+    background: none;
+}
+
+a.slicknav_btn {
+    padding: 0;
+    margin: 0;
+    float: none;
+    background: none;
+    text-shadow: none;
+}
+
+span.slicknav_icon {
+    margin: 0 !important;
+    text-align: center;
+    float: none !important;
+}
+
+.slicknav_icon-bar {
+    background-color: #D0D0D0;
+    margin: 2px auto 0 auto !important;
+    height: 2px;
+    box-shadow: none;
+    width: 14px;
+}
+
+.slicknav_menutxt {
+    display: none !important;
+    text-shadow: none !important;
+}
+
+/*
+** Masonry Blog ----------------------------------------------------------------
+*/
+.grid-sizer,
+.newstand-blog-content .blog-roll-item { width: 32%; }
+.gutter-sizer { width: 2%; }

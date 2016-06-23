@@ -1,0 +1,151 @@
+jQuery(function($) {
+
+    /**
+     * SlickNav Mobile Menu
+     */
+    $( function() { 
+        
+        $( '#primary-menu' ).slicknav({
+            prependTo:'nav.main-nav > div',
+            duration: 500,
+            openedSymbol: "&#45;",	
+            closedSymbol: "&#43;"
+            
+        }); 
+       
+    } );
+    
+    /*
+     * Initialize the homepage slider module (only if the element exists on the page)
+     */
+    if ( $( "#camera_slider" ).length ) {
+    
+        $( "#camera_slider" ).camera({ 
+            height: '500px',
+            hover: true,
+            transPeriod: 2000,
+            fx: 'simpleFade',
+            pagination: false,
+            playPause: false,
+            loaderOpacity: 0
+        });
+        
+    }
+    
+    /*
+     * Handle Blog Roll Masonry
+     */
+    function doMasonry() {
+         
+        var $grid = $( "#masonry-blog-wrapper" ).imagesLoaded(function () {
+            $grid.masonry({
+                itemSelector: '.blog-roll-item',
+                columnWidth: '.grid-sizer',
+                percentPosition: true,
+                gutter: '.gutter-sizer',
+                transitionDuration: '.75s'
+            });
+        });
+        
+        if ( $( window ).width() >= 992 ) {  
+            
+            $('.juno-blog-content .gutter-sizer').css('width', '2%');
+            $('.juno-blog-content .grid-sizer').css('width', '32%');
+            $('.juno-blog-content .blog-roll-item').css('width', '32%');
+            
+        } else if ( $( window ).width() < 992 && $( window ).width() >= 768 ) {
+            
+            $('.juno-blog-content .gutter-sizer').css('width', '2%');
+            $('.juno-blog-content .grid-sizer').css('width', '48%');
+            $('.juno-blog-content .blog-roll-item').css('width', '48%');
+            
+        } else {
+            
+            $('.juno-blog-content .gutter-sizer').css('width', '0%');
+            $('.juno-blog-content .grid-sizer').css('width', '100%');
+            $('.juno-blog-content .blog-roll-item').css('width', '100%');
+            
+        }
+         
+    }
+    
+    // Call Masonry on window size and load
+    $( window ).resize( function() {
+        doMasonry();
+    });
+    doMasonry();
+  
+    /**
+     * Hand Hover effect for menu dropdowns
+     */
+//    $( "ul#primary-menu > li" ).mouseenter( function() {
+//       
+//        $( this ).find( "> ul").stop().fadeIn( 300 );
+//        
+//    }).mouseleave( function() {
+//        
+//        $( this ).find( "> ul").stop().hide();
+//        
+//    });
+    
+    
+    /**
+     * Contact Form
+     */
+    $('#juno-contact-form').submit( function (e) {
+       
+        e.preventDefault();
+        
+        $('.mail-sent,.mail-not-sent').hide();
+       
+        var form = $(this);
+        var name = $('.name', form ).val();
+        var email = $('.email', form ).val();
+        var message = $('textarea.message', form ).val();
+        var url = form.attr('action');
+        
+        if( name.length < 2 ) {
+            alert( 'Please enter a name' );
+            return false;
+        }
+        
+        if( message.length < 2 ) {
+            alert( 'Please enter a message' );
+            return false;
+        }
+        
+        if( ! junoValidateEmail( email ) ) {
+            alert( 'Please enter a valid email address' );
+            return false;
+        }
+        
+        var data = {
+            
+            action : 'juno_send_message',
+            name : name,
+            email : email,
+            message : message
+            
+        }
+        
+        $.post( url, data, function ( response ) {
+           console.log( response );
+            if( response == 1 ) {
+                $('.mail-sent').fadeIn(350);
+                form[0].reset();
+                
+            }else{
+                $('.mail-not-sent').fadeIn(350);
+            }
+            
+        });
+        
+        
+    });
+    
+    function junoValidateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    
+});

@@ -22,29 +22,69 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'juno' ); ?></a>
+    
+    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'juno' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+    <header id="masthead" class="site-header" role="banner">
+           
+        <div class="container-fluid">
+            
+            <div class="row">
+           
+                <div id="site-branding" class="col-sm-12">
+                
+                    <a href="<?php echo esc_url( home_url() ); ?>">
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+                        <?php if ( get_theme_mod( 'juno_branding_toggle', 'title' ) == 'logo' ) : ?>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'juno' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+                            <img alt="<?php esc_html( bloginfo( 'name' ) ); ?>" src="<?php echo get_theme_mod( 'juno_branding_logo', get_template_directory_uri() . '/inc/images/juno.png' ) == "" ? get_template_directory_uri() . '/inc/images/juno.png' : esc_url( get_theme_mod( 'juno_branding_logo', get_template_directory_uri() . '/inc/images/juno.png' ) ); ?>" />
 
-	<div id="content" class="site-content">
+                        <?php else : ?>
+
+                            <h1><?php esc_html( bloginfo( 'name' ) ); ?></h1>
+
+                        <?php endif; ?>
+
+                    </a>
+                
+                </div>
+                
+                <div id="site-navigation" class="col-sm-12">
+                   
+                    <nav class="main-nav main-navigation">
+
+                        <?php if ( has_nav_menu( 'primary' ) ) : ?>
+
+                            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+
+                        <?php else : ?>
+
+                            <div class="menu-testing-menu-container">
+
+                                <ul id="primary-menu" class="menu">
+
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom">
+
+                                        <a href="<?php echo admin_url( 'nav-menus.php' ); ?>">
+                                           <?php _e( 'Add a Primary Menu?', 'juno' ); ?>
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        <?php endif; ?>
+
+                    </nav>
+               
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </header><!-- #masthead -->
+
+    <div id="content" class="site-content">
