@@ -18,7 +18,7 @@ if ( ! function_exists( 'juno_setup' ) ) :
 function juno_setup() {
     
         if( !defined( 'JUNO_VERSION' ) ) :
-            define( 'JUNO_VERSION', '0.01' );
+            define( 'JUNO_VERSION', '0.02' );
         endif;
     
 	/*

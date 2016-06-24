@@ -32,6 +32,8 @@ function juno_scripts() {
     wp_enqueue_style( 'juno-camera-style', get_template_directory_uri() . '/inc/css/camera.css', array(), JUNO_VERSION );
     wp_enqueue_style( 'juno-main-style', get_template_directory_uri() . '/inc/css/style.css', array(), JUNO_VERSION );
 
+    wp_enqueue_script( 'juno-jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'juno-jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.customized.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-camera-script', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-slick-nav-script', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );
@@ -248,7 +250,57 @@ function juno_all_posts_array() {
  */
 function juno_render_jumbotron() { ?>
     
-    JUMBOTRON
+    <div id="jumbotron-section" class="container-fluid">
+        
+        <div class="row">
+            
+            <div class="col-sm-12">
+                
+                <div id="camera_slider" class="camera_wrap">
+
+                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ) : ?>
+                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_1', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+
+                            <div class="camera_caption wow fadeIn">
+                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>">
+                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
+                                </a>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ) : ?>
+                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_2', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+
+                            <div class="camera_caption wow fadeIn">
+                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>">
+                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
+                                </a>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ) : ?>
+                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_3', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+
+                            <div class="camera_caption wow fadeIn">
+                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>">
+                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
+                                </a>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
 
 <?php }
 add_action( 'juno_jumbotron', 'juno_render_jumbotron' );

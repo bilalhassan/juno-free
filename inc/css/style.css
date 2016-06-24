@@ -174,6 +174,86 @@ a.slicknav_btn {
 }
 
 /*
+** Jumbotron Section -----------------------------------------------------------
+*/
+#jumbotron-section {
+    padding: 0;
+}
+
+#jumbotron-section > .row {
+    margin: 0;
+}
+
+#jumbotron-section > .row > .col-sm-12 {
+    padding: 0;
+}
+
+.camera_loader {
+    display: none !important;
+}
+
+.camera_overlayer {
+    background-color: rgba(0,0,0,.5);
+}
+
+.camera_caption {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: table;
+}
+
+.camera_caption > div {
+    background: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.camera_caption a {
+    font-size: 28px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+}
+
+.camera_pag {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 120px;
+    margin-left: -60px;
+}
+
+.camera_wrap .camera_pag .camera_pag_ul {
+    text-align: center;
+}
+
+.camera_wrap .camera_pag .camera_pag_ul li {
+    background-color: rgba(255,255,255,.75);
+    width: 14px;
+    height: 14px;
+}
+
+.camera_wrap .camera_pag .camera_pag_ul li:hover > span {
+    background-color: #72c4c0;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #33373b;
+}
+
+/*
 ** About / Biography Frontpage Section -----------------------------------------
 */
 div#about-section {

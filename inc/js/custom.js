@@ -47,11 +47,12 @@ jQuery(function($) {
         $( "#camera_slider" ).camera({ 
             height: '500px',
             hover: true,
-            transPeriod: 2000,
+            transPeriod: 1500,
             fx: 'simpleFade',
-            pagination: false,
+            pagination: true,
             playPause: false,
-            loaderOpacity: 0
+            loader: 'none',
+            navigation: false
         });
         
     }
