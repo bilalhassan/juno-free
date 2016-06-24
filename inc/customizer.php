@@ -16,7 +16,7 @@ function juno_customize_register( $wp_customize ) {
     $wp_customize->remove_section( 'header_image' );
     $wp_customize->remove_section( 'background_image' );
     $wp_customize->remove_section( 'colors' );
-    $wp_customize->remove_section( 'static_front_page' );
+//    $wp_customize->remove_section( 'static_front_page' );
     
     // Header Bar Panel
     require_once('customizer/panel-header-bar.php');
