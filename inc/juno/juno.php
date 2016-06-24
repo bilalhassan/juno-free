@@ -342,12 +342,10 @@ function juno_render_subscribe_module() { ?>
 
                         <div class="col-sm-6">
 
-                            <?php // TODO: Incorporate actual mailing list form shortcodes ?>
+                            <?php // TODO: Incorporate actual mailing list form shortcodes. ?>
                             <form>
-                                
                                 <input type="email" name="user_email" placeholder="E-mail" />
                                 <input type="submit" />
-                                
                             </form>
                             
                         </div>

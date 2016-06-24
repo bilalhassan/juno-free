@@ -14,42 +14,73 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) :
+            <div id="front-page-content" class="container">
+              
+                <div class="row">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+                    <div id="archive-blog" class="col-sm-12">
 
-			<?php
-			endif;
+                        <?php if ( get_theme_mod( 'juno_blog_title_toggle', 'show' ) == 'show' ) : ?> 
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+                            <header>
+                                <h1 class="page-title">
+                                    <?php echo esc_html( get_theme_mod( 'juno_blog_title', __('Here\'s some stuff you might like!', 'juno' ) ) ); ?>
+                                </h1>
+                                <hr class="accent-divider">
+                            </header>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+                        <?php endif; ?>
 
-			endwhile;
+                        <div class="row">
 
-			the_posts_navigation();
+                            <?php if ( have_posts() ) : ?>
 
-		else :
+                                <div class="juno-blog-content">
 
-			get_template_part( 'template-parts/content', 'none' );
+                                    <div id="masonry-blog-wrapper">
 
-		endif; ?>
+                                        <div class="grid-sizer"></div>
+                                        <div class="gutter-sizer"></div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                                        <?php
+
+                                        /* Start the Loop */
+                                        while ( have_posts() ) : the_post();
+
+                                            get_template_part( 'template-parts/content', 'blog' );
+
+                                        endwhile;
+
+                                        ?>
+
+                                    </div><!-- #masonry-blog-wrapper -->
+
+                                    <div class="pagination-links">
+                                        <?php echo paginate_links(); ?>
+                                    </div>
+
+                                </div><!-- #juno-blog-content -->
+
+                            <?php else :
+
+                                get_template_part( 'template-parts/content', 'none' );
+
+                            endif; ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </main><!-- #main -->
+        
+    </div><!-- #primary -->
 
 <?php
 get_sidebar();
