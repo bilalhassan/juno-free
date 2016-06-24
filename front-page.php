@@ -13,7 +13,11 @@ $front = get_option( 'show_on_front' ); ?>
     <main id="main" class="site-main" role="main">
        
         <?php if ( $front != 'posts' ) : ?>
-            <?php do_action( 'juno_jumbotron' ); ?>
+
+            <?php // if ( get_theme_mod( 'juno_jumbotron_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_jumbotron' ); } ?>
+        
+            <?php if ( get_theme_mod( 'juno_bio_visibility_toggle', 'show' )        == 'show' ) { do_action( 'juno_bio' ); } ?>
+        
         <?php endif; ?>
          
         <div id="front-page-content" class="container">

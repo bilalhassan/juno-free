@@ -215,6 +215,35 @@ function juno_fonts(){
 }
 
 /**
+ * Returns all posts as an array
+ * 
+ * @return array of posts
+ */
+function juno_all_posts_array() {
+    
+    $posts = get_posts( array(
+        'post_type'        => 'post',
+        'posts_per_page'   => -1,
+        'post_status'      => 'publish',
+        'orderby'          => 'title',
+        'order'            => 'ASC',
+    ));
+
+    $posts_array = array();
+
+    foreach ( $posts as $post ) :
+        
+        if ( ! empty( $post->ID ) ) :
+            $posts_array[ $post->ID ] = $post->post_title;
+        endif;
+        
+    endforeach;
+    
+    return $posts_array;
+    
+}
+
+/**
  * Render the jumbotron.
  */
 function juno_render_jumbotron() { ?>
@@ -223,6 +252,70 @@ function juno_render_jumbotron() { ?>
 
 <?php }
 add_action( 'juno_jumbotron', 'juno_render_jumbotron' );
+
+/**
+ * Render the about / biography section.
+ */
+function juno_render_bio() { ?>
+    
+    <div id="about-section" class="container">
+        
+        <div class="row">
+            
+            <div class="col-sm-5">
+                
+                <h2 id="about-primary">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_section_primary', __( 'Users can input any flavor text they like and it will be output as this large text blurb.', 'juno' ) ) ); ?>
+                </h2>
+                
+                <hr class="accent-divider">
+                
+                <p id="about-secondary">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_section_secondary', __( 'Etiam eget hendrerit elit, in pellentesque enim. Quisque ac laoreet mi. Curabitur id tristique ipsum. Morbi a tortor ut elit pharetra tempor quis vitae nisl. Nam condimentum eros velit.', 'juno' ) ) ); ?>
+                </p>
+                
+                <?php if ( get_theme_mod( 'juno_about_section_button_toggle', 'show' ) == 'show' ) : ?>
+                
+                    <a class="accent-button" href="<?php echo get_theme_mod( 'juno_about_section_button_link', '' ) != '' ? esc_url( get_theme_mod( 'juno_about_section_button_link', '' ) ) : ''; ?>">
+                        <?php echo get_theme_mod( 'juno_about_section_button_label', '' ) != '' ? esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ) : __( 'Show Me More', 'juno' ); ?>
+                    </a>
+                
+                <?php endif; ?>
+                
+            </div>
+            
+            <div class="col-sm-1"></div>
+            
+            <div id="about-feature-a" class="col-sm-3">
+                
+                <h6 class="feature-title">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_title_a', __( 'Small Feature A', 'juno' ) ) ); ?>
+                </h6>
+                
+                <p class="feature-body">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_body_a', __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis, massa eget efficitur volutpat, turpis justo laoreet risus, sit amet viverra diam leo non turpis. Donec quis hendrerit arcu. In hac habitasse platea dictumst. Curabitur suscipit dignissim mi, vitae efficitur lectus. Etiam dictum turpis ac scelerisque porta. Morbi cursus neque sed iaculis porta. Nulla facilisi. Etiam tincidunt, orci ac pellentesque iaculis, mauris elit ultrices augue, ac tempus augue lorem in quam.', 'juno' ) ) ); ?>
+                </p>
+                
+            </div>
+            
+            <div id="about-feature-b" class="col-sm-3">
+                
+                <h6 class="feature-title">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_title_b', __( 'Small Feature B', 'juno' ) ) ); ?>
+                </h6>
+                
+                <p class="feature-body">
+                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_body_b', __( 'Mauris semper eleifend sem, scelerisque cursus augue pulvinar eu. In hac habitasse platea dictumst. Aenean dapibus, quam a hendrerit placerat, elit dolor hendrerit ante, non scelerisque nisi justo id orci. Curabitur efficitur purus orci, sed suscipit lacus sollicitudin ac. Nullam turpis purus, hendrerit vitae dapibus id, rutrum efficitur sem. Integer consequat lacinia quam id gravida. Pellentesque pharetra nisl at lectus semper, commodo lobortis neque vulputate. Nunc accumsan erat lectus, eu condimentum mauris egestas vitae.', 'juno' ) ) ); ?>
+                </p>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+
+<?php }
+add_action( 'juno_bio', 'juno_render_bio' );
 
 /**
  * Render the homepage widget areas.

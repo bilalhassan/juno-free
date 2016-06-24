@@ -16,13 +16,13 @@ function juno_customize_register( $wp_customize ) {
     $wp_customize->remove_section( 'header_image' );
     $wp_customize->remove_section( 'background_image' );
     $wp_customize->remove_section( 'colors' );
-//    $wp_customize->remove_section( 'static_front_page' );
+    $wp_customize->remove_section( 'static_front_page' );
     
     // Header Bar Panel
     require_once('customizer/panel-header-bar.php');
     
     // Front Page Panel
-    // require_once('customizer/panel-front-page.php');
+    require_once('customizer/panel-front-page.php');
 
     // General Panel
     // require_once('customizer/panel-general.php');
@@ -66,8 +66,16 @@ function juno_sanitize_text( $input ) {
     return sanitize_text_field( $input );
 }
 
+function juno_sanitize_post( $input ) {
+    return $input;
+}
+
 function juno_sanitize_integer( $input ) {
     return intval( $input );
+}
+
+function juno_sanitize_overlay_decimal( $input ) {
+    return $input > 1.0 || $input < .0 ? null : $input;
 }
 
 function juno_sanitize_show_hide( $input ) {

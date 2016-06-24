@@ -5,6 +5,15 @@ a {
     text-decoration: none !important;
 }
 
+a.accent-button {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffc859;
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 5px;
+}
+
 *:focus {
     outline: none !important;
 }
@@ -164,6 +173,44 @@ a.slicknav_btn {
     display: none;
 }
 
+/*
+** About / Biography Frontpage Section -----------------------------------------
+*/
+div#about-section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+#about-section #about-primary {
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 34px;
+    color: #33373b;
+}
+
+#about-section #about-secondary {
+    margin-top: 30px;
+}
+
+#about-section a.accent-button {
+    margin: 20px 0 40px 0;
+    display: inline-block;
+}
+
+#about-section .feature-title {
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#about-section .feature-body {
+    line-height: 1.75em;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
 
 /*
 ** Masonry Blog ----------------------------------------------------------------
@@ -183,7 +230,7 @@ a.slicknav_btn {
     color: #33373b;
 }
 
-#front-page-content hr.accent-divider {
+hr.accent-divider {
     border-color: #ffc859;
     margin: 0 0 20px 0;
     border-width: 2px;
