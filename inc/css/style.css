@@ -171,3 +171,126 @@ a.slicknav_btn {
 .grid-sizer,
 .newstand-blog-content .blog-roll-item { width: 32%; }
 .gutter-sizer { width: 2%; }
+
+#front-page-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+#front-page-content h1.page-title {
+    font-weight: 700;
+    font-size: 34px;
+    color: #33373b;
+}
+
+#front-page-content hr.accent-divider {
+    border-color: #ffc859;
+    margin: 0 0 20px 0;
+    border-width: 2px;
+}
+
+.blog-roll-item article {
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 1199px) {
+    .blog-roll-item article {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .blog-roll-item article {
+        margin-bottom: 15px;
+    }
+}
+
+.juno-blog-content {
+    padding: 15px;
+}
+
+.juno-blog-content .blog-roll-item img {
+    width: 100%;
+}
+
+.juno-blog-content .blog-roll-item .inner {
+    background-color: #fff;
+    padding: 25px;
+    position: relative;
+}
+
+.juno-blog-content .blog-roll-item .post-category {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.juno-blog-content .blog-roll-item .post-category a {
+    color: #72c4c0;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.juno-blog-content .blog-roll-item .inner h3.post-title {
+    margin: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.juno-blog-content .blog-roll-item .inner h3.post-title a {
+    color: #33373b;
+}
+
+.juno-blog-content .blog-roll-item hr {
+    margin: 15px 0;
+    border-color: #ddd;
+}
+
+h5.post-meta {
+    margin-top: 5px;
+}
+
+.post-meta .byline {
+    display: none;
+}
+
+.blog-roll-item .post-content {
+    margin-bottom: 40px;
+    color: #656565;
+}
+
+.blog-roll-item h5.post-meta {
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #656565;
+    margin-right: 75px;
+}
+
+.blog-roll-item h5.post-meta a {
+    color: #656565;
+}
+
+.juno-blog-content .blog-roll-item .inner .image-corner {
+    width: 75px;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.juno-blog-content .blog-roll-item .inner i.icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: #fff;
+    opacity: 0;
+    font-size: 20px;
+}

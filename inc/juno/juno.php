@@ -213,3 +213,23 @@ function juno_fonts(){
     
     return $font_family_array;
 }
+
+/**
+ * Render the jumbotron.
+ */
+function juno_render_jumbotron() { ?>
+    
+    JUMBOTRON
+
+<?php }
+add_action( 'juno_jumbotron', 'juno_render_jumbotron' );
+
+/**
+ * Render the homepage widget areas.
+ */
+function juno_render_homepage_widget_areas() { ?>
+    
+    WIDGET AREAS
+
+<?php }
+add_action( 'juno_homepage_widget_areas', 'juno_render_homepage_widget_areas' );

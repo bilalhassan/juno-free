@@ -93,24 +93,40 @@ jQuery(function($) {
          
     }
     
-    // Call Masonry on window size and load
+    /**
+     * Call Masonry on window resize and load
+     */
     $( window ).resize( function() {
         doMasonry();
     });
     doMasonry();
-  
+ 
     /**
-     * Hand Hover effect for menu dropdowns
+     * 
      */
-//    $( "ul#primary-menu > li" ).mouseenter( function() {
-//       
-//        $( this ).find( "> ul").stop().fadeIn( 300 );
-//        
-//    }).mouseleave( function() {
-//        
-//        $( this ).find( "> ul").stop().hide();
-//        
-//    });
+    $( '.blog-roll-item article').mouseenter( function() {
+        
+        $( this ).find( '.inner .image-corner' ).stop().animate({
+            height: "75px"
+        }, 200 );
+        
+        $( this ).find( '.inner .icon' ).stop().animate({
+            fontSize: "20px",
+            opacity: "1" 
+        }, 400 );
+        
+    }).mouseleave( function() {
+        
+        $( this ).find( '.inner .icon' ).stop().animate({
+            fontSize: "0px",
+            opacity: "0"
+        }, 200 );
+        
+        $( this ).find( '.inner .image-corner' ).stop().animate({
+            height: "0px"
+        }, 400 );
+        
+    });
     
     
     /**
