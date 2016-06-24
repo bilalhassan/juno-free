@@ -41,12 +41,18 @@
 
                         <?php else : ?>
 
-                            <h1><?php esc_html( bloginfo( 'name' ) ); ?></h1>
+                            <?php esc_html( bloginfo( 'name' ) ); ?>
 
                         <?php endif; ?>
 
                     </a>
                 
+                    <div id="slicknav-menu-toggle">
+
+                        <i class="fa fa-bars"></i>
+
+                    </div>
+                    
                 </div>
                 
                 <div id="site-navigation" class="col-sm-12">

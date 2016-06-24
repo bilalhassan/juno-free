@@ -15,6 +15,30 @@ jQuery(function($) {
        
     } );
     
+    // Custom Slicknav Toggle
+    var slicknav_open = false;
+    $( "#slicknav-menu-toggle" ).click( function() {
+        
+        if ( slicknav_open ) {
+            
+            $("div.slicknav_menu").stop().animate({
+                borderColor: "#fff"
+            }, 500 );
+            $('#primary-menu').slicknav( 'toggle' );
+            slicknav_open = false;
+            
+        } else {
+            
+            $("div.slicknav_menu").stop().animate({
+                borderColor: "#cacaca"
+            }, 1000 );
+            $('#primary-menu').slicknav( 'toggle' );
+            slicknav_open = true;
+            
+        }
+        
+    });
+    
     /*
      * Initialize the homepage slider module (only if the element exists on the page)
      */
