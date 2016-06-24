@@ -213,6 +213,48 @@ div#about-section {
 }
 
 /*
+** Subscribe Module ------------------------------------------------------------
+*/
+div#subscribe-module {
+    background-color: #72c4c0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#subscribe-module h2#subscribe-blurb {
+    color: #fff;
+    font-size: 22px;
+    margin: 0 0 10px 0;
+}
+
+#subscribe-module input[type="text"], 
+#subscribe-module input[type="email"] {
+    height: 50px;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    min-width: 50%;
+    margin-right: 5px;
+}
+
+#subscribe-module input[type="submit"] {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffc859;
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: inherit;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    height: 50px;
+} 
+
+/*
 ** Masonry Blog ----------------------------------------------------------------
 */
 .grid-sizer,

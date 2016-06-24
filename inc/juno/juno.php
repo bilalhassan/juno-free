@@ -318,6 +318,54 @@ function juno_render_bio() { ?>
 add_action( 'juno_bio', 'juno_render_bio' );
 
 /**
+ * Render the homepage subscribe CTA area.
+ */
+function juno_render_subscribe_module() { ?>
+    
+    <div id="subscribe-module" class="container-fluid">
+        
+        <div class="row">
+            
+            <div class="col-sm-12">
+                
+                <div class="container">
+                    
+                    <div class="row">
+            
+                        <div class="col-sm-6">
+
+                            <h2 id="subscribe-blurb">
+                                <?php echo esc_html( get_theme_mod( 'juno_subscribe_title', __( 'Encourage visitors to sign up for your mailing list using this CTA banner!', 'juno' ) ) ); ?>
+                            </h2>
+
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <?php // TODO: Incorporate actual mailing list form shortcodes ?>
+                            <form>
+                                
+                                <input type="email" name="user_email" placeholder="E-mail" />
+                                <input type="submit" />
+                                
+                            </form>
+                            
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+       
+    </div>
+
+<?php }
+add_action( 'juno_subscribe', 'juno_render_subscribe_module' );
+
+/**
  * Render the homepage widget areas.
  */
 function juno_render_homepage_widget_areas() { ?>
