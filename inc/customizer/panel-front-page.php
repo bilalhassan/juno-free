@@ -261,4 +261,54 @@ $wp_customize->add_section( 'juno_subscribe_section', array(
         'label'                 => __( 'CTA Title Text', 'juno' ),
     ) );
     
+
+// ---------------------------------------------
+// Social Section
+// ---------------------------------------------
+$wp_customize->add_section( 'juno_social_section', array(
+    'title'                 => __( 'Social Links', 'juno'),
+    'description'           => __( 'Customize the front page Social Link section', 'juno' ),
+    'panel'                 => 'juno_front_page_panel'
+) );
+
+    // Social Section Visibility Toggle
+    $wp_customize->add_setting( 'juno_social_visibility_toggle', array (
+        'default'               => 'show',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_show_hide',
+    ) );
+    $wp_customize->add_control( 'juno_social_visibility_toggle', array(
+        'type'                  => 'radio',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Show the Social Links section?', 'juno' ),
+        'choices'               => array(
+            'show'      => __( 'Show', 'juno' ),
+            'hide'      => __( 'Hide', 'juno' ),
+    ) ) );
+
+    // Social Section Message Visibility Toggle
+    $wp_customize->add_setting( 'juno_social_message_toggle', array (
+        'default'               => 'show',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_show_hide',
+    ) );
+    $wp_customize->add_control( 'juno_social_message_toggle', array(
+        'type'                  => 'radio',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Include a title message?', 'juno' ),
+        'choices'               => array(
+            'show'      => __( 'Show', 'juno' ),
+            'hide'      => __( 'Hide', 'juno' ),
+    ) ) );
     
+    // Social Message Text
+    $wp_customize->add_setting( 'juno_social_message', array (
+        'default'               => __( 'Stay Connected', 'juno' ),
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_text',
+    ) );
+    $wp_customize->add_control( 'juno_social_message', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Title message text', 'juno' ),
+    ) );

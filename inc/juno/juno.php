@@ -89,8 +89,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage A', 'juno' ),
             'id'            => 'sidebar-front-a',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
+            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
+            'after_widget'  => '</div></section>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -99,8 +99,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage B', 'juno' ),
             'id'            => 'sidebar-front-b',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
+            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
+            'after_widget'  => '</div></section>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -109,8 +109,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage C', 'juno' ),
             'id'            => 'sidebar-front-c',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
+            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
+            'after_widget'  => '</div></section>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -420,10 +420,267 @@ add_action( 'juno_subscribe', 'juno_render_subscribe_module' );
  */
 function juno_render_homepage_widget_areas() { ?>
     
-    WIDGET AREAS
+    <!-- Homepage Area A -->
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_a', 'on' ) == 'on' ) : ?>
+    
+        <?php if ( ! is_active_sidebar( 'sidebar-front-a' ) ) : ?>
+
+            <div class="container-fluid area-a">
+                
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+                        
+                        <div class="container">
+                            
+                            <section class="front-page-widget area-a">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <h6 class="default-text">
+                                            <?php _e( 'Homepage A Widget Area', 'juno' ); ?>
+                                        </h6>
+                                        <div class="textwidget">
+                                            <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget A. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+    
+            </div>
+
+        <?php else : ?>
+
+            <?php get_sidebar( 'front_a' ); ?>
+
+        <?php endif; ?>
+    
+    <?php endif; ?>
+
+    <!-- Homepage Area B -->
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_b', 'on' ) == 'on' ) : ?>
+    
+        <?php if ( ! is_active_sidebar( 'sidebar-front-b' ) ) : ?>
+
+            <div class="container-fluid area-b">
+                
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+                        
+                        <div class="container">
+                            
+                            <section class="front-page-widget area-b">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <h6 class="default-text">
+                                            <?php _e( 'Homepage B Widget Area', 'juno' ); ?>
+                                        </h6>
+                                        <div class="textwidget">
+                                            <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget B. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+    
+            </div>
+
+        <?php else : ?>
+
+            <?php get_sidebar( 'front_b' ); ?>
+
+        <?php endif; ?>
+    
+    <?php endif; ?>
+    
+    <!-- Homepage Area C -->
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_c', 'on' ) == 'on' ) : ?>
+    
+        <?php if ( ! is_active_sidebar( 'sidebar-front-c' ) ) : ?>
+
+            <div class="container-fluid area-c">
+                
+                <div class="row">
+                    
+                    <div class="col-sm-12">
+                        
+                        <div class="container">
+                            
+                            <section class="front-page-widget area-c">
+
+                                <div class="row">
+
+                                    <div class="col-sm-12">
+
+                                        <h6 class="default-text">
+                                            <?php _e( 'Homepage C Widget Area', 'juno' ); ?>
+                                        </h6>
+                                        <div class="textwidget">
+                                            <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget C. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </section>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+    
+            </div>
+
+        <?php else : ?>
+
+            <?php get_sidebar( 'front_c' ); ?>
+
+        <?php endif; ?>
+    
+    <?php endif; ?>
 
 <?php }
 add_action( 'juno_homepage_widget_areas', 'juno_render_homepage_widget_areas' );
+
+/**
+ * Render the homepage social bararea.
+ */
+function juno_render_social_module() { ?>
+    
+    <div id="social-module" class="container-fluid">
+        
+        <div class="row">
+            
+            <div class="col-sm-12">
+                
+                <div class="container">
+                    
+                    <div class="row">
+            
+                        <div class="col-sm-12">
+
+                            <?php if ( get_theme_mod( 'juno_social_message_toggle', 'show' ) == 'show' ) : ?>
+                                <div id="social-message">
+                                    <?php echo esc_html( get_theme_mod( 'juno_social_message', __( 'Stay Connected','juno') ) ); ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div id="social-container">
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-facebook"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_google_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_google_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-google-plus"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-linkedin"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_behance_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_behance_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-behance"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-pinterest-p"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if ( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) ); ?>">
+                                        <div class="social-bubble">
+                                            <i class="fa fa-vimeo"></i>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+       
+    </div>
+
+<?php }
+add_action( 'juno_social', 'juno_render_social_module' );
+
 
 /**
  * Determine the width of columns based on left and right sidebar settings.

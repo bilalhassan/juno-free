@@ -605,3 +605,86 @@ div#comments {
 .sidebar-container .widget {
     padding: 30px;
 }
+
+/*
+** Front Page Widget Areas -----------------------------------------------------
+*/
+.container-fluid.area-a {
+    background-color: #fff;
+}
+.container-fluid.area-b {
+    background-color: #f5f5f5;
+}
+.container-fluid.area-c {
+    background-color: #fff;
+}
+
+.front-page-widget {
+    padding: 50px 0;
+}
+
+.widget-title {
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.widget ul {
+    margin-left: 0;
+}
+
+/*
+** Front Page Social Area ------------------------------------------------------
+*/
+div#social-module {
+    background-color: #72c4c0;
+}
+
+div#social-message {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+    letter-spacing: .25em;
+}
+
+div#social-container {
+    padding: 10px 30px 30px 30px;
+    margin: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+div#social-container a {
+    display: inline-block;
+    padding: 0;
+}
+
+div.social-bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    line-height: 40px;
+    background-color: #72c4c0;
+    border: 2px solid #fff;
+}
+
+div.social-bubble i {
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+}
+
+div.social-bubble:hover {
+    background-color: #fff;
+}
+
+div.social-bubble:hover i {
+    color: #72c4c0;
+}

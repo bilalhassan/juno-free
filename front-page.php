@@ -19,6 +19,10 @@ $front = get_option( 'show_on_front' ); ?>
             <?php if ( get_theme_mod( 'juno_bio_visibility_toggle', 'show' )        == 'show' ) { do_action( 'juno_bio' ); } ?>
             
             <?php if ( get_theme_mod( 'juno_subscribe_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_subscribe' ); } ?>
+            
+            <?php do_action( 'juno_homepage_widget_areas' ); ?>
+        
+            <?php if ( get_theme_mod( 'juno_social_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_social' ); } ?>
         
         <?php endif; ?>
          
@@ -94,8 +98,6 @@ $front = get_option( 'show_on_front' ); ?>
             </div>
 
         </div>
-
-        <?php do_action( 'juno_homepage_widget_areas' ); ?>
             
     </main><!-- #main -->
     
