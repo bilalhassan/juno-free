@@ -59,20 +59,20 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Left Sidebar', 'juno' ),
             'id'            => 'sidebar-left',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-12">',
+            'after_widget'  => '</div></section>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
 
     register_sidebar( array(
             'name'          => esc_html__( 'Right Sidebar', 'juno' ),
             'id'            => 'sidebar-right',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-12">',
+            'after_widget'  => '</div></section>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
 
     register_sidebar( array(
@@ -81,8 +81,8 @@ function juno_widgets_init() {
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
     
     register_sidebar( array(
@@ -91,8 +91,8 @@ function juno_widgets_init() {
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
 
     register_sidebar( array(
@@ -101,8 +101,8 @@ function juno_widgets_init() {
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
     
     register_sidebar( array(
@@ -111,8 +111,8 @@ function juno_widgets_init() {
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section>',
-            'before_title'  => '<h2 class="widget-title">',
-            'after_title'   => '</h2>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
     ) );
 
 }
@@ -424,3 +424,20 @@ function juno_render_homepage_widget_areas() { ?>
 
 <?php }
 add_action( 'juno_homepage_widget_areas', 'juno_render_homepage_widget_areas' );
+
+/**
+ * Determine the width of columns based on left and right sidebar settings.
+ */
+function juno_main_width() {
+    
+    if( is_active_sidebar('sidebar-left') && is_active_sidebar('sidebar-right') ) :
+        $width = 6;
+    elseif( is_active_sidebar('sidebar-left') || is_active_sidebar('sidebar-right') ) :
+        $width = 9;
+    else:
+        $width = 12;
+    endif;
+    
+    return $width;
+
+}
