@@ -25,50 +25,71 @@ get_header(); ?>
 
                         <?php if ( get_theme_mod( 'juno_blog_title_toggle', 'show' ) == 'show' ) : ?> 
 
-                            <header>
-                                <h1 class="page-title">
-                                    <?php echo esc_html( get_theme_mod( 'juno_blog_title', __('Here\'s some stuff you might like!', 'juno' ) ) ); ?>
-                                </h1>
-                                <hr class="accent-divider">
-                            </header>
+                            <div id="blog-title-box">
 
+                                <h2 class="entry-title">
+                                    <?php echo esc_html( get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ) ); ?>
+                                </h2>
+
+                            </div>
+                        
                         <?php endif; ?>
 
                         <div class="row">
 
-                            <?php if ( have_posts() ) : ?>
+                            <?php if ( is_active_sidebar( 'sidebar-left' ) ) : ?>
+                                <div class="sidebar-container col-sm-3">
 
-                                <div class="juno-blog-content">
+                                    <?php get_sidebar( 'left' ); ?>
 
-                                    <div id="masonry-blog-wrapper">
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="col-sm-<?php echo juno_main_width(); ?>">
+                                
+                                <?php if ( have_posts() ) : ?>
 
-                                        <div class="grid-sizer"></div>
-                                        <div class="gutter-sizer"></div>
+                                    <div class="juno-blog-content">
 
-                                        <?php
+                                        <div id="masonry-blog-wrapper">
 
-                                        /* Start the Loop */
-                                        while ( have_posts() ) : the_post();
+                                            <div class="grid-sizer"></div>
+                                            <div class="gutter-sizer"></div>
 
-                                            get_template_part( 'template-parts/content', 'blog' );
+                                            <?php
 
-                                        endwhile;
+                                            /* Start the Loop */
+                                            while ( have_posts() ) : the_post();
 
-                                        ?>
+                                                get_template_part( 'template-parts/content', 'blog' );
 
-                                    </div><!-- #masonry-blog-wrapper -->
+                                            endwhile;
 
-                                    <div class="pagination-links">
-                                        <?php echo paginate_links(); ?>
-                                    </div>
+                                            ?>
 
-                                </div><!-- #juno-blog-content -->
+                                        </div><!-- #masonry-blog-wrapper -->
 
-                            <?php else :
+                                        <div class="pagination-links">
+                                            <?php echo paginate_links(); ?>
+                                        </div>
 
-                                get_template_part( 'template-parts/content', 'none' );
+                                    </div><!-- #juno-blog-content -->
 
-                            endif; ?>
+                                <?php else :
+
+                                    get_template_part( 'template-parts/content', 'none' );
+
+                                endif; ?>
+                                    
+                            </div>
+                            
+                            <?php if ( is_active_sidebar( 'sidebar-right' ) ) : ?>
+                                <div class="sidebar-container col-sm-3">
+
+                                    <?php get_sidebar( 'right' ); ?>
+
+                                </div>
+                            <?php endif; ?>
 
                         </div>
 

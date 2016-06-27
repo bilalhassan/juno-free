@@ -36,7 +36,7 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
 
     // Blog Section Title
     $wp_customize->add_setting( 'juno_blog_title', array (
-        'default'               => __( 'Here\'s some stuff you might like!', 'juno' ),
+        'default'               => __( 'Blog', 'juno' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_text',
     ) );
