@@ -562,9 +562,10 @@ div#single-title-box .post-meta a {
     div#single-image-container {
         margin-top: 15px;
     }
-    .sidebar-container {
+    #archive-blog .sidebar-container {
         margin-top: 15px !important;
     }
+    
 }
 
 /*
@@ -615,7 +616,7 @@ div#comments {
 /*
 ** Left and Right Sidebars -----------------------------------------------------
 */
-.sidebar-container {
+#archive-blog .sidebar-container {
     margin-top: 30px;
 }
 
@@ -650,10 +651,13 @@ div#comments {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 20px;
+    border-bottom: thin solid #1f2933;
+    padding-bottom: 3px;
 }
 
 .widget ul {
     margin-left: 0;
+    padding-left: 15px;
 }
 
 /*
@@ -709,4 +713,43 @@ div.social-bubble:hover {
 
 div.social-bubble:hover i {
     color: #72c4c0;
+}
+
+/*
+** Footer ----------------------------------------------------------------------
+*/
+footer#colophon #footer-sidebar-wrapper {
+    background-color: #1f2933;
+    color: #fff;
+    border-top: 15px solid #72c4c0;
+}
+
+div#footer-widget-area {
+    padding: 50px 0;
+}
+
+div#footer-widget-area .widget-title {
+    color: #fff;
+    border-color: #fff;
+}
+
+div#footer-widget-area a {
+    color: #72c4c0;
+}
+
+footer#colophon #footer-branding-wrapper {
+    background-color: #000;
+}
+
+footer#colophon div#footer-branding {
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    padding: 15px 0;
+}
+
+footer#colophon div#footer-branding img {
+    height: 20px;
+    width: auto;
+    margin-left: 2px;
 }

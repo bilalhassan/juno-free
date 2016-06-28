@@ -59,8 +59,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Left Sidebar', 'juno' ),
             'id'            => 'sidebar-left',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-12">',
-            'after_widget'  => '</div></section>',
+            'before_widget' => '<div class="col-sm-12"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -69,8 +69,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Right Sidebar', 'juno' ),
             'id'            => 'sidebar-right',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-12">',
-            'after_widget'  => '</div></section>',
+            'before_widget' => '<div class="col-sm-12"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -79,8 +79,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Footer', 'juno' ),
             'id'            => 'sidebar-footer',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget'  => '</section>',
+            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -89,8 +89,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage A', 'juno' ),
             'id'            => 'sidebar-front-a',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
-            'after_widget'  => '</div></section>',
+            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -99,8 +99,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage B', 'juno' ),
             'id'            => 'sidebar-front-b',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
-            'after_widget'  => '</div></section>',
+            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -109,8 +109,8 @@ function juno_widgets_init() {
             'name'          => esc_html__( 'Homepage C', 'juno' ),
             'id'            => 'sidebar-front-c',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
-            'before_widget' => '<section id="%1$s" class="widget %2$s"><div class="col-sm-4">',
-            'after_widget'  => '</div></section>',
+            'before_widget' => '<div class="col-sm-4"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
             'before_title'  => '<h4 class="widget-title">',
             'after_title'   => '</h4>',
     ) );
@@ -683,6 +683,81 @@ function juno_render_social_module() { ?>
 
 <?php }
 add_action( 'juno_social', 'juno_render_social_module' );
+
+function juno_render_footer() { ?>
+    
+    <div id="footer-sidebar-wrapper" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="container">
+                    
+                    <div class="row">
+
+                        <?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
+                            <div class="col-md-12">
+
+                                <div id="footer-widget-area">
+
+                                    <?php get_sidebar( 'footer' ); ?>
+
+                                </div>
+
+                            </div>
+                        <?php endif; ?>
+                       
+                    </div>
+                    
+                </div>
+                
+            </div>
+    
+        </div>
+            
+    </div>
+    
+    <div id="footer-branding-wrapper" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="container">
+                    
+                    <div class="row">
+                        
+                        <div class="col-md-12">
+                            
+                            <div id="footer-branding">
+
+                                <span class="site-info">
+                                    &copy; <?php echo esc_attr( get_theme_mod( 'juno_footer_copyright', __( 'Smartcat', 'juno' )  ) ); ?>
+                                    <?php echo ' ' . date( 'Y' ); ?>
+                                    <?php echo get_theme_mod( 'juno_smartcat_branding', 'show' ) == 'show' ? '|' : ''; ?>
+                                </span>
+
+                                <?php if ( get_theme_mod( 'juno_smartcat_branding', 'show' ) == 'show' ) : ?>
+                                    Designed by Smartcat <img src="<?php echo get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png"; ?>" alt="Smartcat">
+                                <?php endif; ?>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+    
+        </div>
+            
+    </div>
+    
+<?php }
+add_action( 'juno_footer', 'juno_render_footer' );
 
 
 /**
