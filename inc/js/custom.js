@@ -44,8 +44,13 @@ jQuery(function($) {
      */
     if ( $( "#camera_slider" ).length ) {
     
+        var viewport_height = $(window).height(),
+            header_height = $( 'header#masthead' ).height();
+    
+        var jumbotron_height = viewport_height - header_height + 'px';
+        
         $( "#camera_slider" ).camera({ 
-            height: '500px',
+            height: jumbotron_height,
             hover: true,
             transPeriod: 1500,
             fx: 'simpleFade',

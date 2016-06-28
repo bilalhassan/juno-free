@@ -98,7 +98,7 @@ $wp_customize->add_section( 'juno_fonts_section', array(
     $wp_customize->add_setting( 'juno_font_body_size', array (
         'default'               => 14,
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'newstand_sanitize_integer',
+        'sanitize_callback'     => 'juno_sanitize_integer',
     ) );
     $wp_customize->add_control( 'juno_font_body_size', array(
         'type'                  => 'number',

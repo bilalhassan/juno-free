@@ -129,16 +129,16 @@ function juno_custom_css() { ?>
         /* ---------- FONT SIZES ---------- */
         
         body {
-             font-size: <?php echo esc_attr( get_theme_mod( 'juno_font_body_size', '14') ); ?>px; 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_font_body_size', '14') ); ?>px; 
         }
                 
         #site-branding a {
-             font-size: <?php echo esc_attr( get_theme_mod( 'juno_title_font_size', '36') ); ?>px; 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_title_font_size', '36') ); ?>px; 
         }
         
         ul#primary-menu > li > a,
         .slicknav_nav a {
-             font-size: <?php echo esc_attr( get_theme_mod( 'juno_nav_menu_font_size', '10') ); ?>px; 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_nav_menu_font_size', '10') ); ?>px; 
         }
         
         /* ---------- FONT FAMILIES ---------- */
@@ -158,6 +158,9 @@ function juno_custom_css() { ?>
         
         /* ---------- THEME COLORS ---------- */
         
+        #jumbotron-section .camera_overlayer {
+            background-color: rgba(0,0,0,<?php echo esc_attr( get_theme_mod( 'juno_slider_dark_tint', .5 ) ); ?>);
+        }
         
     </style>
     

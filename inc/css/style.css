@@ -192,6 +192,10 @@ a.slicknav_btn {
     padding: 0;
 }
 
+#jumbotron-section #camera_slider {
+    margin-bottom: 0 !important;
+}
+
 .camera_loader {
     display: none !important;
 }
@@ -665,12 +669,12 @@ div#social-message {
     font-size: 16px;
     color: #fff;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     letter-spacing: .25em;
 }
 
 div#social-container {
-    padding: 10px 30px 30px 30px;
+    padding: 15px 30px 15px 30px;
     margin: 0;
     text-align: center;
     line-height: 30px;
@@ -688,6 +692,7 @@ div.social-bubble {
     text-align: center;
     cursor: pointer;
     line-height: 40px;
+    font-size: 14px;
     background-color: #72c4c0;
     border: 2px solid #fff;
 }

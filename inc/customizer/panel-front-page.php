@@ -35,7 +35,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
 
     // Slide's Dark Tint Overlay
     $wp_customize->add_setting( 'juno_slider_dark_tint', array (
-        'default'               => .25,
+        'default'               => .5,
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_overlay_decimal',
     ) );
@@ -138,12 +138,12 @@ $wp_customize->add_section( 'juno_biography_section', array(
     ) );
     
     // About / Biography Section - Button Visibility Toggle
-    $wp_customize->add_setting( 'juno_about_section_toggle', array (
+    $wp_customize->add_setting( 'juno_about_section_button_toggle', array (
         'default'               => 'show',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_show_hide',
     ) );
-    $wp_customize->add_control( 'juno_about_section_toggle', array(
+    $wp_customize->add_control( 'juno_about_section_button_toggle', array(
         'type'                  => 'radio',
         'section'               => 'juno_biography_section',
         'label'                 => __( 'Include a button?', 'juno' ),
@@ -311,4 +311,112 @@ $wp_customize->add_section( 'juno_social_section', array(
         'type'                  => 'text',
         'section'               => 'juno_social_section',
         'label'                 => __( 'Title message text', 'juno' ),
+    ) );
+    
+    // Facebook URL
+    $wp_customize->add_setting( 'juno_social_icon_facebook_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_facebook_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Facebook', 'juno' ),
+    ) );
+    
+    // Twitter URL
+    $wp_customize->add_setting( 'juno_social_icon_twitter_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_twitter_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Twitter', 'juno' ),
+    ) );
+    
+    // Google+ URL
+    $wp_customize->add_setting( 'juno_social_icon_google_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_google_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Google+', 'juno' ),
+    ) );
+    
+    // LinkedIn URL
+    $wp_customize->add_setting( 'juno_social_icon_linkedin_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_linkedin_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'LinkedIn', 'juno' ),
+    ) );
+    
+    // Behance URL
+    $wp_customize->add_setting( 'juno_social_icon_behance_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_behance_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Behance', 'juno' ),
+    ) );
+    
+    // Instagram URL
+    $wp_customize->add_setting( 'juno_social_icon_instagram_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_instagram_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Instagram', 'juno' ),
+    ) );
+    
+    // Pinterest URL
+    $wp_customize->add_setting( 'juno_social_icon_pinterest_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_pinterest_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Pinterest', 'juno' ),
+    ) );
+    
+    // YouTube URL
+    $wp_customize->add_setting( 'juno_social_icon_youtube_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_youtube_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'YouTube', 'juno' ),
+    ) );
+    
+    // Vimeo URL
+    $wp_customize->add_setting( 'juno_social_icon_vimeo_url', array (
+        'default'               => '#',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( 'juno_social_icon_vimeo_url', array(
+        'type'                  => 'text',
+        'section'               => 'juno_social_section',
+        'label'                 => __( 'Vimeo', 'juno' ),
     ) );
