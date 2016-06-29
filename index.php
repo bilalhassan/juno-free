@@ -14,43 +14,94 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) :
+            <div id="front-page-content" class="container">
+              
+                <div class="row">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+                    <div id="archive-blog" class="col-sm-12">
 
-			<?php
-			endif;
+                        <?php if ( get_theme_mod( 'juno_blog_title_toggle', 'show' ) == 'show' ) : ?> 
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+                            <div id="blog-title-box">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+                                <h2 class="entry-title">
+                                    <?php echo esc_html( get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ) ); ?>
+                                </h2>
 
-			endwhile;
+                            </div>
+                        
+                        <?php endif; ?>
 
-			the_posts_navigation();
+                        <div class="row">
 
-		else :
+                            <?php if ( is_active_sidebar( 'sidebar-left' ) ) : ?>
+                                <div class="sidebar-container col-sm-3">
 
-			get_template_part( 'template-parts/content', 'none' );
+                                    <?php get_sidebar( 'left' ); ?>
 
-		endif; ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="col-sm-<?php echo juno_main_width(); ?>">
+                                
+                                <?php if ( have_posts() ) : ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+                                    <div class="juno-blog-content">
+
+                                        <div id="masonry-blog-wrapper">
+
+                                            <div class="grid-sizer"></div>
+                                            <div class="gutter-sizer"></div>
+
+                                            <?php
+
+                                            /* Start the Loop */
+                                            while ( have_posts() ) : the_post();
+
+                                                get_template_part( 'template-parts/content', 'blog' );
+
+                                            endwhile;
+
+                                            ?>
+
+                                        </div><!-- #masonry-blog-wrapper -->
+
+                                        <div class="pagination-links">
+                                            <?php echo paginate_links(); ?>
+                                        </div>
+
+                                    </div><!-- #juno-blog-content -->
+
+                                <?php else :
+
+                                    get_template_part( 'template-parts/content', 'none' );
+
+                                endif; ?>
+                                    
+                            </div>
+                            
+                            <?php if ( is_active_sidebar( 'sidebar-right' ) ) : ?>
+                                <div class="sidebar-container col-sm-3">
+
+                                    <?php get_sidebar( 'right' ); ?>
+
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </main><!-- #main -->
+        
+    </div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
