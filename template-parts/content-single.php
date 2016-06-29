@@ -29,7 +29,7 @@
             
                     <div class="col-sm-12">
 
-                        <div id="single-image-container" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : get_template_directory_uri() . '/inc/images/blog-post-default.jpg'; ?>);">
+                        <div id="single-image-container" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg'; ?>);">
 
                             <div id="single-title-box">
 

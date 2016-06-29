@@ -749,6 +749,19 @@ div.social-bubble:hover i {
 }
 
 /*
+** Frontpage Page Content ------------------------------------------------------
+*/
+#front-page-blog div#frontpage-page {
+    background-color: #f5f5f5;
+    padding: 30px;
+}
+
+#front-page-blog div#frontpage-page .entry-title {
+    margin: 0;
+    border-bottom: thin solid #1f2933;
+    padding-bottom: 5px;
+}
+/*
 ** Footer ----------------------------------------------------------------------
 */
 footer#colophon #footer-sidebar-wrapper {
@@ -786,3 +799,4 @@ footer#colophon div#footer-branding img {
     width: auto;
     margin-left: 2px;
 }
+
