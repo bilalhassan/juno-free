@@ -346,7 +346,7 @@ div#subscribe-module {
 ** Masonry Blog ----------------------------------------------------------------
 */
 .grid-sizer,
-.newstand-blog-content .blog-roll-item { width: 32%; }
+.juno-blog-content .blog-roll-item { width: 32%; }
 .gutter-sizer { width: 2%; }
 
 #front-page-content {

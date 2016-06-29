@@ -37,7 +37,7 @@ function juno_customize_register( $wp_customize ) {
     require_once('customizer/panel-appearance.php');
     
     // Site Branding Panel
-    // require_once('customizer/panel-branding.php');
+    require_once('customizer/panel-branding.php');
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
