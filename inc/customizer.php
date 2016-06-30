@@ -25,7 +25,7 @@ function juno_customize_register( $wp_customize ) {
     require_once('customizer/panel-front-page.php');
 
     // General Panel
-    // require_once('customizer/panel-general.php');
+    require_once('customizer/panel-general.php');
     
     // Blog Panel
     require_once('customizer/panel-blog.php');
