@@ -761,6 +761,16 @@ div.social-bubble:hover i {
     border-bottom: thin solid #1f2933;
     padding-bottom: 5px;
 }
+
+/*
+** Archive Template ------------------------------------------------------------
+*/
+#archive-blog header.page-header {
+    border: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+
 /*
 ** Footer ----------------------------------------------------------------------
 */
@@ -800,3 +810,31 @@ footer#colophon div#footer-branding img {
     margin-left: 2px;
 }
 
+/*  
+ * Pagination Links 
+ */
+
+.pagination-links {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.pagination-links .page-numbers {
+    padding: 4px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    color: #666;
+}
+
+.pagination-links .page-numbers:hover {
+    background-color: #dadada;
+}
+
+.pagination-links .page-numbers.current {
+    color: #ffffff;
+    background-color: #72c4c0;
+}
+
+.pagination-links .page-numbers.dots {
+    background: none;
+}
