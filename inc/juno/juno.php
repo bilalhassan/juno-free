@@ -76,6 +76,16 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
+            'name'          => esc_html__( 'Bio / About', 'juno' ),
+            'id'            => 'sidebar-bio',
+            'description'   => esc_html__( 'Add widgets here.', 'juno' ),
+            'before_widget' => '<div class="col-sm-6"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
+            'before_title'  => '<h6 class="feature-title">',
+            'after_title'   => '</h6>',
+    ) );
+
+    register_sidebar( array(
             'name'          => esc_html__( 'Footer', 'juno' ),
             'id'            => 'sidebar-footer',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
@@ -319,7 +329,7 @@ function juno_render_bio() { ?>
         
         <div class="row">
             
-            <div class="col-sm-5">
+            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-bio' ) ? '5' : '12'; ?>">
                 
                 <h2 id="about-primary">
                     <?php echo esc_html( get_theme_mod( 'juno_about_section_primary', __( 'Users can input any flavor text they like and it will be output as this large text blurb.', 'juno' ) ) ); ?>
@@ -341,32 +351,18 @@ function juno_render_bio() { ?>
                 
             </div>
             
-            <div class="col-sm-1"></div>
-            
-            <div id="about-feature-a" class="col-sm-3">
+            <?php if ( is_active_sidebar( 'sidebar-bio' ) ) : ?>
                 
-                <h6 class="feature-title">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_title_a', __( 'Small Feature A', 'juno' ) ) ); ?>
-                </h6>
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-6">
+
+                    <?php get_sidebar( 'bio' ); ?>
+                    
+                </div>
                 
-                <p class="feature-body">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_body_a', __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis, massa eget efficitur volutpat, turpis justo laoreet risus, sit amet viverra diam leo non turpis. Donec quis hendrerit arcu. In hac habitasse platea dictumst. Curabitur suscipit dignissim mi, vitae efficitur lectus. Etiam dictum turpis ac scelerisque porta. Morbi cursus neque sed iaculis porta. Nulla facilisi. Etiam tincidunt, orci ac pellentesque iaculis, mauris elit ultrices augue, ac tempus augue lorem in quam.', 'juno' ) ) ); ?>
-                </p>
+            <?php endif; ?>
                 
-            </div>
-            
-            <div id="about-feature-b" class="col-sm-3">
-                
-                <h6 class="feature-title">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_title_b', __( 'Small Feature B', 'juno' ) ) ); ?>
-                </h6>
-                
-                <p class="feature-body">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_feature_body_b', __( 'Mauris semper eleifend sem, scelerisque cursus augue pulvinar eu. In hac habitasse platea dictumst. Aenean dapibus, quam a hendrerit placerat, elit dolor hendrerit ante, non scelerisque nisi justo id orci. Curabitur efficitur purus orci, sed suscipit lacus sollicitudin ac. Nullam turpis purus, hendrerit vitae dapibus id, rutrum efficitur sem. Integer consequat lacinia quam id gravida. Pellentesque pharetra nisl at lectus semper, commodo lobortis neque vulputate. Nunc accumsan erat lectus, eu condimentum mauris egestas vitae.', 'juno' ) ) ); ?>
-                </p>
-                
-            </div>
-            
         </div>
         
     </div>
