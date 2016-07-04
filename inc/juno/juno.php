@@ -34,6 +34,7 @@ function juno_scripts() {
 
     wp_enqueue_script( 'juno-jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.customized.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'juno-jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-camera-script', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-slick-nav-script', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );

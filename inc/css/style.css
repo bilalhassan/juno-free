@@ -942,3 +942,27 @@ section.error-404 .widget {
 .pagination-links .page-numbers.dots {
     background: none;
 }
+
+/*
+ * Widget Styling
+ */
+.widget_categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget_categories ul li {
+   
+}
+
+.widget_categories ul li a {
+    display: block;
+    background-color: #ffffff;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #666;
+    font-size: 14px;
+    border: 0px solid #fff;
+    text-transform: capitalize;
+    font-style: italic;
+}

@@ -108,7 +108,7 @@ jQuery(function($) {
     doMasonry();
  
     /**
-     * 
+     * Blog Roll Tab Hover Effect
      */
     $( '.blog-roll-item article').mouseenter( function() {
         
@@ -133,7 +133,42 @@ jQuery(function($) {
         }, 400 );
         
     });
+
+    /**
+     * Categories Widget - Individual Category hover effect
+     */
+    var primary_color = $('div#site-navigation').css( 'background-color' ),
+        category_size = $( '.widget_categories ul li a').css( 'font-size' );
     
+    $( '.widget_categories ul li').mouseenter( function() {
+        
+        $( this ).find( 'a' ).stop().animate({
+            color: primary_color,
+            fontSize: '14px',
+            borderBottomWidth: '2px',
+            borderTopWidth: '2px',
+            borderColor: primary_color,
+            paddingTop: '15px',
+            paddingBottom: '15px',
+            paddingLeft: '15px'
+        }, 200 );
+        
+    }).mouseleave( function() {
+        
+        $( this ).find( 'a' ).stop().animate({
+            fontSize: category_size,
+            color: "#666",
+            borderBottomWidth: '0px',
+            borderTopWidth: '0px',
+            borderLeftWidth: '0px',
+            borderRightWidth: '0px',
+            borderColor: '#fff',
+            paddingTop: '7.5px',
+            paddingBottom: '7.5px',
+            paddingLeft: '10px'
+        }, 200 );
+        
+    });
     
     /**
      * Contact Form
