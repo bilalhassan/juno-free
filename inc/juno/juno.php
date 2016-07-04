@@ -220,14 +220,16 @@ function juno_fonts(){
 }
 
 /**
- * Returns all posts as an array
+ * Returns all posts as an array.
+ * Pass true to include Pages
  * 
+ * @param boolean $include_pages
  * @return array of posts
  */
-function juno_all_posts_array() {
+function juno_all_posts_array( $include_pages = false ) {
     
     $posts = get_posts( array(
-        'post_type'        => 'post',
+        'post_type'        => $include_pages ? array( 'post', 'page' ) : 'post',
         'posts_per_page'   => -1,
         'post_status'      => 'publish',
         'orderby'          => 'title',

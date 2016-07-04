@@ -60,7 +60,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #1', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
     // Slider Post #2
@@ -73,7 +73,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #2', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
     // Slider Post #2
@@ -86,7 +86,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #3', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
 // ---------------------------------------------
