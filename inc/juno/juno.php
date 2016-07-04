@@ -86,6 +86,16 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
+            'name'          => esc_html__( 'Subscribe Module', 'juno' ),
+            'id'            => 'sidebar-subscribe',
+            'description'   => esc_html__( 'Add widgets here.', 'juno' ),
+            'before_widget' => '<div class="col-sm-12"><section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section></div>',
+            'before_title'  => '<h4 class="widget-title">',
+            'after_title'   => '</h4>',
+    ) );
+
+    register_sidebar( array(
             'name'          => esc_html__( 'Footer', 'juno' ),
             'id'            => 'sidebar-footer',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
@@ -375,44 +385,32 @@ add_action( 'juno_bio', 'juno_render_bio' );
  */
 function juno_render_subscribe_module() { ?>
     
-    <div id="subscribe-module" class="container-fluid">
-        
-        <div class="row">
-            
-            <div class="col-sm-12">
-                
-                <div class="container">
-                    
-                    <div class="row">
-            
-                        <div class="col-sm-6">
+    <?php if ( is_active_sidebar( 'sidebar-subscribe' ) ) : ?>
+    
+        <div id="subscribe-module" class="container-fluid">
 
-                            <h2 id="subscribe-blurb">
-                                <?php echo esc_html( get_theme_mod( 'juno_subscribe_title', __( 'Encourage visitors to sign up for your mailing list using this CTA banner!', 'juno' ) ) ); ?>
-                            </h2>
+            <div class="row">
 
-                        </div>
+                <div class="col-sm-12">
 
-                        <div class="col-sm-6">
+                    <div class="container">
 
-                            <?php // TODO: Incorporate actual mailing list form shortcodes. ?>
-                            <form>
-                                <input type="email" name="user_email" placeholder="E-mail" />
-                                <input type="submit" />
-                            </form>
-                            
+                        <div class="row">
+
+                            <?php get_sidebar( 'subscribe' ); ?>
+
                         </div>
 
                     </div>
-                    
-                </div>
-                
-            </div>
-            
-        </div>
-       
-    </div>
 
+                </div>
+
+            </div>
+
+        </div>
+
+    <?php endif; ?>
+    
 <?php }
 add_action( 'juno_subscribe', 'juno_render_subscribe_module' );
 

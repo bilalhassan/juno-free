@@ -307,6 +307,7 @@ div#subscribe-module {
     background-color: #72c4c0;
     padding-top: 40px;
     padding-bottom: 40px;
+    color: #fff;
 }
 
 #subscribe-module h2#subscribe-blurb {
@@ -341,6 +342,10 @@ div#subscribe-module {
     border: none;
     height: 50px;
 } 
+
+#subscribe-module .widget .widget-title {
+    border-color: #fff;
+}
 
 /*
 ** Masonry Blog ----------------------------------------------------------------
