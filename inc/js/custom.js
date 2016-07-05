@@ -142,27 +142,56 @@ jQuery(function($) {
     
     $( '.widget_categories ul li').mouseenter( function() {
         
-        $( this ).find( 'a' ).stop().animate({
-            color: primary_color,
-            fontSize: '14px',
-            borderBottomWidth: '2px',
-            borderTopWidth: '2px',
-            borderColor: primary_color,
-            paddingTop: '15px',
-            paddingBottom: '15px',
-            paddingLeft: '15px'
-        }, 200 );
+        if ( $( this ).closest( '#subscribe-module' ).length ) {
+
+            $( this ).find( 'a' ).stop().animate({
+                fontSize: '14px',
+                borderBottomWidth: '2px',
+                borderTopWidth: '2px',
+                borderLeftWidth: '2px',
+                borderRightWidth: '2px',
+                paddingTop: '15px',
+                paddingBottom: '15px',
+                paddingLeft: '20px'
+            }, 200 );
+            
+
+        } else {
+            
+            $( this ).find( 'a' ).stop().animate({
+                color: primary_color,
+                fontSize: '14px',
+                borderBottomWidth: '2px',
+                borderTopWidth: '2px',
+                borderLeftWidth: '2px',
+                borderRightWidth: '2px',
+                borderColor: primary_color,
+                paddingTop: '15px',
+                paddingBottom: '15px',
+                paddingLeft: '20px'
+            }, 200 );
+            
+        }
+        
+        
         
     }).mouseleave( function() {
         
+        var text_color = null;
+        if ( $( this ).closest( '#footer-widget-area' ).length || $( this ).closest( '#subscribe-module' ).length ) {
+            text_color = '#f5f5f5';
+        } else {
+            text_color = '#666';
+        }
+        
         $( this ).find( 'a' ).stop().animate({
             fontSize: category_size,
-            color: "#666",
-            borderBottomWidth: '0px',
-            borderTopWidth: '0px',
-            borderLeftWidth: '0px',
-            borderRightWidth: '0px',
-            borderColor: '#fff',
+            color: text_color,
+            borderBottomWidth: '1px',
+            borderTopWidth: '1px',
+            borderLeftWidth: '1px',
+            borderRightWidth: '1px',
+            borderColor: '#f5f5f5',
             paddingTop: '7.5px',
             paddingBottom: '7.5px',
             paddingLeft: '10px'

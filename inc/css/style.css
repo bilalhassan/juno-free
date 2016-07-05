@@ -951,18 +951,38 @@ section.error-404 .widget {
     padding: 0;
 }
 
-.widget_categories ul li {
-   
-}
-
 .widget_categories ul li a {
     display: block;
     background-color: #ffffff;
     padding: 7.5px 10px;
     margin: 5px 0px;
     color: #666;
-    font-size: 14px;
-    border: 0px solid #fff;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+footer #footer-widget-area .widget_categories ul li a {
+    display: block;
+    background-color: #1f2933;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #f5f5f5;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+#subscribe-module .widget_categories ul li a {
+    display: block;
+    background-color: #72c4c0;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #f5f5f5;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
     text-transform: capitalize;
     font-style: italic;
 }
