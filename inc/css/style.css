@@ -191,7 +191,15 @@ ul.slicknav_nav ul.sub-menu {
     left: 0 !important;
     top: inherit;
     margin-left: 0;
-    border-left: 5px solid #f5f5f5;
+}
+
+ul.slicknav_nav {
+    text-align: left;
+    padding-left: 20px;
+}
+
+ul.slicknav_nav ul.sub-menu li a {
+    width: auto;
 }
 
 ul.slicknav_nav ul.sub-menu ul.sub-menu {
@@ -223,7 +231,12 @@ div.slicknav_menu li {
 } 
 
 ul.slicknav_nav ul.sub-menu li a {
-    font-size: 12px !important;
+    color: #1f2933;
+}
+
+ul.slicknav_nav ul.sub-menu li a:hover a,
+ul.slicknav_nav ul.sub-menu li a:hover {
+    color: #fff;
 }
 
 .slicknav_nav a:hover {
