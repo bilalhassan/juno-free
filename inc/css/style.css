@@ -8,7 +8,6 @@ a {
 a.accent-button {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffc859;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -25,10 +24,6 @@ textarea {
 /*
 ** Header ----------------------------------------------------------------------
 */
-header#masthead {
-    background-color: #1f2933;
-}
-
 div#site-branding {
     padding: 40px;
     text-align: center;
@@ -46,7 +41,6 @@ div#site-branding {
 ** Main Navigation -------------------------------------------------------------
 */
 div#site-navigation {
-    background-color: #72c4c0;
     padding: 0;
     text-align: center;
     height: 34px;
@@ -80,10 +74,6 @@ ul#primary-menu > li.menu-item > a {
     color: #fff;
 }
 
-ul#primary-menu > li.menu-item.current-menu-item > a {
-    color: #1f2933;
-}
-
 ul#primary-menu > li.menu-item > ul.sub-menu {
     display: none;
     box-shadow: none;
@@ -93,10 +83,8 @@ ul#primary-menu > li.menu-item > ul.sub-menu {
     left: 0;
     width: 100%;
     height: auto;
-/*    border-radius: 0 0 5px 5px;*/
     text-align: center;
     padding: 10px 10px 10px 17px;
-/*    border-top: 2px solid #1f2933;*/
 }
 
 ul#primary-menu > li.menu-item > ul.sub-menu > li {
@@ -105,15 +93,9 @@ ul#primary-menu > li.menu-item > ul.sub-menu > li {
 }
 
 ul#primary-menu > li.menu-item > ul.sub-menu > li a {
-    color: #fff;
     width: auto;
     margin: 0 15px;
-    color: #1f2933;
     display: inline-block;
-}
-
-ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover {
-    color: #72c4c0;
 }
 
 ul#primary-menu > li.menu-item > ul.sub-menu > li > ul {
@@ -230,10 +212,6 @@ div.slicknav_menu li {
     font-size: 10px;
 } 
 
-ul.slicknav_nav ul.sub-menu li a {
-    color: #1f2933;
-}
-
 ul.slicknav_nav ul.sub-menu li a:hover a,
 ul.slicknav_nav ul.sub-menu li a:hover {
     color: #fff;
@@ -318,7 +296,6 @@ a.slicknav_btn {
 }
 
 .camera_wrap .camera_pag .camera_pag_ul li:hover > span {
-    background-color: #72c4c0;
     width: 10px;
     height: 10px;
     position: absolute;
@@ -332,7 +309,6 @@ a.slicknav_btn {
     position: absolute;
     top: 2px;
     left: 2px;
-    background-color: #1f2933;
 }
 
 /*
@@ -348,7 +324,6 @@ div#about-section {
     margin-top: 0;
     font-weight: 700;
     font-size: 34px;
-    color: #1f2933;
 }
 
 #about-section #about-secondary {
@@ -378,7 +353,6 @@ div#about-section {
 ** Subscribe Module ------------------------------------------------------------
 */
 div#subscribe-module {
-    background-color: #72c4c0;
     padding-top: 40px;
     padding-bottom: 40px;
     color: #fff;
@@ -405,7 +379,6 @@ div#subscribe-module {
 #subscribe-module input[type="submit"] {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-    background-color: #ffc859;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -434,7 +407,6 @@ div#subscribe-module {
 }
 
 #blog-title-box {
-    background-color: #72c4c0;
     padding: 30px;
     color: #fff;
     width: 100%;
@@ -449,7 +421,6 @@ div#subscribe-module {
 }
 
 hr.accent-divider {
-    border-color: #ffc859;
     margin: 0 0 20px 0;
     border-width: 2px;
 }
@@ -501,7 +472,6 @@ hr.accent-divider {
 }
 
 .juno-blog-content .blog-roll-item .post-category a {
-    color: #72c4c0;
     text-transform: uppercase;
     font-size: 10px;
 }
@@ -512,10 +482,6 @@ hr.accent-divider {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
-}
-
-.juno-blog-content .blog-roll-item .inner h3.post-title a {
-    color: #1f2933;
 }
 
 .juno-blog-content .blog-roll-item hr {
@@ -584,7 +550,6 @@ h5.post-meta {
 }
 
 #single-page-container nav.navigation.post-navigation a {
-    color: #1f2933;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
@@ -638,12 +603,7 @@ div#single-title-box .post-meta {
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    color: #ffc859;
     margin-top: 5px;
-}
-
-div#single-title-box .post-meta a {
-    color: #ffc859;
 }
 
 #single-post-container .entry-content {
@@ -659,7 +619,6 @@ div#single-title-box .post-meta a {
 }
 
 #single-post-container nav.navigation.post-navigation a {
-    color: #1f2933;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
@@ -697,7 +656,6 @@ div#comments {
     text-transform: uppercase;
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
-    color: #1f2933;
     letter-spacing: .125em;
 }
 
@@ -712,7 +670,6 @@ div#comments {
 #comments input[type="submit"] {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-    background-color: #72c4c0;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -764,7 +721,6 @@ div#comments {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 20px;
-    border-bottom: thin solid #1f2933;
     padding-bottom: 3px;
 }
 
@@ -776,10 +732,6 @@ div#comments {
 /*
 ** Front Page Social Area ------------------------------------------------------
 */
-div#social-module {
-    background-color: #72c4c0;
-}
-
 div#social-message {
     text-transform: uppercase;
     font-weight: 700;
@@ -810,7 +762,6 @@ div.social-bubble {
     cursor: pointer;
     line-height: 40px;
     font-size: 14px;
-    background-color: #72c4c0;
     border: 2px solid #fff;
 }
 
@@ -824,10 +775,6 @@ div.social-bubble:hover {
     background-color: #fff;
 }
 
-div.social-bubble:hover i {
-    color: #72c4c0;
-}
-
 /*
 ** Frontpage Page Content ------------------------------------------------------
 */
@@ -838,7 +785,6 @@ div.social-bubble:hover i {
 
 #front-page-blog div#frontpage-page .entry-title {
     margin: 0;
-    border-bottom: thin solid #1f2933;
     padding-bottom: 5px;
 }
 
@@ -871,7 +817,6 @@ form.search-form label {
 input.search-field {
     width: 200px;
     height: 40px;
-    border: thin solid #ffc859;
     background: #ffffff;
     border-radius: 3px;
     padding: 0 15px;
@@ -882,8 +827,6 @@ input.search-submit {
     font-size: 12px;
     box-shadow: none !important;
     text-shadow: none !important;
-    border: thin solid #ffc859 !important;
-    background-color: #ffc859;
     color: #fff;
     font-weight: 300;
     height: 40px;
@@ -905,9 +848,7 @@ section.no-results.not-found {
 ** Footer ----------------------------------------------------------------------
 */
 footer#colophon #footer-sidebar-wrapper {
-    background-color: #1f2933;
     color: #fff;
-    border-top: 15px solid #72c4c0;
 }
 
 div#footer-widget-area {
@@ -917,10 +858,6 @@ div#footer-widget-area {
 div#footer-widget-area .widget-title {
     color: #fff;
     border-color: #fff;
-}
-
-div#footer-widget-area a {
-    color: #72c4c0;
 }
 
 footer#colophon #footer-branding-wrapper {
@@ -962,7 +899,6 @@ footer#colophon div#footer-branding img {
 .error-404 input.search-field {
     width: 200px;
     height: 40px;
-    border: thin solid #ffc859;
     background: #ffffff;
     border-radius: 3px;
     padding: 0 15px;
@@ -973,8 +909,6 @@ footer#colophon div#footer-branding img {
     font-size: 12px;
     box-shadow: none;
     text-shadow: none;
-    border: thin solid #ffc859;
-    background-color: #ffc859;
     color: #fff;
     font-weight: 300;
     height: 40px;
@@ -1010,7 +944,6 @@ section.error-404 .widget {
 
 .pagination-links .page-numbers.current {
     color: #ffffff;
-    background-color: #72c4c0;
 }
 
 .pagination-links .page-numbers.dots {
@@ -1039,7 +972,6 @@ section.error-404 .widget {
 
 footer #footer-widget-area .widget_categories ul li a {
     display: block;
-    background-color: #1f2933;
     padding: 7.5px 10px;
     margin: 5px 0px;
     color: #f5f5f5;
@@ -1051,7 +983,6 @@ footer #footer-widget-area .widget_categories ul li a {
 
 #subscribe-module .widget_categories ul li a {
     display: block;
-    background-color: #72c4c0;
     padding: 7.5px 10px;
     margin: 5px 0px;
     color: #f5f5f5;
@@ -1059,4 +990,36 @@ footer #footer-widget-area .widget_categories ul li a {
     border: 1px solid #f5f5f5;
     text-transform: capitalize;
     font-style: italic;
+}
+
+.widget_calendar table {
+    border-collapse: separate;
+}
+
+.widget_calendar table caption {
+    font-size: 16px;
+}
+
+
+.widget_calendar table th,
+.widget_calendar table td {
+    border: thin solid #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.widget_calendar table th {
+    color: #fff;
+    padding: 2px;
+}
+
+.widget_calendar table td {
+    padding: 2px;
+    background-color: #f5f5f5;
+}
+
+.widget_calendar table tfoot td {
+    border: none;
+    border-top: thin solid #fff;
+    font-size: 16px;
 }

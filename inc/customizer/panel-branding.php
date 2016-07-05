@@ -30,29 +30,3 @@ $wp_customize->add_section( 'juno_footer_section', array(
         'label'                 => __( 'Footer Copyright Name', 'juno' ),
     ) );    
 
-// ---------------------------------------------
-// Smartcat Branding Section
-// ---------------------------------------------
-$wp_customize->add_section( 'juno_smartcat_branding_section', array (
-    'title'                 => __( 'Smartcat Branding', 'juno' ),
-    'description'           => __( 'Use the settings below to set the visibility of the Smartcat branding', 'juno' ),
-    'panel'                 => 'juno_branding_panel',
-) );
-
-// ---------------------------------------------
-// juno_smartcat_branding_section
-// ---------------------------------------------
-    $wp_customize->add_setting( 'juno_smartcat_branding', array (
-        'default'               => 'show',
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_show_hide'
-    ) );
-    $wp_customize->add_control( 'juno_smartcat_branding', array(
-        'label'   => __( '"Designed by Smartcat"', 'juno' ),
-        'section' => 'juno_smartcat_branding_section',
-        'type'    => 'radio',
-        'choices'    => array(
-            'show'              => __( 'Show', 'juno' ),
-            'hide'              => __( 'Hide', 'juno' ),
-        )
-    ));

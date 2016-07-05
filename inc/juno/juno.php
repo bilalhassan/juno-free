@@ -179,8 +179,81 @@ function juno_custom_css() { ?>
         
         /* ---------- THEME COLORS ---------- */
         
+        <?php $skin = juno_get_skin_colors(); ?>
+        
+        /* --- JUMBOTRON TINT --- */
         #jumbotron-section .camera_overlayer {
             background-color: rgba(0,0,0,<?php echo esc_attr( get_theme_mod( 'juno_slider_dark_tint', .5 ) ); ?>);
+        }
+        
+        /* --- DARK COLOR --- */
+        header#masthead,
+        .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
+        footer#colophon #footer-sidebar-wrapper,
+        footer #footer-widget-area .widget_categories ul li a {
+            background-color: <?php echo $skin[ 'dark' ]; ?>;
+        }
+        ul.slicknav_nav ul.sub-menu li a,
+        ul#primary-menu > li.menu-item > ul.sub-menu > li a,
+        ul#primary-menu > li.menu-item.current-menu-item > a,
+        #about-section #about-primary,
+        .juno-blog-content .blog-roll-item .inner h3.post-title a,
+        #single-page-container nav.navigation.post-navigation a,
+        #single-post-container nav.navigation.post-navigation a,
+        #comments p.logged-in-as, #comments p.logged-in-as a {
+            color: <?php echo $skin[ 'dark' ]; ?>;
+        }
+        .widgettitle,
+        .widget-title,
+        #front-page-blog div#frontpage-page .entry-title {
+            border-bottom: thin solid <?php echo $skin[ 'dark' ]; ?>;
+        }
+        
+        /* --- PRIMARY COLOR --- */
+        div#site-navigation,
+        .camera_wrap .camera_pag .camera_pag_ul li:hover > span,
+        div#subscribe-module,
+        #blog-title-box,
+        #comments input[type="submit"],
+        div#social-module,
+        div.social-bubble,
+        .pagination-links .page-numbers.current,
+        #subscribe-module .widget_categories ul li a,
+        .widget_calendar table th {
+            background-color: <?php echo $skin[ 'primary' ]; ?>;
+        }
+        ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
+        .juno-blog-content .blog-roll-item .post-category a,
+        div.social-bubble:hover i,
+        div#footer-widget-area a,
+        .widget_calendar table a {
+            color: <?php echo $skin[ 'primary' ]; ?>;
+        }
+        footer#colophon #footer-sidebar-wrapper {
+            border-top: 15px solid <?php echo $skin[ 'primary' ]; ?>;
+        }
+        
+        /* --- ACCENT COLOR --- */
+        a.accent-button,
+        #subscribe-module input[type="submit"],
+        input.search-submit,
+        .error-404 input.search-submit {
+            background-color: <?php echo $skin[ 'accent' ]; ?>;
+        }
+        div#single-title-box .post-meta,
+        div#single-title-box .post-meta a { 
+            color: <?php echo $skin[ 'accent' ]; ?>; 
+        }
+        input.search-field,
+        .error-404 input.search-field,
+        .error-404 input.search-submit {
+            border: thin solid <?php echo $skin[ 'accent' ]; ?>;
+        }
+        input.search-submit {
+            border: thin solid <?php echo $skin[ 'accent' ]; ?> !important;
+        }
+        hr.accent-divider {
+            border-color: <?php echo $skin[ 'accent' ]; ?>;
         }
         
     </style>
@@ -732,12 +805,10 @@ function juno_render_footer() { ?>
                                 <span class="site-info">
                                     &copy; <?php echo esc_attr( get_theme_mod( 'juno_footer_copyright', __( 'Smartcat', 'juno' )  ) ); ?>
                                     <?php echo ' ' . date( 'Y' ); ?>
-                                    <?php echo get_theme_mod( 'juno_smartcat_branding', 'show' ) == 'show' ? '|' : ''; ?>
+                                    |
                                 </span>
 
-                                <?php if ( get_theme_mod( 'juno_smartcat_branding', 'show' ) == 'show' ) : ?>
-                                    Designed by Smartcat <img src="<?php echo get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png"; ?>" alt="Smartcat">
-                                <?php endif; ?>
+                                Designed by Smartcat <img src="<?php echo get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png"; ?>" alt="Smartcat">
 
                             </div>
 
@@ -772,4 +843,28 @@ function juno_main_width() {
     
     return $width;
 
+}
+
+function juno_get_skin_colors() {
+    
+    $skin_color_array[] = null;
+    
+    switch ( get_theme_mod( 'juno_theme_color_skin', 'america' ) ) :
+        
+        case 'alaska' :
+            $skin_color_array[ 'dark' ]     = '#1f2933';
+            $skin_color_array[ 'primary' ]  = '#72c4c0';
+            $skin_color_array[ 'accent' ]   = '#ffc859';
+            break;
+
+        case 'america' :
+            $skin_color_array[ 'dark' ]     = '#051829';
+            $skin_color_array[ 'primary' ]  = '#5999a6';
+            $skin_color_array[ 'accent' ]   = '#00e6ac';
+            break;
+        
+    endswitch;
+    
+    return $skin_color_array;
+    
 }
