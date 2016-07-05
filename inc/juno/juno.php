@@ -164,7 +164,20 @@ function juno_custom_css() { ?>
         
         /* ---------- FONT FAMILIES ---------- */
         
-        h1,h2,h3,h4,h5,h6 {
+        h1,h2,h3,h4,h5,h6,
+        a.accent-button,
+        #site-branding a,
+        ul#primary-menu > li.menu-item,
+        .slicknav_nav a,
+        .camera_caption a,
+        #subscribe-module input[type="submit"],
+        #single-page-container nav.navigation.post-navigation a,
+        #single-post-container nav.navigation.post-navigation a,
+        #comments p.logged-in-as, #comments p.logged-in-as a,
+        #comments p.comment-form-comment label,
+        #comments input[type="submit"],
+        input.search-submit,
+        .error-404 input.search-submit {
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ); ?>;
         }
         
@@ -849,7 +862,7 @@ function juno_get_skin_colors() {
     
     $skin_color_array[] = null;
     
-    switch ( get_theme_mod( 'juno_theme_color_skin', 'america' ) ) :
+    switch ( get_theme_mod( 'juno_theme_color_skin', 'alaska' ) ) :
         
         case 'alaska' :
             $skin_color_array[ 'dark' ]     = '#1f2933';

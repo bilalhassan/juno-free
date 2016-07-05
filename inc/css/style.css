@@ -7,7 +7,6 @@ a {
 
 a.accent-button {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -34,7 +33,6 @@ div#site-branding {
     text-transform: uppercase;
     letter-spacing: .5em;
     font-size: 40px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 /*
@@ -62,7 +60,6 @@ ul#primary-menu {
 
 ul#primary-menu > li.menu-item {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     margin: 0 15px;
     letter-spacing: .2em;
     font-size: 10px;
@@ -207,7 +204,6 @@ div.slicknav_menu li {
 .slicknav_nav a {
     color: #fff;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: .2em;
     font-size: 10px;
 } 
@@ -272,7 +268,6 @@ a.slicknav_btn {
 .camera_caption a {
     font-size: 28px;
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: .5em;
 }
@@ -378,7 +373,6 @@ div#subscribe-module {
 
 #subscribe-module input[type="submit"] {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -553,7 +547,6 @@ h5.post-meta {
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (max-width: 767px) {
@@ -622,7 +615,6 @@ div#single-title-box .post-meta {
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width:767px) {
@@ -655,13 +647,11 @@ div#comments {
 #comments p.logged-in-as, #comments p.logged-in-as a {
     text-transform: uppercase;
     font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: .125em;
 }
 
 #comments p.comment-form-comment label {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: .125em;
     font-weight: 300;
     margin-top: 15px;
@@ -669,7 +659,6 @@ div#comments {
 
 #comments input[type="submit"] {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -834,7 +823,6 @@ input.search-submit {
     display: inline-block;
     line-height: 40px;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
     margin-left: 5px;
 }
 
@@ -916,7 +904,6 @@ footer#colophon div#footer-branding img {
     display: inline-block;
     line-height: 40px;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 section.error-404 .widget {
