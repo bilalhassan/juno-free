@@ -133,6 +133,19 @@ jQuery(function($) {
         }, 400 );
         
     });
+    
+    /**
+     * Main Navigation Hover Effect
+     */
+    $( 'ul#primary-menu > li.menu-item').mouseenter( function() {
+        
+        $( this ).find( '> ul' ).stop().slideDown();
+        
+    }).mouseleave( function() {
+
+        $( this ).find( '> ul' ).stop().slideUp();
+    
+    });
 
     /**
      * Categories Widget - Individual Category hover effect
@@ -155,7 +168,6 @@ jQuery(function($) {
                 paddingLeft: '20px'
             }, 200 );
             
-
         } else {
             
             $( this ).find( 'a' ).stop().animate({
@@ -172,8 +184,6 @@ jQuery(function($) {
             }, 200 );
             
         }
-        
-        
         
     }).mouseleave( function() {
         
