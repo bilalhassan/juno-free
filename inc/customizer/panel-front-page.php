@@ -180,8 +180,8 @@ $wp_customize->add_section( 'juno_biography_section', array(
 // Subscribe Module
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_subscribe_section', array(
-    'title'                 => __( 'Mailing List CTA', 'juno'),
-    'description'           => __( 'Customize the front page Subscribe module', 'juno' ),
+    'title'                 => __( 'Subscription Widget Area', 'juno'),
+    'description'           => __( 'Customize the front page Subscribe widget area', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -194,25 +194,12 @@ $wp_customize->add_section( 'juno_subscribe_section', array(
     $wp_customize->add_control( 'juno_subscribe_visibility_toggle', array(
         'type'                  => 'radio',
         'section'               => 'juno_subscribe_section',
-        'label'                 => __( 'Show the Mailing List CTA?', 'juno' ),
+        'label'                 => __( 'Show the Subscription widget area?', 'juno' ),
         'choices'               => array(
             'show'      => __( 'Show', 'juno' ),
             'hide'      => __( 'Hide', 'juno' ),
     ) ) );
     
-    // Mailing List Title Text
-    $wp_customize->add_setting( 'juno_subscribe_title', array (
-        'default'               => __( 'Encourage visitors to sign up for your mailing list using this CTA banner!', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_subscribe_title', array(
-        'type'                  => 'text',
-        'section'               => 'juno_subscribe_section',
-        'label'                 => __( 'CTA Title Text', 'juno' ),
-    ) );
-    
-
 // ---------------------------------------------
 // Social Section
 // ---------------------------------------------
