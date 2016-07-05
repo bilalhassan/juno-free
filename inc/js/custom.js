@@ -210,6 +210,13 @@ jQuery(function($) {
     });
     
     /**
+     * Scroll to Top button in Footer
+     */
+    $( "#footer-jumper span" ).click( function() {
+        $( "html, body" ).animate({ scrollTop: 0 }, 1000 );
+    });
+    
+    /**
      * Contact Form
      */
     $('#juno-contact-form').submit( function (e) {

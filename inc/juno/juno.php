@@ -827,6 +827,16 @@ function juno_render_footer() { ?>
 
                         </div>
 
+                        <div class="col-md-12">
+                            
+                            <div id="footer-jumper">
+                    
+                                <span class="fa fa-caret-up"></span>
+
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                     
                 </div>
