@@ -570,17 +570,23 @@ div#single-image-container {
     background-size: cover;
     position: relative;
     margin-top: 30px;
-/*    border-radius: 5px;*/
+}
+
+div#single-image-container.no-header-img {
+    height: auto;
+    background: none;
 }
 
 div#single-title-box {
-    background-color: rgba(114,196,192,.75);
     padding: 30px;
     color: #fff;
     position: absolute;
     bottom: 0;
     width: 100%;
-/*    border-radius: 0 0 5px 5px;*/
+}
+
+div#single-title-box.no-header-img {
+    position: relative;
 }
 
 div#single-title-box .entry-title {
