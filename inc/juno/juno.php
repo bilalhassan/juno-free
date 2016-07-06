@@ -162,6 +162,10 @@ function juno_custom_css() { ?>
             font-size: <?php echo esc_attr( get_theme_mod( 'juno_nav_menu_font_size', '10') ); ?>px; 
         }
         
+        header#masthead img.custom-logo { 
+            height: <?php echo esc_attr( get_theme_mod( 'juno_custom_logo_height', '50' ) ); ?>px;
+        }
+        
         /* ---------- FONT FAMILIES ---------- */
         
         h1,h2,h3,h4,h5,h6,

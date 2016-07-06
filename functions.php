@@ -69,6 +69,14 @@ function juno_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+        
+        /**
+         * Enable custom logo support
+         */
+        add_theme_support( 'custom-logo', array(
+                'height'        => 100,
+                'flex-width'    => true,
+        ));
 }
 endif;
 add_action( 'after_setup_theme', 'juno_setup' );

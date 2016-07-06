@@ -35,6 +35,10 @@ div#site-branding {
     font-size: 40px;
 }
 
+header#masthead img.custom-logo {
+    width: auto;
+}
+
 /*
 ** Main Navigation -------------------------------------------------------------
 */
