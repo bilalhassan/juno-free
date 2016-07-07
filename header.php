@@ -33,20 +33,18 @@
            
                 <div id="site-branding" class="col-sm-12">
                 
-                    <a href="<?php echo esc_url( home_url() ); ?>">
+                    <?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 
-                        <?php if ( get_theme_mod( 'juno_branding_toggle', 'title' ) == 'logo' ) : ?>
+                        if ( function_exists( 'the_custom_logo' ) ) { the_custom_logo(); }
 
-                            <img alt="<?php esc_html( bloginfo( 'name' ) ); ?>" src="<?php echo get_theme_mod( 'juno_branding_logo', get_template_directory_uri() . '/inc/images/juno.png' ) == "" ? get_template_directory_uri() . '/inc/images/juno.png' : esc_url( get_theme_mod( 'juno_branding_logo', get_template_directory_uri() . '/inc/images/juno.png' ) ); ?>" />
+                    } else { ?>
 
-                        <?php else : ?>
-
+                        <a href="<?php echo esc_url( home_url() ); ?>">
                             <?php esc_html( bloginfo( 'name' ) ); ?>
+                        </a>
 
-                        <?php endif; ?>
+                    <?php } ?>
 
-                    </a>
-                
                     <div id="slicknav-menu-toggle">
 
                         <i class="fa fa-bars"></i>

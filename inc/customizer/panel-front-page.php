@@ -60,7 +60,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #1', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
     // Slider Post #2
@@ -73,7 +73,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #2', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
     // Slider Post #2
@@ -86,7 +86,7 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_section',
         'label'                 => __( 'Jumbotron Post #3', 'juno' ),
-        'choices'               => juno_all_posts_array(),
+        'choices'               => juno_all_posts_array( true ),
     ) );
 
 // ---------------------------------------------
@@ -175,62 +175,13 @@ $wp_customize->add_section( 'juno_biography_section', array(
         'section'               => 'juno_biography_section',
         'label'                 => __( 'Button Label', 'juno' ),
     ) );
-    
-    // Feature A - Title
-    $wp_customize->add_setting( 'juno_about_feature_title_a', array (
-        'default'               => __( 'Small Feature A', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_feature_title_a', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Small Feature A - Title', 'juno' ),
-    ) );
-
-    // Feature A - Body
-    $wp_customize->add_setting( 'juno_about_feature_body_a', array (
-        'default'               => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam iaculis, massa eget efficitur volutpat, turpis justo laoreet risus, sit amet viverra diam leo non turpis. Donec quis hendrerit arcu. In hac habitasse platea dictumst. Curabitur suscipit dignissim mi, vitae efficitur lectus. Etiam dictum turpis ac scelerisque porta. Morbi cursus neque sed iaculis porta. Nulla facilisi. Etiam tincidunt, orci ac pellentesque iaculis, mauris elit ultrices augue, ac tempus augue lorem in quam.', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_feature_body_a', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Small Feature A - Body Text', 'juno' ),
-    ) );
-    
-    // Feature B - Title
-    $wp_customize->add_setting( 'juno_about_feature_title_b', array (
-        'default'               => __( 'Small Feature B', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_feature_title_b', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Small Feature B - Title', 'juno' ),
-    ) );
-
-    // Feature B - Body
-    $wp_customize->add_setting( 'juno_about_feature_body_b', array (
-        'default'               => __( 'Mauris semper eleifend sem, scelerisque cursus augue pulvinar eu. In hac habitasse platea dictumst. Aenean dapibus, quam a hendrerit placerat, elit dolor hendrerit ante, non scelerisque nisi justo id orci. Curabitur efficitur purus orci, sed suscipit lacus sollicitudin ac. Nullam turpis purus, hendrerit vitae dapibus id, rutrum efficitur sem. Integer consequat lacinia quam id gravida. Pellentesque pharetra nisl at lectus semper, commodo lobortis neque vulputate. Nunc accumsan erat lectus, eu condimentum mauris egestas vitae.', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_feature_body_b', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Small Feature B - Body Text', 'juno' ),
-    ) );
-    
-    
+   
 // ---------------------------------------------
 // Subscribe Module
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_subscribe_section', array(
-    'title'                 => __( 'Mailing List CTA', 'juno'),
-    'description'           => __( 'Customize the front page Subscribe module', 'juno' ),
+    'title'                 => __( 'Subscription Widget Area', 'juno'),
+    'description'           => __( 'Customize the front page Subscribe widget area', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -243,25 +194,12 @@ $wp_customize->add_section( 'juno_subscribe_section', array(
     $wp_customize->add_control( 'juno_subscribe_visibility_toggle', array(
         'type'                  => 'radio',
         'section'               => 'juno_subscribe_section',
-        'label'                 => __( 'Show the Mailing List CTA?', 'juno' ),
+        'label'                 => __( 'Show the Subscription widget area?', 'juno' ),
         'choices'               => array(
             'show'      => __( 'Show', 'juno' ),
             'hide'      => __( 'Hide', 'juno' ),
     ) ) );
     
-    // Mailing List Title Text
-    $wp_customize->add_setting( 'juno_subscribe_title', array (
-        'default'               => __( 'Encourage visitors to sign up for your mailing list using this CTA banner!', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_subscribe_title', array(
-        'type'                  => 'text',
-        'section'               => 'juno_subscribe_section',
-        'label'                 => __( 'CTA Title Text', 'juno' ),
-    ) );
-    
-
 // ---------------------------------------------
 // Social Section
 // ---------------------------------------------

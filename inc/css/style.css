@@ -7,8 +7,6 @@ a {
 
 a.accent-button {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffc859;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -25,10 +23,6 @@ textarea {
 /*
 ** Header ----------------------------------------------------------------------
 */
-header#masthead {
-    background-color: #1f2933;
-}
-
 div#site-branding {
     padding: 40px;
     text-align: center;
@@ -39,16 +33,25 @@ div#site-branding {
     text-transform: uppercase;
     letter-spacing: .5em;
     font-size: 40px;
-    font-family: 'Montserrat', sans-serif;
+}
+
+header#masthead img.custom-logo {
+    width: auto;
 }
 
 /*
 ** Main Navigation -------------------------------------------------------------
 */
 div#site-navigation {
-    background-color: #72c4c0;
-    padding: 5px 0;
+    padding: 0;
     text-align: center;
+    height: 34px;
+}
+
+@media (max-width: 767px) {
+    div#site-navigation {
+        height: auto;
+    }
 }
 
 div#site-navigation .main-navigation {
@@ -57,23 +60,64 @@ div#site-navigation .main-navigation {
 
 ul#primary-menu {
     display: inline-block;
-    padding-top: 5px;
 }
 
 ul#primary-menu > li.menu-item {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     margin: 0 15px;
     letter-spacing: .2em;
     font-size: 10px;
+    line-height: 34px;
+    position: initial;
 }
 
 ul#primary-menu > li.menu-item > a {
     color: #fff;
 }
 
-ul#primary-menu > li.menu-item.current-menu-item > a {
-    color: #1f2933;
+ul#primary-menu > li.menu-item > ul.sub-menu {
+    display: none;
+    box-shadow: none;
+    background-color: rgba(255,255,255,1);
+    color: #fff;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 10px 10px 10px 17px;
+}
+
+ul#primary-menu > li.menu-item > ul.sub-menu > li {
+    float: none;
+    display: inline-block;
+}
+
+ul#primary-menu > li.menu-item > ul.sub-menu > li a {
+    width: auto;
+    margin: 0 15px;
+    display: inline-block;
+}
+
+ul#primary-menu > li.menu-item > ul.sub-menu > li > ul {
+    left: 0;
+    position: relative;
+    box-shadow: none;
+    display: inline-block;
+    float: right;
+}
+
+ul#primary-menu > li.menu-item > ul.sub-menu > li > ul li {
+    float: none;
+    display: inline-block !important;
+}
+
+ul#primary-menu > li.menu-item > ul.sub-menu > li > ul li ul {
+    left: 0;
+    position: relative;
+    box-shadow: none;
+    display: inline-block;
+    float: right;
 }
 
 /*
@@ -130,7 +174,15 @@ ul.slicknav_nav ul.sub-menu {
     left: 0 !important;
     top: inherit;
     margin-left: 0;
-    border-left: 5px solid #f5f5f5;
+}
+
+ul.slicknav_nav {
+    text-align: left;
+    padding-left: 20px;
+}
+
+ul.slicknav_nav ul.sub-menu li a {
+    width: auto;
 }
 
 ul.slicknav_nav ul.sub-menu ul.sub-menu {
@@ -156,13 +208,13 @@ div.slicknav_menu li {
 .slicknav_nav a {
     color: #fff;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: .2em;
     font-size: 10px;
 } 
 
-ul.slicknav_nav ul.sub-menu li a {
-    font-size: 12px !important;
+ul.slicknav_nav ul.sub-menu li a:hover a,
+ul.slicknav_nav ul.sub-menu li a:hover {
+    color: #fff;
 }
 
 .slicknav_nav a:hover {
@@ -220,7 +272,6 @@ a.slicknav_btn {
 .camera_caption a {
     font-size: 28px;
     color: #fff;
-    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     letter-spacing: .5em;
 }
@@ -244,7 +295,6 @@ a.slicknav_btn {
 }
 
 .camera_wrap .camera_pag .camera_pag_ul li:hover > span {
-    background-color: #72c4c0;
     width: 10px;
     height: 10px;
     position: absolute;
@@ -258,7 +308,6 @@ a.slicknav_btn {
     position: absolute;
     top: 2px;
     left: 2px;
-    background-color: #1f2933;
 }
 
 /*
@@ -274,7 +323,6 @@ div#about-section {
     margin-top: 0;
     font-weight: 700;
     font-size: 34px;
-    color: #1f2933;
 }
 
 #about-section #about-secondary {
@@ -294,7 +342,7 @@ div#about-section {
     margin-bottom: 20px;
 }
 
-#about-section .feature-body {
+#about-section .widget {
     line-height: 1.75em;
     font-weight: 300;
     margin-bottom: 40px;
@@ -304,9 +352,9 @@ div#about-section {
 ** Subscribe Module ------------------------------------------------------------
 */
 div#subscribe-module {
-    background-color: #72c4c0;
     padding-top: 40px;
     padding-bottom: 40px;
+    color: #fff;
 }
 
 #subscribe-module h2#subscribe-blurb {
@@ -329,8 +377,6 @@ div#subscribe-module {
 
 #subscribe-module input[type="submit"] {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ffc859;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -341,6 +387,10 @@ div#subscribe-module {
     border: none;
     height: 50px;
 } 
+
+#subscribe-module .widget .widget-title {
+    border-color: #fff;
+}
 
 /*
 ** Masonry Blog ----------------------------------------------------------------
@@ -355,7 +405,6 @@ div#subscribe-module {
 }
 
 #blog-title-box {
-    background-color: #72c4c0;
     padding: 30px;
     color: #fff;
     width: 100%;
@@ -370,7 +419,6 @@ div#subscribe-module {
 }
 
 hr.accent-divider {
-    border-color: #ffc859;
     margin: 0 0 20px 0;
     border-width: 2px;
 }
@@ -422,7 +470,6 @@ hr.accent-divider {
 }
 
 .juno-blog-content .blog-roll-item .post-category a {
-    color: #72c4c0;
     text-transform: uppercase;
     font-size: 10px;
 }
@@ -433,10 +480,6 @@ hr.accent-divider {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
-}
-
-.juno-blog-content .blog-roll-item .inner h3.post-title a {
-    color: #1f2933;
 }
 
 .juno-blog-content .blog-roll-item hr {
@@ -505,11 +548,9 @@ h5.post-meta {
 }
 
 #single-page-container nav.navigation.post-navigation a {
-    color: #1f2933;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (max-width: 767px) {
@@ -533,17 +574,23 @@ div#single-image-container {
     background-size: cover;
     position: relative;
     margin-top: 30px;
-/*    border-radius: 5px;*/
+}
+
+div#single-image-container.no-header-img {
+    height: auto;
+    background: none;
 }
 
 div#single-title-box {
-    background-color: rgba(114,196,192,.75);
     padding: 30px;
     color: #fff;
     position: absolute;
     bottom: 0;
     width: 100%;
-/*    border-radius: 0 0 5px 5px;*/
+}
+
+div#single-title-box.no-header-img {
+    position: relative;
 }
 
 div#single-title-box .entry-title {
@@ -559,12 +606,7 @@ div#single-title-box .post-meta {
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    color: #ffc859;
     margin-top: 5px;
-}
-
-div#single-title-box .post-meta a {
-    color: #ffc859;
 }
 
 #single-post-container .entry-content {
@@ -580,11 +622,9 @@ div#single-title-box .post-meta a {
 }
 
 #single-post-container nav.navigation.post-navigation a {
-    color: #1f2933;
     text-transform: uppercase;
     font-size: 10px;
     letter-spacing: .125em;
-    font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width:767px) {
@@ -617,14 +657,11 @@ div#comments {
 #comments p.logged-in-as, #comments p.logged-in-as a {
     text-transform: uppercase;
     font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
-    color: #1f2933;
     letter-spacing: .125em;
 }
 
 #comments p.comment-form-comment label {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     letter-spacing: .125em;
     font-weight: 300;
     margin-top: 15px;
@@ -632,8 +669,6 @@ div#comments {
 
 #comments input[type="submit"] {
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #72c4c0;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
@@ -685,7 +720,6 @@ div#comments {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 20px;
-    border-bottom: thin solid #1f2933;
     padding-bottom: 3px;
 }
 
@@ -697,10 +731,6 @@ div#comments {
 /*
 ** Front Page Social Area ------------------------------------------------------
 */
-div#social-module {
-    background-color: #72c4c0;
-}
-
 div#social-message {
     text-transform: uppercase;
     font-weight: 700;
@@ -731,7 +761,6 @@ div.social-bubble {
     cursor: pointer;
     line-height: 40px;
     font-size: 14px;
-    background-color: #72c4c0;
     border: 2px solid #fff;
 }
 
@@ -745,10 +774,6 @@ div.social-bubble:hover {
     background-color: #fff;
 }
 
-div.social-bubble:hover i {
-    color: #72c4c0;
-}
-
 /*
 ** Frontpage Page Content ------------------------------------------------------
 */
@@ -759,7 +784,6 @@ div.social-bubble:hover i {
 
 #front-page-blog div#frontpage-page .entry-title {
     margin: 0;
-    border-bottom: thin solid #1f2933;
     padding-bottom: 5px;
 }
 
@@ -792,7 +816,6 @@ form.search-form label {
 input.search-field {
     width: 200px;
     height: 40px;
-    border: thin solid #ffc859;
     background: #ffffff;
     border-radius: 3px;
     padding: 0 15px;
@@ -803,8 +826,6 @@ input.search-submit {
     font-size: 12px;
     box-shadow: none !important;
     text-shadow: none !important;
-    border: thin solid #ffc859 !important;
-    background-color: #ffc859;
     color: #fff;
     font-weight: 300;
     height: 40px;
@@ -812,17 +833,20 @@ input.search-submit {
     display: inline-block;
     line-height: 40px;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
     margin-left: 5px;
+}
+
+section.no-results.not-found {
+    background-color: #f5f5f5;
+    margin-top: 30px;
+    padding: 30px;
 }
 
 /*
 ** Footer ----------------------------------------------------------------------
 */
 footer#colophon #footer-sidebar-wrapper {
-    background-color: #1f2933;
     color: #fff;
-    border-top: 15px solid #72c4c0;
 }
 
 div#footer-widget-area {
@@ -834,10 +858,6 @@ div#footer-widget-area .widget-title {
     border-color: #fff;
 }
 
-div#footer-widget-area a {
-    color: #72c4c0;
-}
-
 footer#colophon #footer-branding-wrapper {
     background-color: #000;
 }
@@ -846,13 +866,34 @@ footer#colophon div#footer-branding {
     text-align: center;
     color: #fff;
     font-size: 12px;
-    padding: 15px 0;
+    padding: 15px 0 0 0;
 }
 
 footer#colophon div#footer-branding img {
     height: 20px;
     width: auto;
     margin-left: 2px;
+}
+
+div#footer-jumper {
+    text-align: center;
+}
+
+div#footer-jumper span {
+    color: rgba(255,255,255,.75);
+    font-size: 12px;
+    line-height: 12px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 2px solid rgba(255,255,255,.75);
+    margin: 10px 0;
+}
+
+div#footer-jumper span:hover {
+    color: #fff;
+    border-color: #fff;
 }
 
 /*
@@ -862,6 +903,7 @@ footer#colophon div#footer-branding img {
     text-align: center;
     margin-bottom: 50px;
     border-bottom: none;
+    padding: 50px 0;
 }
 
 .error-404 h1.page-title {
@@ -876,7 +918,6 @@ footer#colophon div#footer-branding img {
 .error-404 input.search-field {
     width: 200px;
     height: 40px;
-    border: thin solid #ffc859;
     background: #ffffff;
     border-radius: 3px;
     padding: 0 15px;
@@ -887,8 +928,6 @@ footer#colophon div#footer-branding img {
     font-size: 12px;
     box-shadow: none;
     text-shadow: none;
-    border: thin solid #ffc859;
-    background-color: #ffc859;
     color: #fff;
     font-weight: 300;
     height: 40px;
@@ -896,7 +935,6 @@ footer#colophon div#footer-branding img {
     display: inline-block;
     line-height: 40px;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 section.error-404 .widget {
@@ -924,9 +962,83 @@ section.error-404 .widget {
 
 .pagination-links .page-numbers.current {
     color: #ffffff;
-    background-color: #72c4c0;
 }
 
 .pagination-links .page-numbers.dots {
     background: none;
 }
+
+/*
+ * Widget Styling
+ */
+.widget_categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget_categories ul li a {
+    display: block;
+    background-color: #ffffff;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #666;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+footer #footer-widget-area .widget_categories ul li a {
+    display: block;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #f5f5f5;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+#subscribe-module .widget_categories ul li a {
+    display: block;
+    padding: 7.5px 10px;
+    margin: 5px 0px;
+    color: #f5f5f5;
+    font-size: 12px;
+    border: 1px solid #f5f5f5;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+.widget_calendar table {
+    border-collapse: separate;
+}
+
+.widget_calendar table caption {
+    font-size: 16px;
+}
+
+
+.widget_calendar table th,
+.widget_calendar table td {
+    border: thin solid #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.widget_calendar table th {
+    color: #fff;
+    padding: 2px;
+}
+
+.widget_calendar table td {
+    padding: 2px;
+    background-color: #f5f5f5;
+}
+
+.widget_calendar table tfoot td {
+    border: none;
+    border-top: thin solid #fff;
+    font-size: 16px;
+}
+

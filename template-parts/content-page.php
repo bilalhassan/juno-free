@@ -17,9 +17,9 @@
 
             <div class="col-sm-12">
                 
-                <div id="single-image-container" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg'; ?>);">
+                <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : ''; ?>);">
 
-                    <div id="single-title-box">
+                    <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>">
 
                         <h2 class="entry-title"><?php the_title(); ?></h2>
 
