@@ -535,6 +535,11 @@ h5.post-meta {
 /*
 ** Single Page -----------------------------------------------------------------
 */
+
+#single-page-container {
+    margin-bottom: 30px;
+}
+
 #single-page-container .entry-content {
     margin: 30px 0 0 0;
     padding: 30px;
@@ -565,6 +570,10 @@ h5.post-meta {
 #single-post-container article > div {
 /*    padding-left: 0;
     padding-right: 0;*/
+}
+
+#single-post-container {
+    margin-bottom: 30px;
 }
 
 div#single-image-container {
