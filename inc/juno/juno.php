@@ -237,7 +237,8 @@ function juno_custom_css() { ?>
         .pagination-links .page-numbers.current,
         #subscribe-module .widget_categories ul li a,
         .widget_calendar table th,
-        div#single-title-box.no-header-img {
+        div#single-title-box.no-header-img,
+        .widget_juno-recent-articles-widget .related-article-title {
             background-color: <?php echo $skin[ 'primary' ]; ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
@@ -938,3 +939,203 @@ function hex2rgba( $color, $opacity = false ) {
         return $output;
         
 }
+
+class Juno_Recent_Articles_Widget extends WP_Widget {
+
+	public function __construct() {
+
+            parent::__construct(
+                    'juno-recent-articles-widget',
+                    __( 'Juno Recent Articles', 'juno' ),
+                    array(
+                            'description' => __( 'Display three recent articles from the same category.', 'juno' ),
+                    )
+            );
+
+	}
+
+	public function widget( $args, $instance ) {
+            
+            $title = apply_filters( 'widget_title', $instance[ 'title' ] );
+            
+            echo $args[ 'before_widget' ];
+            
+            if ( ! empty( $title ) )
+                echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
+            
+            if ( get_post_type() == 'post' ) :
+                
+                // Get a list of all categories on the post
+                $categories = get_the_category();
+                
+                // Get all posts in the first category
+                $post_args = array(
+                    'posts_per_page'    => -1,
+                    'category'          => $categories[0]->term_id, 
+                    'offset'            => 0,
+                    'post_type'         => 'post',
+                    'post_status'       => 'publish'
+                );
+                $posts_array = get_posts( $post_args );
+                
+                // Count retrieved posts
+                $num_posts = count( $posts_array );
+               
+                // If there are posts in the Category
+                if ( $num_posts > 0 ) :
+                    
+                    // Init the counter
+                    $counter = 0;
+                    
+                    // Loop until all related posts chosen, up to 3
+                    do {
+                        
+                        // Get a random post
+                        $select_post = $posts_array[ rand( 0, $num_posts - 1 ) ];
+                        
+                        // If the list of chosen articles is empty
+                        if ( empty( $selected_posts ) ) :
+                            
+                            // If the random post is not the current post
+                            if ( $select_post->ID != (string)get_the_ID() ) :
+                               
+                                // Add the current randomized post to the array of related articles
+                                $selected_posts[] = $select_post;
+                                $counter++;
+                                
+                            endif;
+                            
+                        else :
+                           
+                            // Flag init
+                            $exists = false;
+                        
+                            // Check all previously chosen related articles, if the post has been chosen already set a flag
+                            foreach ( $selected_posts as $existing_post ) :
+                                if ( $select_post->ID == $existing_post->ID ) :
+                                    $exists = true;
+                                endif;
+                            endforeach;
+                            
+                            // If it doesnt exist and isnt the current post, add it
+                            if ( $exists || (string)get_the_ID() == $select_post->ID ) :
+                                // Do nothing!
+                            else: 
+                                $selected_posts[] = $select_post;
+                                $counter++;
+                            endif;
+                            
+                        endif;
+                        
+                    } while ( empty( $selected_posts ) || $counter < 3);
+                    
+                endif;
+                
+            else :
+                
+                // Get all posts
+//                $post_args = array(
+//                    'posts_per_page'   => -1,
+//                    'offset'           => 0,
+//                    'post_type'        => 'post',
+//                    'post_status'      => 'publish'
+//                );
+//                $posts_array = get_posts( $post_args );
+//                
+//                // Count retrieved posts
+//                $num_posts = count( $posts_array );
+//                
+//                $selected_posts[] = array();
+//                
+//                // Pick three randoms
+//                for ( $ctr = 0; $ctr < 3; $ctr++ ) {
+//                    
+//                    $select_post = $posts_array[ rand( 0, $num_posts-1 ) ];
+//                    
+//                    if ( in_array( $select_post, $selected_posts ) ) {
+//                        $ctr--;
+//                    } else {
+//                        $selected_posts[] = $select_post;
+//                    }
+//                            
+//                }
+                
+            endif; ?>
+
+            <div class="row">
+            
+                
+                <?php if ( empty( $selected_posts ) ) : ?>
+                
+                    <div class="col-sm-12">
+                        
+                        <p>
+                            <?php _e( 'There are no related articles to display.', 'juno' ) ?>
+                        </p>
+                        
+                    </div>
+                
+                <?php else : ?>
+              
+                    <?php foreach ( $selected_posts as $recent_post ) : ?>
+
+                        <div class="col-sm-12">
+
+                            <div class="recent-article">
+
+                                <div id="single-image-container" class="<?php echo has_post_thumbnail( $recent_post->ID ) ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail( $recent_post->ID ) ? esc_url( get_the_post_thumbnail_url( $recent_post->ID, 'large' ) ) : ''; ?>);">
+
+                                </div>   
+
+                                <h5 class="related-article-title">
+                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
+                                        <?php echo get_the_title( $recent_post->ID ); ?>
+                                    </a>
+                                </h5>
+
+                                <h6 class="post-meta">
+                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
+                                        <?php echo get_the_date( null, $recent_post->ID ); ?>
+                                    </a>
+                                </h6>
+
+                            </div>
+
+                        </div>
+
+                    <?php endforeach; ?>
+            
+                <?php endif; ?>
+                
+            </div>
+        
+            <?php echo $args[ 'after_widget' ];
+            
+	}
+
+	public function form( $instance ) {
+            
+            if ( isset( $instance[ 'title' ] ) ) {
+                $title = $instance[ 'title' ];
+            } else {
+                $title = __( 'More in this Category', 'juno' );
+            } ?>
+            
+            <p>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            </p>
+
+	<?php }
+
+	public function update( $new_instance, $old_instance ) {
+            $instance = array();
+            $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+            return $instance;
+	}
+
+}
+function juno_load_widgets() {
+    register_widget( 'Juno_Recent_Articles_Widget' );
+}
+add_action( 'widgets_init', 'juno_load_widgets' );

@@ -969,7 +969,7 @@ section.error-404 .widget {
 }
 
 /*
- * Widget Styling
+ * Widget Styling --------------------------------------------------------------
  */
 .widget_categories ul {
     list-style: none;
@@ -1042,3 +1042,45 @@ footer #footer-widget-area .widget_categories ul li a {
     font-size: 16px;
 }
 
+/*
+ * Related Articles Widget -----------------------------------------------------
+ */
+
+.widget_juno-recent-articles-widget .recent-article {
+    padding: 15px 0;
+}
+
+.widget_juno-recent-articles-widget div#single-image-container {
+    height: 150px;
+    margin-top: 0;
+}
+
+.widget_juno-recent-articles-widget div#single-image-container.no-header-img {
+    display: none;
+}
+
+.widget_juno-recent-articles-widget .related-article-title {
+    padding: 15px;
+    margin: 0;
+}
+
+.widget_juno-recent-articles-widget .recent-article .post-meta {
+    background-color: #fff;
+    padding: 15px;
+    margin: 0;
+}
+
+.widget_juno-recent-articles-widget .recent-article .post-meta a {
+    color: #666;
+    text-transform: uppercase;
+}
+
+.widget_juno-recent-articles-widget .related-article-title a {
+    color: #fff;
+}
+
+.widget_juno-recent-articles-widget .entry-content {
+    margin: 0;
+    padding: 0 15px 15px 15px;
+    background-color: #fff;
+}
