@@ -956,6 +956,8 @@ class Juno_Recent_Articles_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
             
+            global $post;
+            
             $title = apply_filters( 'widget_title', $instance[ 'title' ] );
             
             echo $args[ 'before_widget' ];
@@ -965,106 +967,84 @@ class Juno_Recent_Articles_Widget extends WP_Widget {
             
             if ( get_post_type() == 'post' ) :
                 
-                // Get a list of all categories on the post
-                $categories = get_the_category();
+                // Start an array and get all categories
+                $category_IDs   = array();
+                $categories     = get_the_category(); 
+                  
+                // Add IDs of categories to array
+                foreach( $categories as $category ) { array_push( $category_IDs, $category->cat_ID ); }
                 
-                // Get all posts in the first category
+                // Get categorized posts except current post
+                $cat_args = array(
+                    'post_type'     => 'post',
+                    'numberposts'   => -1,
+                    'post_status'   => 'publish',
+                    'exclude'       => array( $post->ID ),
+                    'category'      => $category_IDs
+                ); 
+                $posts_array = get_posts( $cat_args );
+                   
+            else : 
+                
+                // Get all posts except current post
                 $post_args = array(
-                    'posts_per_page'    => -1,
-                    'category'          => $categories[0]->term_id, 
-                    'offset'            => 0,
-                    'post_type'         => 'post',
-                    'post_status'       => 'publish'
-                );
+                    'post_type'     => 'post',
+                    'numberposts'   => -1,
+                    'post_status'   => 'publish',
+                    'exclude'       => array( $post->ID ),
+                ); 
                 $posts_array = get_posts( $post_args );
-                
-                // Count retrieved posts
-                $num_posts = count( $posts_array );
-               
-                // If there are posts in the Category
-                if ( $num_posts > 0 ) :
-                    
-                    // Init the counter
-                    $counter = 0;
-                    
-                    // Loop until all related posts chosen, up to 3
-                    do {
-                        
-                        // Get a random post
-                        $select_post = $posts_array[ rand( 0, $num_posts - 1 ) ];
-                        
-                        // If the list of chosen articles is empty
-                        if ( empty( $selected_posts ) ) :
-                            
-                            // If the random post is not the current post
-                            if ( $select_post->ID != (string)get_the_ID() ) :
-                               
-                                // Add the current randomized post to the array of related articles
-                                $selected_posts[] = $select_post;
-                                $counter++;
-                                
+            
+            endif;
+            
+            // Count retrieved posts
+            $num_posts = count( $posts_array );
+
+            // If there are posts in the Category
+            if ( $num_posts > 0 ) :
+
+                // Init the counter
+                $counter = 0;
+
+                // Loop until all related posts chosen, up to 3 (or $num_posts)
+                do {
+
+                    // Get a random post
+                    $select_post = $posts_array[ rand( 0, $num_posts - 1 ) ];
+
+                    // If the list of chosen articles is empty
+                    if ( empty( $selected_posts ) ) :
+
+                        // Add the current randomized post to the array of related articles
+                        $selected_posts[] = $select_post;
+                        $counter++;
+
+                    else :
+
+                        // Flag init
+                        $exists = false;
+
+                        // Check all previously chosen related articles, if the post has been chosen already set a flag
+                        foreach ( $selected_posts as $existing_post ) :
+                            if ( $select_post->ID == $existing_post->ID ) :
+                                $exists = true;
                             endif;
-                            
-                        else :
-                           
-                            // Flag init
-                            $exists = false;
-                        
-                            // Check all previously chosen related articles, if the post has been chosen already set a flag
-                            foreach ( $selected_posts as $existing_post ) :
-                                if ( $select_post->ID == $existing_post->ID ) :
-                                    $exists = true;
-                                endif;
-                            endforeach;
-                            
-                            // If it doesnt exist and isnt the current post, add it
-                            if ( $exists || (string)get_the_ID() == $select_post->ID ) :
-                                // Do nothing!
-                            else: 
-                                $selected_posts[] = $select_post;
-                                $counter++;
-                            endif;
-                            
+                        endforeach;
+
+                        // If it doesnt exist and isnt the current post, add it
+                        if ( ! $exists ) :
+                            $selected_posts[] = $select_post;
+                            $counter++;
                         endif;
-                        
-                    } while ( empty( $selected_posts ) || $counter < 3);
+
+                    endif;
+
+                } while ( empty( $selected_posts ) || ( $counter < 3 && $counter < $num_posts ) );
                     
-                endif;
-                
-            else :
-                
-                // Get all posts
-//                $post_args = array(
-//                    'posts_per_page'   => -1,
-//                    'offset'           => 0,
-//                    'post_type'        => 'post',
-//                    'post_status'      => 'publish'
-//                );
-//                $posts_array = get_posts( $post_args );
-//                
-//                // Count retrieved posts
-//                $num_posts = count( $posts_array );
-//                
-//                $selected_posts[] = array();
-//                
-//                // Pick three randoms
-//                for ( $ctr = 0; $ctr < 3; $ctr++ ) {
-//                    
-//                    $select_post = $posts_array[ rand( 0, $num_posts-1 ) ];
-//                    
-//                    if ( in_array( $select_post, $selected_posts ) ) {
-//                        $ctr--;
-//                    } else {
-//                        $selected_posts[] = $select_post;
-//                    }
-//                            
-//                }
-                
             endif; ?>
 
             <div class="row">
             
-                
                 <?php if ( empty( $selected_posts ) ) : ?>
                 
                     <div class="col-sm-12">
