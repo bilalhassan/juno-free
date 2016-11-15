@@ -461,6 +461,7 @@ function juno_render_jumbotron() { ?>
 
                         <?php endif; ?>
 
+                    <!-- End of Slider Post #3 -->
                     
                 </div>
                 
