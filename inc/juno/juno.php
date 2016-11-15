@@ -282,11 +282,13 @@ function juno_custom_css() { ?>
     
     <?php 
     
-    if ( get_theme_mod( 'juno_css', false ) ) :
+    if ( get_theme_mod( 'juno_custom_css', false ) ) : ?>
     
-        echo '<style type="text/css">' . get_theme_mod( 'juno_css', false ) . '</style>';
-
-    endif;
+        <style type="text/css">
+            <?php echo esc_attr( get_theme_mod( 'juno_custom_css', false ) ); ?>
+        </style>
+        
+    <?php endif;
     
 }
 add_action('wp_head', 'juno_custom_css');
@@ -379,42 +381,90 @@ function juno_render_jumbotron() { ?>
                 
                 <div id="camera_slider" class="camera_wrap">
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_1', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+                    <!-- Slider Post #1 -->
 
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
-                                </a>
+                        <?php $slider_post_1 = get_theme_mod( 'juno_jumbotron_post_1', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_1 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php else : ?>
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_2', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
-
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
-                                </a>
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_3', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+                    <!-- End of Slider Post #1 -->
+                    
+                    <!-- Slider Post #2 -->
 
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
-                                </a>
+                        <?php $slider_post_2 = get_theme_mod( 'juno_jumbotron_post_2', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_2 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php else : ?>
 
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                    <!-- End of Slider Post #2 -->
+                    
+                    <!-- Slider Post #3 -->
+
+                        <?php $slider_post_3 = get_theme_mod( 'juno_jumbotron_post_3', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_3 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php else : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                    <!-- End of Slider Post #3 -->
+                    
                 </div>
                 
             </div>
@@ -437,20 +487,22 @@ function juno_render_bio() { ?>
             
             <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-bio' ) ? '5' : '12'; ?>">
                 
+                <?php $about_post = get_theme_mod( 'juno_about_bio_post', null ) == null ? null : get_post( get_theme_mod( 'juno_about_bio_post', null ) ); ?>
+                
                 <h2 id="about-primary">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_section_primary', __( 'Users can input any flavor text they like and it will be output as this large text blurb.', 'juno' ) ) ); ?>
+                    <?php echo is_null( $about_post ) ? esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ) : esc_html( get_the_title( $about_post ) ); ?>                    
                 </h2>
                 
                 <hr class="accent-divider">
                 
                 <p id="about-secondary">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_section_secondary', __( 'Etiam eget hendrerit elit, in pellentesque enim. Quisque ac laoreet mi. Curabitur id tristique ipsum. Morbi a tortor ut elit pharetra tempor quis vitae nisl. Nam condimentum eros velit.', 'juno' ) ) ); ?>
+                    <?php echo is_null( $about_post ) ? esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ) : esc_html( $about_post->post_content ); ?>                    
                 </p>
                 
-                <?php if ( get_theme_mod( 'juno_about_section_button_toggle', 'show' ) == 'show' ) : ?>
+                <?php if ( get_theme_mod( 'juno_about_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
                 
-                    <a class="accent-button" href="<?php echo get_theme_mod( 'juno_about_section_button_link', '' ) != '' ? esc_url( get_theme_mod( 'juno_about_section_button_link', '' ) ) : ''; ?>">
-                        <?php echo get_theme_mod( 'juno_about_section_button_label', '' ) != '' ? esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ) : __( 'Show Me More', 'juno' ); ?>
+                    <a class="accent-button" href="<?php echo esc_url( get_the_permalink( $about_post ) ); ?>">
+                        <?php echo esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ); ?>
                     </a>
                 
                 <?php endif; ?>
@@ -459,9 +511,7 @@ function juno_render_bio() { ?>
             
             <?php if ( is_active_sidebar( 'sidebar-bio' ) ) : ?>
                 
-                <div class="col-sm-1"></div>
-
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-sm-offset-1">
 
                     <?php get_sidebar( 'bio' ); ?>
                     
@@ -881,21 +931,9 @@ function juno_get_skin_colors() {
     
     $skin_color_array[] = null;
     
-    switch ( get_theme_mod( 'juno_theme_color_skin', 'alaska' ) ) :
-        
-        case 'alaska' :
-            $skin_color_array[ 'dark' ]     = '#1f2933';
-            $skin_color_array[ 'primary' ]  = '#72c4c0';
-            $skin_color_array[ 'accent' ]   = '#ffc859';
-            break;
-
-        case 'america' :
-            $skin_color_array[ 'dark' ]     = '#051829';
-            $skin_color_array[ 'primary' ]  = '#5999a6';
-            $skin_color_array[ 'accent' ]   = '#00e6ac';
-            break;
-        
-    endswitch;
+    $skin_color_array[ 'dark' ]     = get_theme_mod( 'juno_theme_color_dark', '#1f2933' );
+    $skin_color_array[ 'primary' ]  = get_theme_mod( 'juno_theme_color_primary', '#72c4c0' );
+    $skin_color_array[ 'accent' ]   = get_theme_mod( 'juno_theme_color_accent', '#ffc859' );
     
     return $skin_color_array;
     
@@ -903,219 +941,44 @@ function juno_get_skin_colors() {
 
 function hex2rgba( $color, $opacity = false ) {
  
-	$default = 'rgb(0,0,0)';
- 
-	//Return default if no color provided
-	if ( empty( $color ) )
-            return $default; 
- 
-	//Sanitize $color if "#" is provided 
-        if ( $color[0] == '#' ) {
-            $color = substr( $color, 1 );
-        }
- 
-        //Check if color has 6 or 3 characters and get values
-        if ( strlen( $color ) == 6) {
-            $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-        } elseif ( strlen( $color ) == 3 ) {
-            $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-        } else {
-            return $default;
-        }
- 
-        // Convert hexadec to rgb
-        $rgb =  array_map( 'hexdec', $hex );
- 
-        // Check if opacity is set(rgba or rgb)
-        if( $opacity ){
-            if( abs( $opacity ) > 1 )
-                $opacity = 1.0;
-            $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
-        } else {
-            $output = 'rgb('.implode(",",$rgb).')';
-        }
- 
-        //Return rgb(a) color string
-        return $output;
+    $default = 'rgb(0,0,0)';
+
+    //Return default if no color provided
+    if ( empty( $color ) )
+        return $default; 
+
+    //Sanitize $color if "#" is provided 
+    if ( $color[0] == '#' ) {
+        $color = substr( $color, 1 );
+    }
+
+    //Check if color has 6 or 3 characters and get values
+    if ( strlen( $color ) == 6) {
+        $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+    } elseif ( strlen( $color ) == 3 ) {
+        $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+    } else {
+        return $default;
+    }
+
+    // Convert hexadec to rgb
+    $rgb =  array_map( 'hexdec', $hex );
+
+    // Check if opacity is set(rgba or rgb)
+    if( $opacity ){
+        if( abs( $opacity ) > 1 )
+            $opacity = 1.0;
+        $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+    } else {
+        $output = 'rgb('.implode(",",$rgb).')';
+    }
+
+    //Return rgb(a) color string
+    return $output;
         
 }
 
-class Juno_Recent_Articles_Widget extends WP_Widget {
-
-	public function __construct() {
-
-            parent::__construct(
-                    'juno-recent-articles-widget',
-                    __( 'Juno Recent Articles', 'juno' ),
-                    array(
-                            'description' => __( 'Display three recent articles from the same category.', 'juno' ),
-                    )
-            );
-
-	}
-
-	public function widget( $args, $instance ) {
-            
-            global $post;
-            
-            $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-            
-            echo $args[ 'before_widget' ];
-            
-            if ( ! empty( $title ) )
-                echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
-            
-            if ( get_post_type() == 'post' ) :
-                
-                // Start an array and get all categories
-                $category_IDs   = array();
-                $categories     = get_the_category(); 
-                  
-                // Add IDs of categories to array
-                foreach( $categories as $category ) { array_push( $category_IDs, $category->cat_ID ); }
-                
-                // Get categorized posts except current post
-                $cat_args = array(
-                    'post_type'     => 'post',
-                    'numberposts'   => -1,
-                    'post_status'   => 'publish',
-                    'exclude'       => array( $post->ID ),
-                    'category'      => $category_IDs
-                ); 
-                $posts_array = get_posts( $cat_args );
-                   
-            else : 
-                
-                // Get all posts except current post
-                $post_args = array(
-                    'post_type'     => 'post',
-                    'numberposts'   => -1,
-                    'post_status'   => 'publish',
-                    'exclude'       => array( $post->ID ),
-                ); 
-                $posts_array = get_posts( $post_args );
-            
-            endif;
-            
-            // Count retrieved posts
-            $num_posts = count( $posts_array );
-
-            // If there are posts in the Category
-            if ( $num_posts > 0 ) :
-
-                // Init the counter
-                $counter = 0;
-
-                // Loop until all related posts chosen, up to 3 (or $num_posts)
-                do {
-
-                    // Get a random post
-                    $select_post = $posts_array[ rand( 0, $num_posts - 1 ) ];
-
-                    // If the list of chosen articles is empty
-                    if ( empty( $selected_posts ) ) :
-
-                        // Add the current randomized post to the array of related articles
-                        $selected_posts[] = $select_post;
-                        $counter++;
-
-                    else :
-
-                        // Flag init
-                        $exists = false;
-
-                        // Check all previously chosen related articles, if the post has been chosen already set a flag
-                        foreach ( $selected_posts as $existing_post ) :
-                            if ( $select_post->ID == $existing_post->ID ) :
-                                $exists = true;
-                            endif;
-                        endforeach;
-
-                        // If it doesnt exist and isnt the current post, add it
-                        if ( ! $exists ) :
-                            $selected_posts[] = $select_post;
-                            $counter++;
-                        endif;
-
-                    endif;
-
-                } while ( empty( $selected_posts ) || ( $counter < 3 && $counter < $num_posts ) );
-                    
-            endif; ?>
-
-            <div class="row">
-            
-                <?php if ( empty( $selected_posts ) ) : ?>
-                
-                    <div class="col-sm-12">
-                        
-                        <p>
-                            <?php _e( 'There are no related articles to display.', 'juno' ) ?>
-                        </p>
-                        
-                    </div>
-                
-                <?php else : ?>
-              
-                    <?php foreach ( $selected_posts as $recent_post ) : ?>
-
-                        <div class="col-sm-12">
-
-                            <div class="recent-article">
-
-                                <div id="single-image-container" class="<?php echo has_post_thumbnail( $recent_post->ID ) ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail( $recent_post->ID ) ? esc_url( get_the_post_thumbnail_url( $recent_post->ID, 'large' ) ) : ''; ?>);">
-
-                                </div>   
-
-                                <h5 class="related-article-title">
-                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
-                                        <?php echo get_the_title( $recent_post->ID ); ?>
-                                    </a>
-                                </h5>
-
-                                <h6 class="post-meta">
-                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
-                                        <?php echo get_the_date( null, $recent_post->ID ); ?>
-                                    </a>
-                                </h6>
-
-                            </div>
-
-                        </div>
-
-                    <?php endforeach; ?>
-            
-                <?php endif; ?>
-                
-            </div>
-        
-            <?php echo $args[ 'after_widget' ];
-            
-	}
-
-	public function form( $instance ) {
-            
-            if ( isset( $instance[ 'title' ] ) ) {
-                $title = $instance[ 'title' ];
-            } else {
-                $title = __( 'More in this Category', 'juno' );
-            } ?>
-            
-            <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-            </p>
-
-	<?php }
-
-	public function update( $new_instance, $old_instance ) {
-            $instance = array();
-            $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-            return $instance;
-	}
-
-}
 function juno_load_widgets() {
-    register_widget( 'Juno_Recent_Articles_Widget' );
+    
 }
 add_action( 'widgets_init', 'juno_load_widgets' );
