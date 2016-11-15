@@ -112,56 +112,19 @@ $wp_customize->add_section( 'juno_biography_section', array(
             'show'      => __( 'Show', 'juno' ),
             'hide'      => __( 'Hide', 'juno' ),
     ) ) );
-
-    // About Section - Primary Text
-    $wp_customize->add_setting( 'juno_about_section_primary', array (
-        'default'               => __( 'Users can input any flavor text they like and it will be output as this large text blurb.', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_section_primary', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Primary Text', 'juno' ),
-    ) );
-
-    // About Section - Secondary Text
-    $wp_customize->add_setting( 'juno_about_section_secondary', array (
-        'default'               => __( 'Etiam eget hendrerit elit, in pellentesque enim. Quisque ac laoreet mi. Curabitur id tristique ipsum. Morbi a tortor ut elit pharetra tempor quis vitae nisl. Nam condimentum eros velit.', 'juno' ),
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
-    ) );
-    $wp_customize->add_control( 'juno_about_section_secondary', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Secondary Text', 'juno' ),
-    ) );
     
-    // About / Biography Section - Button Visibility Toggle
-    $wp_customize->add_setting( 'juno_about_section_button_toggle', array (
-        'default'               => 'show',
+    // About / Bio Section Post
+    $wp_customize->add_setting( 'juno_about_bio_post', array (
+        'default'               => null,
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_show_hide',
+        'sanitize_callback'     => 'juno_sanitize_post',
     ) );
-    $wp_customize->add_control( 'juno_about_section_button_toggle', array(
-        'type'                  => 'radio',
+    $wp_customize->add_control( 'juno_about_bio_post', array(
+        'type'                  => 'select',
         'section'               => 'juno_biography_section',
-        'label'                 => __( 'Include a button?', 'juno' ),
-        'choices'               => array(
-            'show'      => __( 'Show', 'juno' ),
-            'hide'      => __( 'Hide', 'juno' ),
-    ) ) );
-    
-    // About / Biography Section - Button Link
-    $wp_customize->add_setting( 'juno_about_section_button_link', array (
-        'default'               => '',
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'esc_url_raw',
-    ) );
-    $wp_customize->add_control( 'juno_about_section_button_link', array(
-        'type'                  => 'text',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Button URL / Link', 'juno' ),
+        'label'                 => __( 'About / Bio Section Post', 'juno' ),
+        'description'           => __( 'Select a Post or Page. The title and content will be drawn in automatically.', 'juno' ),
+        'choices'               => juno_all_posts_array( true ),
     ) );
     
     // About / Biography Section - Button Label

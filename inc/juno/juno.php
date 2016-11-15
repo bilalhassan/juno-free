@@ -379,42 +379,89 @@ function juno_render_jumbotron() { ?>
                 
                 <div id="camera_slider" class="camera_wrap">
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_1', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_1', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+                    <!-- Slider Post #1 -->
 
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
-                                </a>
+                        <?php $slider_post_1 = get_theme_mod( 'juno_jumbotron_post_1', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_1 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php else : ?>
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_2', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_2', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
-
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
-                                </a>
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php endif; ?>
 
-                    <?php if ( ! is_null( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ) : ?>
-                        <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( get_theme_mod( 'juno_jumbotron_post_3', null ) ) ? get_the_post_thumbnail_url( get_theme_mod( 'juno_jumbotron_post_3', null ) ) : get_template_directory_uri() . '/inc/images/blog-post-default-bg.jpg' ; ?>">
+                    <!-- End of Slider Post #1 -->
+                    
+                    <!-- Slider Post #2 -->
 
-                            <div class="camera_caption wow fadeIn">
-                                <a href="<?php echo get_the_permalink( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>">
-                                    <?php echo get_the_title( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
-                                </a>
+                        <?php $slider_post_2 = get_theme_mod( 'juno_jumbotron_post_2', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_2 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
+                                    </a>
+                                </div>
                             </div>
 
-                        </div>
-                    <?php endif; ?>
+                        <?php else : ?>
 
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                    <!-- End of Slider Post #2 -->
+                    
+                    <!-- Slider Post #3 -->
+
+                        <?php $slider_post_3 = get_theme_mod( 'juno_jumbotron_post_3', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
+
+                        <?php if ( ! is_null( $slider_post_3 ) ) : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
+                                        <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php else : ?>
+
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                                <div class="camera_caption wow fadeIn">
+                                    <a href="#">
+                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+
+                    
                 </div>
                 
             </div>
@@ -437,20 +484,22 @@ function juno_render_bio() { ?>
             
             <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-bio' ) ? '5' : '12'; ?>">
                 
+                <?php $about_post = get_theme_mod( 'juno_about_bio_post', null ) == null ? null : get_post( get_theme_mod( 'juno_about_bio_post', null ) ); ?>
+                
                 <h2 id="about-primary">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_section_primary', __( 'Users can input any flavor text they like and it will be output as this large text blurb.', 'juno' ) ) ); ?>
+                    <?php echo is_null( $about_post ) ? esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ) : esc_html( get_the_title( $about_post ) ); ?>                    
                 </h2>
                 
                 <hr class="accent-divider">
                 
                 <p id="about-secondary">
-                    <?php echo esc_html( get_theme_mod( 'juno_about_section_secondary', __( 'Etiam eget hendrerit elit, in pellentesque enim. Quisque ac laoreet mi. Curabitur id tristique ipsum. Morbi a tortor ut elit pharetra tempor quis vitae nisl. Nam condimentum eros velit.', 'juno' ) ) ); ?>
+                    <?php echo is_null( $about_post ) ? esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ) : esc_html( $about_post->post_content ); ?>                    
                 </p>
                 
-                <?php if ( get_theme_mod( 'juno_about_section_button_toggle', 'show' ) == 'show' ) : ?>
+                <?php if ( get_theme_mod( 'juno_about_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
                 
-                    <a class="accent-button" href="<?php echo get_theme_mod( 'juno_about_section_button_link', '' ) != '' ? esc_url( get_theme_mod( 'juno_about_section_button_link', '' ) ) : ''; ?>">
-                        <?php echo get_theme_mod( 'juno_about_section_button_label', '' ) != '' ? esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ) : __( 'Show Me More', 'juno' ); ?>
+                    <a class="accent-button" href="<?php echo esc_url( get_the_permalink( $about_post ) ); ?>">
+                        <?php echo esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ); ?>
                     </a>
                 
                 <?php endif; ?>
@@ -459,9 +508,7 @@ function juno_render_bio() { ?>
             
             <?php if ( is_active_sidebar( 'sidebar-bio' ) ) : ?>
                 
-                <div class="col-sm-1"></div>
-
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-sm-offset-1">
 
                     <?php get_sidebar( 'bio' ); ?>
                     
