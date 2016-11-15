@@ -10,6 +10,57 @@ $wp_customize->add_panel( 'juno_appearance_panel', array (
 ) );
 
 // ---------------------------------------------
+// Colors
+// ---------------------------------------------
+$wp_customize->add_section( 'juno_colors_section', array(
+    'title'                 => __( 'Colors', 'juno'),
+    'description'           => __( 'Customize the colors in use on your site', 'juno' ),
+    'panel'                 => 'juno_appearance_panel'
+) );
+
+    // Primary Skin Color
+    $wp_customize->add_setting( 'juno_theme_color_primary', array (
+        'default'               => '#72c4c0',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_text',
+    ) );
+    $wp_customize->add_control( 
+	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_primary', array(
+            'label'      => __( 'Theme Color: Primary', 'juno' ),
+            'section'    => 'juno_colors_section',
+            'settings'   => 'juno_theme_color_primary',
+	) ) 
+    );     
+
+    // Accent Skin Color
+    $wp_customize->add_setting( 'juno_theme_color_accent', array (
+        'default'               => '#ffc859',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_text',
+    ) );
+    $wp_customize->add_control( 
+	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_accent', array(
+            'label'      => __( 'Theme Color: Accent', 'juno' ),
+            'section'    => 'juno_colors_section',
+            'settings'   => 'juno_theme_color_accent',
+	) ) 
+    );     
+
+    // Dark Skin Color
+    $wp_customize->add_setting( 'juno_theme_color_dark', array (
+        'default'               => '#1f2933',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_text',
+    ) );
+    $wp_customize->add_control( 
+	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_dark', array(
+            'label'      => __( 'Theme Color: Dark', 'juno' ),
+            'section'    => 'juno_colors_section',
+            'settings'   => 'juno_theme_color_dark',
+	) ) 
+    );     
+
+// ---------------------------------------------
 // Fonts
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_fonts_section', array(

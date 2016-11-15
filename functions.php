@@ -74,7 +74,7 @@ function juno_setup() {
          * Enable custom logo support
          */
         add_theme_support( 'custom-logo', array(
-                'height'        => 100,
+                'height'        => 300,
                 'flex-width'    => true,
         ));
 }

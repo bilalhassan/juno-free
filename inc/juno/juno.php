@@ -282,11 +282,13 @@ function juno_custom_css() { ?>
     
     <?php 
     
-    if ( get_theme_mod( 'juno_css', false ) ) :
+    if ( get_theme_mod( 'juno_custom_css', false ) ) : ?>
     
-        echo '<style type="text/css">' . get_theme_mod( 'juno_css', false ) . '</style>';
-
-    endif;
+        <style type="text/css">
+            <?php echo esc_attr( get_theme_mod( 'juno_custom_css', false ) ); ?>
+        </style>
+        
+    <?php endif;
     
 }
 add_action('wp_head', 'juno_custom_css');
@@ -929,21 +931,9 @@ function juno_get_skin_colors() {
     
     $skin_color_array[] = null;
     
-    switch ( get_theme_mod( 'juno_theme_color_skin', 'alaska' ) ) :
-        
-        case 'alaska' :
-            $skin_color_array[ 'dark' ]     = '#1f2933';
-            $skin_color_array[ 'primary' ]  = '#72c4c0';
-            $skin_color_array[ 'accent' ]   = '#ffc859';
-            break;
-
-        case 'america' :
-            $skin_color_array[ 'dark' ]     = '#051829';
-            $skin_color_array[ 'primary' ]  = '#5999a6';
-            $skin_color_array[ 'accent' ]   = '#00e6ac';
-            break;
-        
-    endswitch;
+    $skin_color_array[ 'dark' ]     = get_theme_mod( 'juno_theme_color_dark', '#1f2933' );
+    $skin_color_array[ 'primary' ]  = get_theme_mod( 'juno_theme_color_primary', '#72c4c0' );
+    $skin_color_array[ 'accent' ]   = get_theme_mod( 'juno_theme_color_accent', '#ffc859' );
     
     return $skin_color_array;
     
@@ -951,219 +941,44 @@ function juno_get_skin_colors() {
 
 function hex2rgba( $color, $opacity = false ) {
  
-	$default = 'rgb(0,0,0)';
- 
-	//Return default if no color provided
-	if ( empty( $color ) )
-            return $default; 
- 
-	//Sanitize $color if "#" is provided 
-        if ( $color[0] == '#' ) {
-            $color = substr( $color, 1 );
-        }
- 
-        //Check if color has 6 or 3 characters and get values
-        if ( strlen( $color ) == 6) {
-            $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-        } elseif ( strlen( $color ) == 3 ) {
-            $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-        } else {
-            return $default;
-        }
- 
-        // Convert hexadec to rgb
-        $rgb =  array_map( 'hexdec', $hex );
- 
-        // Check if opacity is set(rgba or rgb)
-        if( $opacity ){
-            if( abs( $opacity ) > 1 )
-                $opacity = 1.0;
-            $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
-        } else {
-            $output = 'rgb('.implode(",",$rgb).')';
-        }
- 
-        //Return rgb(a) color string
-        return $output;
+    $default = 'rgb(0,0,0)';
+
+    //Return default if no color provided
+    if ( empty( $color ) )
+        return $default; 
+
+    //Sanitize $color if "#" is provided 
+    if ( $color[0] == '#' ) {
+        $color = substr( $color, 1 );
+    }
+
+    //Check if color has 6 or 3 characters and get values
+    if ( strlen( $color ) == 6) {
+        $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+    } elseif ( strlen( $color ) == 3 ) {
+        $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+    } else {
+        return $default;
+    }
+
+    // Convert hexadec to rgb
+    $rgb =  array_map( 'hexdec', $hex );
+
+    // Check if opacity is set(rgba or rgb)
+    if( $opacity ){
+        if( abs( $opacity ) > 1 )
+            $opacity = 1.0;
+        $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+    } else {
+        $output = 'rgb('.implode(",",$rgb).')';
+    }
+
+    //Return rgb(a) color string
+    return $output;
         
 }
 
-class Juno_Recent_Articles_Widget extends WP_Widget {
-
-	public function __construct() {
-
-            parent::__construct(
-                    'juno-recent-articles-widget',
-                    __( 'Juno Recent Articles', 'juno' ),
-                    array(
-                            'description' => __( 'Display three recent articles from the same category.', 'juno' ),
-                    )
-            );
-
-	}
-
-	public function widget( $args, $instance ) {
-            
-            global $post;
-            
-            $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-            
-            echo $args[ 'before_widget' ];
-            
-            if ( ! empty( $title ) )
-                echo $args[ 'before_title' ] . $title . $args[ 'after_title' ];
-            
-            if ( get_post_type() == 'post' ) :
-                
-                // Start an array and get all categories
-                $category_IDs   = array();
-                $categories     = get_the_category(); 
-                  
-                // Add IDs of categories to array
-                foreach( $categories as $category ) { array_push( $category_IDs, $category->cat_ID ); }
-                
-                // Get categorized posts except current post
-                $cat_args = array(
-                    'post_type'     => 'post',
-                    'numberposts'   => -1,
-                    'post_status'   => 'publish',
-                    'exclude'       => array( $post->ID ),
-                    'category'      => $category_IDs
-                ); 
-                $posts_array = get_posts( $cat_args );
-                   
-            else : 
-                
-                // Get all posts except current post
-                $post_args = array(
-                    'post_type'     => 'post',
-                    'numberposts'   => -1,
-                    'post_status'   => 'publish',
-                    'exclude'       => array( $post->ID ),
-                ); 
-                $posts_array = get_posts( $post_args );
-            
-            endif;
-            
-            // Count retrieved posts
-            $num_posts = count( $posts_array );
-
-            // If there are posts in the Category
-            if ( $num_posts > 0 ) :
-
-                // Init the counter
-                $counter = 0;
-
-                // Loop until all related posts chosen, up to 3 (or $num_posts)
-                do {
-
-                    // Get a random post
-                    $select_post = $posts_array[ rand( 0, $num_posts - 1 ) ];
-
-                    // If the list of chosen articles is empty
-                    if ( empty( $selected_posts ) ) :
-
-                        // Add the current randomized post to the array of related articles
-                        $selected_posts[] = $select_post;
-                        $counter++;
-
-                    else :
-
-                        // Flag init
-                        $exists = false;
-
-                        // Check all previously chosen related articles, if the post has been chosen already set a flag
-                        foreach ( $selected_posts as $existing_post ) :
-                            if ( $select_post->ID == $existing_post->ID ) :
-                                $exists = true;
-                            endif;
-                        endforeach;
-
-                        // If it doesnt exist and isnt the current post, add it
-                        if ( ! $exists ) :
-                            $selected_posts[] = $select_post;
-                            $counter++;
-                        endif;
-
-                    endif;
-
-                } while ( empty( $selected_posts ) || ( $counter < 3 && $counter < $num_posts ) );
-                    
-            endif; ?>
-
-            <div class="row">
-            
-                <?php if ( empty( $selected_posts ) ) : ?>
-                
-                    <div class="col-sm-12">
-                        
-                        <p>
-                            <?php _e( 'There are no related articles to display.', 'juno' ) ?>
-                        </p>
-                        
-                    </div>
-                
-                <?php else : ?>
-              
-                    <?php foreach ( $selected_posts as $recent_post ) : ?>
-
-                        <div class="col-sm-12">
-
-                            <div class="recent-article">
-
-                                <div id="single-image-container" class="<?php echo has_post_thumbnail( $recent_post->ID ) ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail( $recent_post->ID ) ? esc_url( get_the_post_thumbnail_url( $recent_post->ID, 'large' ) ) : ''; ?>);">
-
-                                </div>   
-
-                                <h5 class="related-article-title">
-                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
-                                        <?php echo get_the_title( $recent_post->ID ); ?>
-                                    </a>
-                                </h5>
-
-                                <h6 class="post-meta">
-                                    <a href="<?php echo esc_url( get_permalink( $recent_post->ID ) ); ?>">
-                                        <?php echo get_the_date( null, $recent_post->ID ); ?>
-                                    </a>
-                                </h6>
-
-                            </div>
-
-                        </div>
-
-                    <?php endforeach; ?>
-            
-                <?php endif; ?>
-                
-            </div>
-        
-            <?php echo $args[ 'after_widget' ];
-            
-	}
-
-	public function form( $instance ) {
-            
-            if ( isset( $instance[ 'title' ] ) ) {
-                $title = $instance[ 'title' ];
-            } else {
-                $title = __( 'More in this Category', 'juno' );
-            } ?>
-            
-            <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-            </p>
-
-	<?php }
-
-	public function update( $new_instance, $old_instance ) {
-            $instance = array();
-            $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-            return $instance;
-	}
-
-}
 function juno_load_widgets() {
-    register_widget( 'Juno_Recent_Articles_Widget' );
+    
 }
 add_action( 'widgets_init', 'juno_load_widgets' );
