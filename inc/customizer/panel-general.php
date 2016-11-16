@@ -17,7 +17,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     'description'           => __( 'Customize the 404 error page appearance', 'juno' ),
     'panel'                 => 'juno_general_panel'
 ) );
-
+ 
     // Error Page Primary Heading
     $wp_customize->add_setting( 'juno_error_page_heading', array (
         'default'               => __( 'Oops!', 'juno' ),

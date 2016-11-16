@@ -20,7 +20,7 @@ $wp_customize->add_section( 'juno_footer_section', array(
 
     // Footer Copyright Text
     $wp_customize->add_setting( 'juno_footer_copyright', array (
-        'default'               => __( 'Smartcat', 'juno' ),
+        'default'               => __( 'Your Company Name', 'juno' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_text',
     ) );

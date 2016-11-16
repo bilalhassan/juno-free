@@ -90,74 +90,74 @@ $wp_customize->add_section( 'juno_jumbotron_section', array(
     ) );
 
 // ---------------------------------------------
-// About / Biography Section
+// Featured Post Section
 // ---------------------------------------------
-$wp_customize->add_section( 'juno_biography_section', array(
-    'title'                 => __( 'About / Biography Section', 'juno'),
-    'description'           => __( 'Customize the front page "About" section', 'juno' ),
+$wp_customize->add_section( 'juno_featured_post_section', array(
+    'title'                 => __( 'Featured Post Section', 'juno'),
+    'description'           => __( 'Customize the front page "Featured Post" section', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
-    // About / Biography Section Visibility Toggle
-    $wp_customize->add_setting( 'juno_bio_visibility_toggle', array (
+    // Featured Post Section Visibility Toggle
+    $wp_customize->add_setting( 'juno_featured_post_visibility_toggle', array (
         'default'               => 'show',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_show_hide',
     ) );
-    $wp_customize->add_control( 'juno_bio_visibility_toggle', array(
+    $wp_customize->add_control( 'juno_featured_post_visibility_toggle', array(
         'type'                  => 'radio',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'Show the "About" section?', 'juno' ),
+        'section'               => 'juno_featured_post_section',
+        'label'                 => __( 'Show the "Featured Post" section?', 'juno' ),
         'choices'               => array(
             'show'      => __( 'Show', 'juno' ),
             'hide'      => __( 'Hide', 'juno' ),
     ) ) );
     
-    // About / Bio Section Post
-    $wp_customize->add_setting( 'juno_about_bio_post', array (
+    // Featured Post Section Post
+    $wp_customize->add_setting( 'juno_featured_post_post', array (
         'default'               => null,
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_post',
     ) );
-    $wp_customize->add_control( 'juno_about_bio_post', array(
+    $wp_customize->add_control( 'juno_featured_post_post', array(
         'type'                  => 'select',
-        'section'               => 'juno_biography_section',
-        'label'                 => __( 'About / Bio Section Post', 'juno' ),
+        'section'               => 'juno_featured_post_section',
+        'label'                 => __( '"Featured Post" section - Post', 'juno' ),
         'description'           => __( 'Select a Post or Page. The title and content will be drawn in automatically.', 'juno' ),
         'choices'               => juno_all_posts_array( true ),
     ) );
     
-    // About / Biography Section - Button Label
-    $wp_customize->add_setting( 'juno_about_section_button_label', array (
+    // Featured Post Section - Button Label
+    $wp_customize->add_setting( 'juno_featured_post_section_button_label', array (
         'default'               => __( 'Show Me More', 'juno' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_text',
     ) );
-    $wp_customize->add_control( 'juno_about_section_button_label', array(
+    $wp_customize->add_control( 'juno_featured_post_section_button_label', array(
         'type'                  => 'text',
-        'section'               => 'juno_biography_section',
+        'section'               => 'juno_featured_post_section',
         'label'                 => __( 'Button Label', 'juno' ),
     ) );
    
 // ---------------------------------------------
-// Subscribe Module
+// Color Banner Section
 // ---------------------------------------------
-$wp_customize->add_section( 'juno_subscribe_section', array(
-    'title'                 => __( 'Subscription Widget Area', 'juno'),
-    'description'           => __( 'Customize the front page Subscribe widget area', 'juno' ),
+$wp_customize->add_section( 'juno_color_banner_section', array(
+    'title'                 => __( 'Colored Widget Area', 'juno'),
+    'description'           => __( 'Customize the front page Colored widget area', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
-    // Mailing List Module Visibility Toggle
-    $wp_customize->add_setting( 'juno_subscribe_visibility_toggle', array (
+    // Color Banner Section Visibility Toggle
+    $wp_customize->add_setting( 'juno_color_banner_visibility_toggle', array (
         'default'               => 'show',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_show_hide',
     ) );
-    $wp_customize->add_control( 'juno_subscribe_visibility_toggle', array(
+    $wp_customize->add_control( 'juno_color_banner_visibility_toggle', array(
         'type'                  => 'radio',
-        'section'               => 'juno_subscribe_section',
-        'label'                 => __( 'Show the Subscription widget area?', 'juno' ),
+        'section'               => 'juno_color_banner_section',
+        'label'                 => __( 'Show the Colored widget area?', 'juno' ),
         'choices'               => array(
             'show'      => __( 'Show', 'juno' ),
             'hide'      => __( 'Hide', 'juno' ),
@@ -174,7 +174,7 @@ $wp_customize->add_section( 'juno_social_section', array(
 
     // Social Section Visibility Toggle
     $wp_customize->add_setting( 'juno_social_visibility_toggle', array (
-        'default'               => 'show',
+        'default'               => 'hide',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_show_hide',
     ) );
@@ -216,7 +216,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Facebook URL
     $wp_customize->add_setting( 'juno_social_icon_facebook_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -228,7 +228,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Twitter URL
     $wp_customize->add_setting( 'juno_social_icon_twitter_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -240,7 +240,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Google+ URL
     $wp_customize->add_setting( 'juno_social_icon_google_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -252,7 +252,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // LinkedIn URL
     $wp_customize->add_setting( 'juno_social_icon_linkedin_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -264,7 +264,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Behance URL
     $wp_customize->add_setting( 'juno_social_icon_behance_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -276,7 +276,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Instagram URL
     $wp_customize->add_setting( 'juno_social_icon_instagram_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -288,7 +288,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Pinterest URL
     $wp_customize->add_setting( 'juno_social_icon_pinterest_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -300,7 +300,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // YouTube URL
     $wp_customize->add_setting( 'juno_social_icon_youtube_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );
@@ -312,7 +312,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     
     // Vimeo URL
     $wp_customize->add_setting( 'juno_social_icon_vimeo_url', array (
-        'default'               => '#',
+        'default'               => '',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'esc_url_raw',
     ) );

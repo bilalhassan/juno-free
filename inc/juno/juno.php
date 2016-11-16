@@ -77,8 +77,8 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
-            'name'          => esc_html__( 'Bio / About', 'juno' ),
-            'id'            => 'sidebar-bio',
+            'name'          => esc_html__( 'Featured Post Section', 'juno' ),
+            'id'            => 'sidebar-featured',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<div class="col-sm-6"><section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section></div>',
@@ -87,8 +87,8 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
-            'name'          => esc_html__( 'Subscribe Module', 'juno' ),
-            'id'            => 'sidebar-subscribe',
+            'name'          => esc_html__( 'Color Banner', 'juno' ),
+            'id'            => 'sidebar-color',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<div class="col-sm-12"><section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section></div>',
@@ -354,8 +354,10 @@ function juno_all_posts_array( $include_pages = false ) {
         'order'            => 'ASC',
     ));
 
-    $posts_array = array();
-
+    $posts_array = array(
+        'none'  => __( 'None', 'juno' ),
+    );
+    
     foreach ( $posts as $post ) :
         
         if ( ! empty( $post->ID ) ) :
@@ -477,17 +479,17 @@ function juno_render_jumbotron() { ?>
 add_action( 'juno_jumbotron', 'juno_render_jumbotron' );
 
 /**
- * Render the about / biography section.
+ * Render the Featured Post section.
  */
-function juno_render_bio() { ?>
+function juno_render_featured_post_section() { ?>
     
     <div id="about-section" class="container">
         
         <div class="row">
             
-            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-bio' ) ? '5' : '12'; ?>">
+            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-featured' ) ? '5' : '12'; ?>">
                 
-                <?php $about_post = get_theme_mod( 'juno_about_bio_post', null ) == null ? null : get_post( get_theme_mod( 'juno_about_bio_post', null ) ); ?>
+                <?php $about_post = get_theme_mod( 'juno_featured_post_post', null ) == null ? null : get_post( get_theme_mod( 'juno_featured_post_post', null ) ); ?>
                 
                 <h2 id="about-primary">
                     <?php echo is_null( $about_post ) ? esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ) : esc_html( get_the_title( $about_post ) ); ?>                    
@@ -499,21 +501,21 @@ function juno_render_bio() { ?>
                     <?php echo is_null( $about_post ) ? esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ) : esc_html( $about_post->post_content ); ?>                    
                 </p>
                 
-                <?php if ( get_theme_mod( 'juno_about_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
+                <?php if ( get_theme_mod( 'juno_featured_post_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
                 
                     <a class="accent-button" href="<?php echo esc_url( get_the_permalink( $about_post ) ); ?>">
-                        <?php echo esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ); ?>
+                        <?php echo esc_html( get_theme_mod( 'juno_featured_post_section_button_label', '' ) ); ?>
                     </a>
                 
                 <?php endif; ?>
                 
             </div>
             
-            <?php if ( is_active_sidebar( 'sidebar-bio' ) ) : ?>
+            <?php if ( is_active_sidebar( 'sidebar-featured' ) ) : ?>
                 
                 <div class="col-sm-6 col-sm-offset-1">
 
-                    <?php get_sidebar( 'bio' ); ?>
+                    <?php get_sidebar( 'featured' ); ?>
                     
                 </div>
                 
@@ -524,14 +526,14 @@ function juno_render_bio() { ?>
     </div>
 
 <?php }
-add_action( 'juno_bio', 'juno_render_bio' );
+add_action( 'juno_featured_post_section', 'juno_render_featured_post_section' );
 
 /**
- * Render the homepage subscribe CTA area.
+ * Render the homepage color banner widget area.
  */
-function juno_render_subscribe_module() { ?>
+function juno_render_color_banner_section() { ?>
     
-    <?php if ( is_active_sidebar( 'sidebar-subscribe' ) ) : ?>
+    <?php if ( is_active_sidebar( 'sidebar-color' ) ) : ?>
     
         <div id="subscribe-module" class="container-fluid">
 
@@ -543,7 +545,7 @@ function juno_render_subscribe_module() { ?>
 
                         <div class="row">
 
-                            <?php get_sidebar( 'subscribe' ); ?>
+                            <?php get_sidebar( 'color' ); ?>
 
                         </div>
 
@@ -558,7 +560,7 @@ function juno_render_subscribe_module() { ?>
     <?php endif; ?>
     
 <?php }
-add_action( 'juno_subscribe', 'juno_render_subscribe_module' );
+add_action( 'juno_color_banner', 'juno_render_color_banner_section' );
 
 /**
  * Render the homepage widget areas.
@@ -737,72 +739,72 @@ function juno_render_social_module() { ?>
                             
                             <div id="social-container">
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_facebook_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_facebook_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-facebook"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_twitter_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_twitter_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-twitter"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_google_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_google_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_google_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_google_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-google-plus"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_linkedin_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_linkedin_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-linkedin"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_behance_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_behance_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_behance_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_behance_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-behance"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_instagram_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_instagram_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-instagram"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_pinterest_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_pinterest_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-pinterest-p"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_youtube_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_youtube_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-youtube-play"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_vimeo_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_vimeo_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-vimeo"></i>
                                         </div>
@@ -875,7 +877,7 @@ function juno_render_footer() { ?>
                             <div id="footer-branding">
 
                                 <span class="site-info">
-                                    &copy; <?php echo esc_attr( get_theme_mod( 'juno_footer_copyright', __( 'Smartcat', 'juno' )  ) ); ?>
+                                    &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
                                     <?php echo ' ' . date( 'Y' ); ?>
                                     |
                                 </span>

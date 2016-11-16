@@ -57,33 +57,34 @@ add_action( 'customize_preview_init', 'juno_customize_preview_js' );
 /**
  * Sanitization Functions
  */
-
-function juno_sanitize( $input ) {
-    return $input;
-}
-
 function juno_sanitize_text( $input ) {
+    
     return sanitize_text_field( $input );
+    
 }
 
-function juno_sanitize_post( $input ) {
-    return $input;
+function juno_sanitize_color( $input ) {
+    
+    return sanitize_hex_color( $input );
+    
 }
 
 function juno_sanitize_integer( $input ) {
-    return intval( $input );
+    
+    return is_numeric( $input ) ? intval( $input ) : '';
+    
 }
 
 function juno_sanitize_overlay_decimal( $input ) {
-    return $input > 1.0 || $input < .0 ? null : $input;
+    
+    return is_numeric( $input ) && $input <= 1.0 && $input >= 0.0 ? $input : '';
+    
 }
 
-function juno_sanitize_show_hide( $input ) {
+function juno_sanitize_post( $input ) {
     
-    $valid_keys = array(
-        'show'      => __( 'Show', 'juno' ),
-        'hide'      => __( 'Hide', 'juno' ),
-    );
+    $valid_keys = juno_all_posts_array( true );
+    
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;
     } else {
@@ -92,11 +93,23 @@ function juno_sanitize_show_hide( $input ) {
     
 }
 
-function juno_sanitize_branding_toggle( $input ) {
+function juno_sanitize_font( $input ) {
+    
+    $valid_keys = juno_fonts();
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
+function juno_sanitize_show_hide( $input ) {
     
     $valid_keys = array(
-        'logo'        => __( 'Logo', 'juno' ),
-        'title'       => __( 'Title', 'juno' ),
+        'show'      => __( 'Show', 'juno' ),
+        'hide'      => __( 'Hide', 'juno' ),
     );
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;

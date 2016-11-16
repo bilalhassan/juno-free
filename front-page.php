@@ -14,15 +14,15 @@ $front = get_option( 'show_on_front' ); ?>
        
         <?php if ( $front != 'posts' ) : ?>
 
-            <?php if ( get_theme_mod( 'juno_jumbotron_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_jumbotron' ); } ?>
+            <?php if ( get_theme_mod( 'juno_jumbotron_visibility_toggle', 'show' ) == 'show' ) { do_action( 'juno_jumbotron' ); } ?>
         
-            <?php if ( get_theme_mod( 'juno_bio_visibility_toggle', 'show' )        == 'show' ) { do_action( 'juno_bio' ); } ?>
+            <?php if ( get_theme_mod( 'juno_featured_post_visibility_toggle', 'show' ) == 'show' ) { do_action( 'juno_featured_post_section' ); } ?>
             
-            <?php if ( get_theme_mod( 'juno_subscribe_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_subscribe' ); } ?>
+            <?php if ( get_theme_mod( 'juno_color_banner_visibility_toggle', 'show' ) == 'show' ) { do_action( 'juno_color_banner' ); } ?>
             
             <?php do_action( 'juno_homepage_widget_areas' ); ?>
         
-            <?php if ( get_theme_mod( 'juno_social_visibility_toggle', 'show' )  == 'show' ) { do_action( 'juno_social' ); } ?>
+            <?php if ( get_theme_mod( 'juno_social_visibility_toggle', 'hide' ) == 'show' ) { do_action( 'juno_social' ); } ?>
         
         <?php endif; ?>
          
