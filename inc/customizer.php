@@ -19,7 +19,7 @@ function juno_customize_register( $wp_customize ) {
     //    $wp_customize->remove_section( 'static_front_page' );
     
     // Header Bar Panel
-    require_once('customizer/panel-header-bar.php');
+    require_once('customizer/panel-site-identity-extras.php');
     
     // Front Page Panel
     require_once('customizer/panel-front-page.php');
@@ -29,9 +29,6 @@ function juno_customize_register( $wp_customize ) {
     
     // Blog Panel
     require_once('customizer/panel-blog.php');
-    
-    // Single Post Panel
-    // require_once('customizer/panel-single.php');
     
     // Site Appearance Panel
     require_once('customizer/panel-appearance.php');
