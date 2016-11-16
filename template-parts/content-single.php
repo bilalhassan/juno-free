@@ -29,7 +29,7 @@
             
                     <div class="col-sm-12">
 
-                        <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( 'large' ) ) : ''; ?>);">
+                        <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ) : ''; ?>);">
 
                             <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>">
 

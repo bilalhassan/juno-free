@@ -18,23 +18,28 @@ function juno_customize_register( $wp_customize ) {
     $wp_customize->remove_section( 'colors' );
     //    $wp_customize->remove_section( 'static_front_page' );
     
-    // Header Bar Panel
-    require_once('customizer/panel-site-identity-extras.php');
+    /**
+     * Use require_once to load the individual files containing the 
+     * Customizer settings and controls, grouped by Panel
+     */
     
-    // Front Page Panel
-    require_once('customizer/panel-front-page.php');
+    // Header Bar
+    require_once('customizer/settings-site-identity-extras.php');
+    
+    // Front Page
+    require_once('customizer/settings-front-page.php');
 
-    // General Panel
-    require_once('customizer/panel-general.php');
+    // General
+    require_once('customizer/settings-general.php');
     
-    // Blog Panel
-    require_once('customizer/panel-blog.php');
+    // Blog
+    require_once('customizer/settings-blog.php');
     
-    // Site Appearance Panel
-    require_once('customizer/panel-appearance.php');
+    // Site Appearance
+    require_once('customizer/settings-appearance.php');
     
-    // Site Branding Panel
-    require_once('customizer/panel-branding.php');
+    // Site Branding
+    require_once('customizer/settings-branding.php');
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
