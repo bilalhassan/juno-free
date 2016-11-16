@@ -50,7 +50,7 @@ $front = get_option( 'show_on_front' ); ?>
                                     <div id="blog-title-box">
 
                                         <h2 class="entry-title">
-                                            <?php echo esc_html( get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ) ); ?>
+                                            <?php echo get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ); ?>
                                         </h2>
 
                                     </div>
@@ -69,7 +69,7 @@ $front = get_option( 'show_on_front' ); ?>
                                 
                             <div class="col-sm-<?php echo esc_attr( juno_main_width() ); ?>">
                                 
-                                <?php echo $front == 'posts' ? esc_html( '<div class="juno-blog-content"><div id="masonry-blog-wrapper"><div class="grid-sizer"></div><div class="gutter-sizer"></div>' ) : ''; ?>
+                                <?php echo $front == 'posts' ? '<div class="juno-blog-content"><div id="masonry-blog-wrapper"><div class="grid-sizer"></div><div class="gutter-sizer"></div>' : ''; ?>
 
                                 <?php /* Start the Loop */ ?>
                                 <?php while ( have_posts() ) : the_post(); ?>
@@ -84,7 +84,7 @@ $front = get_option( 'show_on_front' ); ?>
 
                                 <?php endwhile; ?>
 
-                                <?php echo $front == 'posts' ? esc_html( '</div>' ) : ''; ?>
+                                <?php echo $front == 'posts' ? '</div>' : ''; ?>
 
                                 <?php if ( $front == 'posts' ) : ?>
                                     <div class="col-sm-12">
@@ -96,7 +96,7 @@ $front = get_option( 'show_on_front' ); ?>
                                     </div>
                                 <?php endif; ?>
                                 
-                                <?php echo $front == 'posts' ? esc_html( '</div>' ) : ''; ?>
+                                <?php echo $front == 'posts' ? '</div>' : ''; ?>
                                 
                             </div>
 

@@ -975,8 +975,3 @@ function juno_hex2rgba( $color, $opacity = false ) {
     return $output;
         
 }
-
-function juno_load_widgets() {
-    
-}
-add_action( 'widgets_init', 'juno_load_widgets' );
