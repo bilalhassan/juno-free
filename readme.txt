@@ -98,11 +98,12 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
     - License URL           http://www.gnu.org/licenses/gpl.html
 
 12. Images in screenshot
-    - URL                   
+    - URL                   https://pixabay.com/en/italy-mountains-pragser-wildsee-1587287/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en
 
 13. Other Images
-    - URL                   
+    - URL                   https://pixabay.com/en/italy-mountains-pragser-wildsee-1587287/
+                            https://pixabay.com/en/waterfall-yosemite-park-1328321/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en    
