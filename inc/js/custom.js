@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(document).ready( function( $ ) {
 
     /**
      * SlickNav Mobile Menu
@@ -38,29 +38,6 @@ jQuery(function($) {
         }
         
     });
-    
-    /*
-     * Initialize the homepage slider module (only if the element exists on the page)
-     */
-    if ( $( "#camera_slider" ).length ) {
-    
-        var viewport_height = $(window).height(),
-            header_height = $( 'header#masthead' ).height();
-    
-        var jumbotron_height = viewport_height - header_height + 'px';
-        
-        $( "#camera_slider" ).camera({ 
-            height: jumbotron_height,
-            hover: true,
-            transPeriod: 1500,
-            fx: 'simpleFade',
-            pagination: true,
-            playPause: false,
-            loader: 'none',
-            navigation: false
-        });
-        
-    }
     
     /*
      * Handle Blog Roll Masonry

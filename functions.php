@@ -18,7 +18,7 @@ if ( ! function_exists( 'juno_setup' ) ) :
 function juno_setup() {
     
         if( !defined( 'JUNO_VERSION' ) ) :
-            define( 'JUNO_VERSION', '0.02' );
+            define( 'JUNO_VERSION', '1.0.1' );
         endif;
     
 	/*
@@ -60,15 +60,7 @@ function juno_setup() {
 		'search-form',
 		'comment-form',
 		'comment-list',
-		'gallery',
-		'caption',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'juno_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
         
         /**
          * Enable custom logo support
@@ -94,11 +86,6 @@ function juno_content_width() {
 add_action( 'after_setup_theme', 'juno_content_width', 0 );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -114,11 +101,11 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
-
-/**
  * Load the theme functions file.
  */
 require get_template_directory() . '/inc/juno/juno.php';
+
+/**
+ * Load the TGM file.
+ */
+require get_template_directory() . '/inc/tgm.php';

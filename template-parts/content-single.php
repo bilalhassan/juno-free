@@ -23,22 +23,22 @@
                 </div>
             <?php endif; ?>
             
-            <div class="col-sm-<?php echo juno_main_width(); ?>">
+            <div class="col-sm-<?php echo esc_attr( juno_main_width() ); ?>">
                 
                 <div class="row">
             
                     <div class="col-sm-12">
 
-                        <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : ''; ?>);">
+                        <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ) : ''; ?>);">
 
-                            <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>">
+                            <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>">
 
                                 <h2 class="entry-title"><?php the_title(); ?></h2>
 
                                 <h6 class="post-meta">
-                                    <?php echo get_theme_mod( 'juno_blog_show_date', 'show' ) == 'show' ? juno_posted_on() : ''; ?>
+                                    <?php echo get_theme_mod( 'juno_blog_show_date', 'show' ) == 'show' ? esc_html( juno_posted_on() ) : ''; ?>
                                     <?php if ( get_theme_mod( 'juno_blog_show_author', 'show' ) == 'show' ) : ?>    
-                                    by <span class="post-author"><?php the_author_posts_link(); ?></span>
+                                        <?php _e( 'by', 'juno' ); ?> <span class="post-author"><?php the_author_posts_link(); ?></span>
                                     <?php endif; ?>
                                 </h6>
 

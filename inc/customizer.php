@@ -13,31 +13,29 @@
 function juno_customize_register( $wp_customize ) {
     
     // Resets
-    $wp_customize->remove_section( 'header_image' );
-    $wp_customize->remove_section( 'background_image' );
-    $wp_customize->remove_section( 'colors' );
-    //    $wp_customize->remove_section( 'static_front_page' );
     
-    // Header Bar Panel
-    require_once('customizer/panel-header-bar.php');
+    /**
+     * Use require_once to load the individual files containing the 
+     * Customizer settings and controls, grouped by Panel
+     */
     
-    // Front Page Panel
-    require_once('customizer/panel-front-page.php');
+    // Header Bar
+    require_once('customizer/settings-site-identity-extras.php');
+    
+    // Front Page
+    require_once('customizer/settings-front-page.php');
 
-    // General Panel
-    require_once('customizer/panel-general.php');
+    // General
+    require_once('customizer/settings-general.php');
     
-    // Blog Panel
-    require_once('customizer/panel-blog.php');
+    // Blog
+    require_once('customizer/settings-blog.php');
     
-    // Single Post Panel
-    // require_once('customizer/panel-single.php');
+    // Site Appearance
+    require_once('customizer/settings-appearance.php');
     
-    // Site Appearance Panel
-    require_once('customizer/panel-appearance.php');
-    
-    // Site Branding Panel
-    require_once('customizer/panel-branding.php');
+    // Site Branding
+    require_once('customizer/settings-branding.php');
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -57,33 +55,34 @@ add_action( 'customize_preview_init', 'juno_customize_preview_js' );
 /**
  * Sanitization Functions
  */
-
-function juno_sanitize( $input ) {
-    return $input;
-}
-
 function juno_sanitize_text( $input ) {
+    
     return sanitize_text_field( $input );
+    
 }
 
-function juno_sanitize_post( $input ) {
-    return $input;
+function juno_sanitize_color( $input ) {
+    
+    return sanitize_hex_color( $input );
+    
 }
 
 function juno_sanitize_integer( $input ) {
-    return intval( $input );
+    
+    return is_numeric( $input ) ? intval( $input ) : '';
+    
 }
 
 function juno_sanitize_overlay_decimal( $input ) {
-    return $input > 1.0 || $input < .0 ? null : $input;
+    
+    return is_numeric( $input ) && $input <= 1.0 && $input >= 0.0 ? $input : '';
+    
 }
 
-function juno_sanitize_show_hide( $input ) {
+function juno_sanitize_post( $input ) {
     
-    $valid_keys = array(
-        'show'      => __( 'Show', 'juno' ),
-        'hide'      => __( 'Hide', 'juno' ),
-    );
+    $valid_keys = juno_all_posts_array( true );
+    
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;
     } else {
@@ -92,11 +91,23 @@ function juno_sanitize_show_hide( $input ) {
     
 }
 
-function juno_sanitize_branding_toggle( $input ) {
+function juno_sanitize_font( $input ) {
+    
+    $valid_keys = juno_fonts();
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
+function juno_sanitize_show_hide( $input ) {
     
     $valid_keys = array(
-        'logo'        => __( 'Logo', 'juno' ),
-        'title'       => __( 'Title', 'juno' ),
+        'show'      => __( 'Show', 'juno' ),
+        'hide'      => __( 'Hide', 'juno' ),
     );
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;

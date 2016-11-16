@@ -11,36 +11,28 @@ function juno_scripts() {
     $fonts = juno_fonts();
 
     // Primary Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Rajdhani, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
-    endif;
-
-    // Secondary Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-secondary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif' ) ], array(), JUNO_VERSION );
+    if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
     endif;
 
     // Body Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Roboto Condensed, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
+    if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Lato, sans-serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
     endif;
     
-    wp_enqueue_style( 'juno-bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-animate', get_template_directory_uri() . '/inc/css/animate.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-slick-nav', get_template_directory_uri() . '/inc/css/slicknav.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-camera-style', get_template_directory_uri() . '/inc/css/camera.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'slicknav', get_template_directory_uri() . '/inc/css/slicknav.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'camera', get_template_directory_uri() . '/inc/css/camera.css', array(), JUNO_VERSION );
     wp_enqueue_style( 'juno-main-style', get_template_directory_uri() . '/inc/css/style.css', array(), JUNO_VERSION );
 
-    wp_enqueue_script( 'juno-jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.customized.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-camera-script', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-slick-nav-script', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.custom.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'camera-js', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'slicknav-js', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );
-    
-    // wp_enqueue_script( 'juno-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-    // wp_enqueue_script( 'juno-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -77,8 +69,8 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
-            'name'          => esc_html__( 'Bio / About', 'juno' ),
-            'id'            => 'sidebar-bio',
+            'name'          => esc_html__( 'Featured Post Section', 'juno' ),
+            'id'            => 'sidebar-featured',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<div class="col-sm-6"><section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section></div>',
@@ -87,8 +79,8 @@ function juno_widgets_init() {
     ) );
 
     register_sidebar( array(
-            'name'          => esc_html__( 'Subscribe Module', 'juno' ),
-            'id'            => 'sidebar-subscribe',
+            'name'          => esc_html__( 'Color Banner', 'juno' ),
+            'id'            => 'sidebar-color',
             'description'   => esc_html__( 'Add widgets here.', 'juno' ),
             'before_widget' => '<div class="col-sm-12"><section id="%1$s" class="widget %2$s">',
             'after_widget'  => '</section></div>',
@@ -185,11 +177,6 @@ function juno_custom_css() { ?>
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ); ?>;
         }
         
-        ul#primary-menu a
-        {
-            /* font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif' ) ); ?>; */
-        }
-        
         body {
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ); ?>;
         }
@@ -208,7 +195,7 @@ function juno_custom_css() { ?>
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
         footer #footer-widget-area .widget_categories ul li a {
-            background-color: <?php echo $skin[ 'dark' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
         ul#primary-menu > li.menu-item > ul.sub-menu > li a,
@@ -218,12 +205,12 @@ function juno_custom_css() { ?>
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
         #comments p.logged-in-as, #comments p.logged-in-as a {
-            color: <?php echo $skin[ 'dark' ]; ?>;
+            color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
-            border-bottom: thin solid <?php echo $skin[ 'dark' ]; ?>;
+            border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -239,20 +226,20 @@ function juno_custom_css() { ?>
         .widget_calendar table th,
         div#single-title-box.no-header-img,
         .widget_juno-recent-articles-widget .related-article-title {
-            background-color: <?php echo $skin[ 'primary' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
         .widget_calendar table a {
-            color: <?php echo $skin[ 'primary' ]; ?>;
+            color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
-            border-top: 15px solid <?php echo $skin[ 'primary' ]; ?>;
+            border-top: 15px solid <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         div#single-title-box {
-            background-color: <?php echo hex2rgba( $skin[ 'primary' ], 0.75 ); ?>;
+            background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -260,22 +247,22 @@ function juno_custom_css() { ?>
         #subscribe-module input[type="submit"],
         input.search-submit,
         .error-404 input.search-submit {
-            background-color: <?php echo $skin[ 'accent' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         div#single-title-box .post-meta,
         div#single-title-box .post-meta a { 
-            color: <?php echo $skin[ 'accent' ]; ?>; 
+            color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>; 
         }
         input.search-field,
         .error-404 input.search-field,
         .error-404 input.search-submit {
-            border: thin solid <?php echo $skin[ 'accent' ]; ?>;
+            border: thin solid <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         input.search-submit {
-            border: thin solid <?php echo $skin[ 'accent' ]; ?> !important;
+            border: thin solid <?php echo esc_attr( $skin[ 'accent' ] ); ?> !important;
         }
         hr.accent-divider {
-            border-color: <?php echo $skin[ 'accent' ]; ?>;
+            border-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         
     </style>
@@ -303,34 +290,40 @@ function juno_fonts(){
     $font_family_array = array(
         
         'Abel, sans-serif'                                  => 'Abel',
-        'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
-        'Open Sans, sans-serif'                             => 'Open+Sans:300,400italic,400',
-        'Impact, Charcoal, sans-serif'                      => 'Impact',
-        'Lucida Console, Monaco, monospace'                 => 'Lucida Console',
-        'Lucida Sans Unicode, Lucida Grande, sans-serif'    => 'Lucida Sans Unicode',
-        'MS Sans Serif, Geneva, sans-serif'                 => 'MS Sans Serif',
-        'MS Serif, New York, serif'                         => 'MS Serif',
-        'Palatino Linotype, Book Antiqua, Palatino, serif'  => 'Palatino Linotype',
-        'Voltaire, sans-serif'                              => 'Voltaire',
+        'Arvo, serif'                                       => 'Arvo:400,400i,700',
         'Bangers, cursive'                                  => 'Bangers',
-        'Lobster Two, cursive'                              => 'Lobster+Two',
+        'Courgette, cursive'                                => 'Courgette',
+        'Domine, serif'                                     => 'Domine',
+        'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
+        'Droid Sans, sans-serif'                            => 'Droid+Sans:400,700',
+        'Economica, sans-serif'                             => 'Economica:400,700',
         'Josefin Sans, sans-serif'                          => 'Josefin+Sans:300,400,600,700',
-        'Montserrat, sans-serif'                            => 'Montserrat:400,700',
-        'Poiret One, cursive'                               => 'Poiret+One',
-        'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
+        'Itim, cursive'                                     => 'Itim',
         'Lato, sans-serif'                                  => 'Lato:100,300,400,700,900,300italic,400italic',
-        'Raleway, sans-serif'                               => 'Raleway:200,400,300,500,700',
-        'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
-        'Orbitron, sans-serif'                              => 'Orbitron',
-        'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
+        'Lobster Two, cursive'                              => 'Lobster+Two',
         'Lora, serif'                                       => 'Lora',
-        'Oswald, sans-serif'                                => 'Oswald:300',
-        'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
-        'Teko, sans-serif'                                  => 'Teko:300,400,600',
+        'Lilita One, cursive'                               => 'Lilita+One',
+        'Montserrat, sans-serif'                            => 'Montserrat:400,700',
+        'Noto Serif, serif'                                 => 'Noto+Serif',
+        'Old Standard TT, serif'                            => 'Old+Standard+TT:400,400i,700',
+        'Open Sans, sans-serif'                             => 'Open Sans',
+        'Open Sans Condensed, sans-serif'                   => 'Open+Sans+Condensed:300,300i,700',
+        'Orbitron, sans-serif'                              => 'Orbitron',
+        'Oswald, sans-serif'                                => 'Oswald:300,400',
+        'Poiret One, cursive'                               => 'Poiret+One',
+        'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
+        'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
+        'Raleway, sans-serif'                               => 'Raleway:200,300,400,500,700',
         'Roboto, sans-serif'                                => 'Roboto:100,300,400,500',
         'Roboto Condensed, sans-serif'                      => 'Roboto+Condensed:400,300,700',
-        'Economica, sans-serif'                             => 'Economica:400,700',
-        'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
+        'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
+        'Shrikhand, cursive'                                => 'Shrikhand',
+        'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
+        'Teko, sans-serif'                                  => 'Teko:300,400,600',
+        'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
+        'Ubuntu, sans-serif'                                => 'Ubuntu',
+        'Vollkorn, serif'                                   => 'Vollkorn:400,400i,700',
+        'Voltaire, sans-serif'                              => 'Voltaire',
         
     );
     
@@ -354,8 +347,10 @@ function juno_all_posts_array( $include_pages = false ) {
         'order'            => 'ASC',
     ));
 
-    $posts_array = array();
-
+    $posts_array = array(
+        'none'  => __( 'None', 'juno' ),
+    );
+    
     foreach ( $posts as $post ) :
         
         if ( ! empty( $post->ID ) ) :
@@ -372,7 +367,17 @@ function juno_all_posts_array( $include_pages = false ) {
  * Render the jumbotron.
  */
 function juno_render_jumbotron() { ?>
-    
+        
+    <?php 
+        if ( get_theme_mod( 'juno_jumbotron_post_1', null ) == 'none' ) :
+            if ( get_theme_mod( 'juno_jumbotron_post_2', null ) == null || get_theme_mod( 'juno_jumbotron_post_2', null ) == 'none' ) :
+                if ( get_theme_mod( 'juno_jumbotron_post_3', null ) == null || get_theme_mod( 'juno_jumbotron_post_3', null ) == 'none' ) :
+                    return;
+                endif;
+            endif;
+        endif;
+    ?>
+        
     <div id="jumbotron-section" class="container-fluid">
         
         <div class="row">
@@ -383,55 +388,49 @@ function juno_render_jumbotron() { ?>
 
                     <!-- Slider Post #1 -->
 
-                        <?php $slider_post_1 = get_theme_mod( 'juno_jumbotron_post_1', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_1 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_1', null ) != 'none' ) : ?>
+                    
+                            <?php if ( get_theme_mod( 'juno_jumbotron_post_1', null ) == null ) : ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="#">
+                                            <?php esc_html_e( 'Juno WordPress Theme', 'juno' ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
+                            <?php else : ?>
+                    
+                                <?php $slider_post_1 = get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
+                            <?php endif; ?>
+                    
                         <?php endif; ?>
 
                     <!-- End of Slider Post #1 -->
-                    
+
                     <!-- Slider Post #2 -->
 
-                        <?php $slider_post_2 = get_theme_mod( 'juno_jumbotron_post_2', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_2 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_2', null ) != 'none' && get_theme_mod( 'juno_jumbotron_post_2', null ) != null ) : ?>
+                    
+                                <?php $slider_post_2 = get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
-                                </div>
-                            </div>
 
                         <?php endif; ?>
 
@@ -439,31 +438,22 @@ function juno_render_jumbotron() { ?>
                     
                     <!-- Slider Post #3 -->
 
-                        <?php $slider_post_3 = get_theme_mod( 'juno_jumbotron_post_3', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_3 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_3', null ) != 'none' && get_theme_mod( 'juno_jumbotron_post_3', null ) != null ) : ?>
+                    
+                                <?php $slider_post_3 = get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
-                                </div>
-                            </div>
 
                         <?php endif; ?>
 
                     <!-- End of Slider Post #3 -->
+                    
                     
                 </div>
                 
@@ -477,17 +467,17 @@ function juno_render_jumbotron() { ?>
 add_action( 'juno_jumbotron', 'juno_render_jumbotron' );
 
 /**
- * Render the about / biography section.
+ * Render the Featured Post section.
  */
-function juno_render_bio() { ?>
+function juno_render_featured_post_section() { ?>
     
     <div id="about-section" class="container">
         
         <div class="row">
             
-            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-bio' ) ? '5' : '12'; ?>">
+            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-featured' ) ? esc_attr( '5' ) : esc_attr( '12' ); ?>">
                 
-                <?php $about_post = get_theme_mod( 'juno_about_bio_post', null ) == null ? null : get_post( get_theme_mod( 'juno_about_bio_post', null ) ); ?>
+                <?php $about_post = get_theme_mod( 'juno_featured_post_post', null ) == null ? null : get_post( get_theme_mod( 'juno_featured_post_post', null ) ); ?>
                 
                 <h2 id="about-primary">
                     <?php echo is_null( $about_post ) ? esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ) : esc_html( get_the_title( $about_post ) ); ?>                    
@@ -499,21 +489,21 @@ function juno_render_bio() { ?>
                     <?php echo is_null( $about_post ) ? esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ) : esc_html( $about_post->post_content ); ?>                    
                 </p>
                 
-                <?php if ( get_theme_mod( 'juno_about_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
+                <?php if ( get_theme_mod( 'juno_featured_post_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
                 
                     <a class="accent-button" href="<?php echo esc_url( get_the_permalink( $about_post ) ); ?>">
-                        <?php echo esc_html( get_theme_mod( 'juno_about_section_button_label', '' ) ); ?>
+                        <?php echo esc_html( get_theme_mod( 'juno_featured_post_section_button_label', '' ) ); ?>
                     </a>
                 
                 <?php endif; ?>
                 
             </div>
             
-            <?php if ( is_active_sidebar( 'sidebar-bio' ) ) : ?>
+            <?php if ( is_active_sidebar( 'sidebar-featured' ) ) : ?>
                 
                 <div class="col-sm-6 col-sm-offset-1">
 
-                    <?php get_sidebar( 'bio' ); ?>
+                    <?php get_sidebar( 'featured' ); ?>
                     
                 </div>
                 
@@ -524,14 +514,14 @@ function juno_render_bio() { ?>
     </div>
 
 <?php }
-add_action( 'juno_bio', 'juno_render_bio' );
+add_action( 'juno_featured_post_section', 'juno_render_featured_post_section' );
 
 /**
- * Render the homepage subscribe CTA area.
+ * Render the homepage color banner widget area.
  */
-function juno_render_subscribe_module() { ?>
+function juno_render_color_banner_section() { ?>
     
-    <?php if ( is_active_sidebar( 'sidebar-subscribe' ) ) : ?>
+    <?php if ( is_active_sidebar( 'sidebar-color' ) ) : ?>
     
         <div id="subscribe-module" class="container-fluid">
 
@@ -543,7 +533,7 @@ function juno_render_subscribe_module() { ?>
 
                         <div class="row">
 
-                            <?php get_sidebar( 'subscribe' ); ?>
+                            <?php get_sidebar( 'color' ); ?>
 
                         </div>
 
@@ -558,7 +548,7 @@ function juno_render_subscribe_module() { ?>
     <?php endif; ?>
     
 <?php }
-add_action( 'juno_subscribe', 'juno_render_subscribe_module' );
+add_action( 'juno_color_banner', 'juno_render_color_banner_section' );
 
 /**
  * Render the homepage widget areas.
@@ -737,72 +727,72 @@ function juno_render_social_module() { ?>
                             
                             <div id="social-container">
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_facebook_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_facebook_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_facebook_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-facebook"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_twitter_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_twitter_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_twitter_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-twitter"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_google_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_google_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_google_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_google_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-google-plus"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_linkedin_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_linkedin_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_linkedin_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-linkedin"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_behance_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_behance_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_behance_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_behance_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-behance"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_instagram_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_instagram_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_instagram_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-instagram"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_pinterest_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_pinterest_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_pinterest_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-pinterest-p"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_youtube_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_youtube_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_youtube_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-youtube-play"></i>
                                         </div>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if ( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) != '' ) : ?>
-                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_vimeo_url', '#' ) ); ?>">
+                                <?php if ( get_theme_mod( 'juno_social_icon_vimeo_url', '' ) != '' ) : ?>
+                                    <a href="<?php echo esc_url( get_theme_mod( 'juno_social_icon_vimeo_url', '' ) ); ?>">
                                         <div class="social-bubble">
                                             <i class="fa fa-vimeo"></i>
                                         </div>
@@ -875,12 +865,12 @@ function juno_render_footer() { ?>
                             <div id="footer-branding">
 
                                 <span class="site-info">
-                                    &copy; <?php echo esc_attr( get_theme_mod( 'juno_footer_copyright', __( 'Smartcat', 'juno' )  ) ); ?>
-                                    <?php echo ' ' . date( 'Y' ); ?>
+                                    &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
+                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
                                     |
                                 </span>
 
-                                Designed by Smartcat <img src="<?php echo get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png"; ?>" alt="Smartcat">
+                                <?php _e( 'Designed by', 'juno' ); ?> Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="Smartcat <?php _e( 'Logo', 'juno' ); ?>">
 
                             </div>
 
@@ -939,7 +929,7 @@ function juno_get_skin_colors() {
     
 }
 
-function hex2rgba( $color, $opacity = false ) {
+function juno_hex2rgba( $color, $opacity = false ) {
  
     $default = 'rgb(0,0,0)';
 
@@ -978,7 +968,56 @@ function hex2rgba( $color, $opacity = false ) {
         
 }
 
-function juno_load_widgets() {
+function juno_custom_js() { ?>
     
-}
-add_action( 'widgets_init', 'juno_load_widgets' );
+    <script type="text/javascript">
+    
+        jQuery(document).ready( function( $ ) {
+            
+            <?php 
+                
+                $single_slide = false;
+            
+                if ( get_theme_mod( 'juno_jumbotron_post_2', null ) == null || get_theme_mod( 'juno_jumbotron_post_2', null ) == 'none' ) :
+                
+                    if ( get_theme_mod( 'juno_jumbotron_post_3', null ) == null || get_theme_mod( 'juno_jumbotron_post_3', null ) == 'none' ) :
+                        
+                        $single_slide = true;
+                        
+                    endif;
+                    
+                endif;
+                
+            ?>
+            
+            /*
+            * Initialize the homepage slider module (only if the element exists on the page)
+            */
+            if ( $( "#camera_slider" ).length ) {
+
+                var viewport_height = $(window).height(),
+                    header_height = $( 'header#masthead' ).height();
+
+                var jumbotron_height = viewport_height - header_height + 'px';
+
+                $( "#camera_slider" ).camera({ 
+                    height: jumbotron_height,
+                    hover: true,
+                    transPeriod: 1000,
+                    fx: 'simpleFade',
+                    pagination: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                    playPause: false,
+                    loader: 'none',
+                    navigation: false,
+                    autoAdvance: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                    mobileAutoAdvance: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                });
+
+            }
+            
+        });
+    
+    </script>
+    
+<?php }
+add_action('wp_head', 'juno_custom_js');

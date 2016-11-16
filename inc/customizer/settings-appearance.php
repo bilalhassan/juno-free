@@ -22,7 +22,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_primary', array (
         'default'               => '#72c4c0',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'juno_sanitize_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_primary', array(
@@ -36,7 +36,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_accent', array (
         'default'               => '#ffc859',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'juno_sanitize_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_accent', array(
@@ -50,7 +50,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_dark', array (
         'default'               => '#1f2933',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'juno_sanitize_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_dark', array(
@@ -73,42 +73,28 @@ $wp_customize->add_section( 'juno_fonts_section', array(
     $wp_customize->add_setting( 'juno_font_primary', array (
         'default'               => 'Montserrat, sans-serif',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text'
+        'sanitize_callback'     => 'juno_sanitize_font'
     ) );
     $wp_customize->add_control( 'juno_font_primary', array(
         'type'                  => 'select',
         'section'               => 'juno_fonts_section',
         'label'                 => __( 'Primary Font', 'juno' ),
         'description'           => __( 'Select the primary font of the theme', 'juno' ),
-        'choices'               => juno_fonts()
-    ) );
-
-    // Secondary Font Family
-    $wp_customize->add_setting( 'juno_font_secondary', array (
-        'default'               => 'Abel, sans-serif',
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text'
-    ) );
-    $wp_customize->add_control( 'juno_font_secondary', array(
-        'type'                  => 'select',
-        'section'               => 'juno_fonts_section',
-        'label'                 => __( 'Secondary Font', 'juno' ),
-        'description'           => __( 'Select the secondary font of the theme', 'juno' ),
-        'choices'               => juno_fonts()
+        'choices'               => juno_fonts(),
     ) );
 
     // Body Font Family
     $wp_customize->add_setting( 'juno_font_body', array (
         'default'               => 'Lato, sans-serif',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text'
+        'sanitize_callback'     => 'juno_sanitize_font'
     ) );
     $wp_customize->add_control( 'juno_font_body', array(
         'type'                  => 'select',
         'section'               => 'juno_fonts_section',
         'label'                 => __( 'Body Font', 'juno' ),
         'description'           => __( 'Set the font family for the body content of the site', 'juno' ),
-        'choices'               => juno_fonts()
+        'choices'               => juno_fonts(),
     ) );
 
     // Site Title Font Size
