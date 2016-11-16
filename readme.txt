@@ -1,11 +1,11 @@
 === Juno ===
 
 Contributors: smartcat
-Tags: one-column, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, news, portfolio
+Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, news, portfolio
 
 Requires at least: 4.4
 Tested up to: 4.6.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -33,8 +33,15 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 
 == Changelog ==
 
-= 1.0.0 - May 12 2015 =
+= 1.0.0 - May 12 2016 =
 * Initial release
+
+= 1.0.1 - Nov 16 2016 =
+* General code cleanup
+* Updated screenshot.png
+* Removed unused files and images
+* Changed name of section under Jumbotron to "Featured Post Section"
+* Changed name of "Subscribe Module" widget area to more appropriate "Color Banner"
 
 == Credits ==
 
@@ -107,3 +114,9 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
                             https://pixabay.com/en/waterfall-yosemite-park-1328321/
     - License               CC0
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en    
+
+14. Icons & Images
+   - Files                 hover-corner.png, sc-emblem-skyblue.png
+   - URL                   Personal images created by Smartcat
+   - License               CC0
+   - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en

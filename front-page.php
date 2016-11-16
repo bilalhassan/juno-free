@@ -76,9 +76,9 @@ $front = get_option( 'show_on_front' ); ?>
 
                                     <?php
                                         if ( $front == 'posts' ) :
-                                            get_template_part( 'template-parts/content-blog', get_post_format() );
+                                            get_template_part( 'template-parts/content', 'blog' );
                                         else:
-                                            get_template_part( 'template-parts/content-page-home', get_post_format() );
+                                            get_template_part( 'template-parts/content', 'page-home' );
                                         endif;
                                     ?>
 

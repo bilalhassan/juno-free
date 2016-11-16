@@ -33,9 +33,6 @@ function juno_scripts() {
     wp_enqueue_script( 'camera-js', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'slicknav-js', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );
-    
-    // wp_enqueue_script( 'juno-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-    // wp_enqueue_script( 'juno-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -370,7 +367,17 @@ function juno_all_posts_array( $include_pages = false ) {
  * Render the jumbotron.
  */
 function juno_render_jumbotron() { ?>
-    
+        
+    <?php 
+        if ( get_theme_mod( 'juno_jumbotron_post_1', null ) == 'none' ) :
+            if ( get_theme_mod( 'juno_jumbotron_post_2', null ) == null || get_theme_mod( 'juno_jumbotron_post_2', null ) == 'none' ) :
+                if ( get_theme_mod( 'juno_jumbotron_post_3', null ) == null || get_theme_mod( 'juno_jumbotron_post_3', null ) == 'none' ) :
+                    return;
+                endif;
+            endif;
+        endif;
+    ?>
+        
     <div id="jumbotron-section" class="container-fluid">
         
         <div class="row">
@@ -381,55 +388,49 @@ function juno_render_jumbotron() { ?>
 
                     <!-- Slider Post #1 -->
 
-                        <?php $slider_post_1 = get_theme_mod( 'juno_jumbotron_post_1', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_1 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_1', null ) != 'none' ) : ?>
+                    
+                            <?php if ( get_theme_mod( 'juno_jumbotron_post_1', null ) == null ) : ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="#">
+                                            <?php esc_html_e( 'Juno WordPress Theme', 'juno' ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
+                            <?php else : ?>
+                    
+                                <?php $slider_post_1 = get_post( get_theme_mod( 'juno_jumbotron_post_1', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
+                            <?php endif; ?>
+                    
                         <?php endif; ?>
 
                     <!-- End of Slider Post #1 -->
-                    
+
                     <!-- Slider Post #2 -->
 
-                        <?php $slider_post_2 = get_theme_mod( 'juno_jumbotron_post_2', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_2 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_2', null ) != 'none' && get_theme_mod( 'juno_jumbotron_post_2', null ) != null ) : ?>
+                    
+                                <?php $slider_post_2 = get_post( get_theme_mod( 'juno_jumbotron_post_2', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_2 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_2 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/waterfall.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
-                                </div>
-                            </div>
 
                         <?php endif; ?>
 
@@ -437,31 +438,22 @@ function juno_render_jumbotron() { ?>
                     
                     <!-- Slider Post #3 -->
 
-                        <?php $slider_post_3 = get_theme_mod( 'juno_jumbotron_post_3', null ) == null ? null : get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
-
-                        <?php if ( ! is_null( $slider_post_3 ) ) : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
-                                        <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
-                                    </a>
+                        <?php if ( get_theme_mod( 'juno_jumbotron_post_3', null ) != 'none' && get_theme_mod( 'juno_jumbotron_post_3', null ) != null ) : ?>
+                    
+                                <?php $slider_post_3 = get_post( get_theme_mod( 'juno_jumbotron_post_3', null ) ); ?>
+                    
+                                <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
+                                    <div class="camera_caption wow fadeIn">
+                                        <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
+                                            <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-
-                        <?php else : ?>
-
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
-                                <div class="camera_caption wow fadeIn">
-                                    <a href="#">
-                                        <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
-                                    </a>
-                                </div>
-                            </div>
 
                         <?php endif; ?>
 
                     <!-- End of Slider Post #3 -->
+                    
                     
                 </div>
                 
@@ -878,7 +870,7 @@ function juno_render_footer() { ?>
                                     |
                                 </span>
 
-                                Designed by Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="<?php ?>">
+                                <?php _e( 'Designed by', 'juno' ); ?> Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="Smartcat <?php _e( 'Logo', 'juno' ); ?>">
 
                             </div>
 
@@ -975,3 +967,57 @@ function juno_hex2rgba( $color, $opacity = false ) {
     return $output;
         
 }
+
+function juno_custom_js() { ?>
+    
+    <script type="text/javascript">
+    
+        jQuery(document).ready( function( $ ) {
+            
+            <?php 
+                
+                $single_slide = false;
+            
+                if ( get_theme_mod( 'juno_jumbotron_post_2', null ) == null || get_theme_mod( 'juno_jumbotron_post_2', null ) == 'none' ) :
+                
+                    if ( get_theme_mod( 'juno_jumbotron_post_3', null ) == null || get_theme_mod( 'juno_jumbotron_post_3', null ) == 'none' ) :
+                        
+                        $single_slide = true;
+                        
+                    endif;
+                    
+                endif;
+                
+            ?>
+            
+            /*
+            * Initialize the homepage slider module (only if the element exists on the page)
+            */
+            if ( $( "#camera_slider" ).length ) {
+
+                var viewport_height = $(window).height(),
+                    header_height = $( 'header#masthead' ).height();
+
+                var jumbotron_height = viewport_height - header_height + 'px';
+
+                $( "#camera_slider" ).camera({ 
+                    height: jumbotron_height,
+                    hover: true,
+                    transPeriod: 1000,
+                    fx: 'simpleFade',
+                    pagination: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                    playPause: false,
+                    loader: 'none',
+                    navigation: false,
+                    autoAdvance: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                    mobileAutoAdvance: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
+                });
+
+            }
+            
+        });
+    
+    </script>
+    
+<?php }
+add_action('wp_head', 'juno_custom_js');

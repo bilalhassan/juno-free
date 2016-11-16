@@ -13,10 +13,6 @@
 function juno_customize_register( $wp_customize ) {
     
     // Resets
-    $wp_customize->remove_section( 'header_image' );
-    $wp_customize->remove_section( 'background_image' );
-    $wp_customize->remove_section( 'colors' );
-    //    $wp_customize->remove_section( 'static_front_page' );
     
     /**
      * Use require_once to load the individual files containing the 

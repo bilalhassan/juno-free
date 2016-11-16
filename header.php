@@ -63,6 +63,8 @@
 
                         <?php else : ?>
 
+                            <?php if ( current_user_can( 'edit_theme_options' ) ) : ?>
+                        
                             <div class="menu-testing-menu-container">
 
                                 <ul id="primary-menu" class="menu">
@@ -79,6 +81,8 @@
 
                             </div>
 
+                            <?php endif; ?>
+                        
                         <?php endif; ?>
 
                     </nav>
