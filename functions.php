@@ -122,3 +122,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load the theme functions file.
  */
 require get_template_directory() . '/inc/juno/juno.php';
+
+/**
+ * Load the TGM file.
+ */
+require get_template_directory() . '/inc/tgm.php';
