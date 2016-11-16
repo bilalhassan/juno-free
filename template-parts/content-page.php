@@ -17,9 +17,9 @@
 
             <div class="col-sm-12">
                 
-                <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( the_post_thumbnail_url( 'large' ) ) : ''; ?>);">
+                <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( 'large' ) ) : ''; ?>);">
 
-                    <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : 'no-header-img'; ?>">
+                    <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>">
 
                         <h2 class="entry-title"><?php the_title(); ?></h2>
 
@@ -37,7 +37,7 @@
                 </div>
             <?php endif; ?>
             
-            <div class="col-sm-<?php echo juno_main_width(); ?>">
+            <div class="col-sm-<?php echo esc_attr( juno_main_width() ); ?>">
             
                 <div class="row">
 

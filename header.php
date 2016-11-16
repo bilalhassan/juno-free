@@ -40,7 +40,7 @@
                     } else { ?>
 
                         <a href="<?php echo esc_url( home_url() ); ?>">
-                            <?php esc_html( bloginfo( 'name' ) ); ?>
+                            <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
                         </a>
 
                     <?php } ?>

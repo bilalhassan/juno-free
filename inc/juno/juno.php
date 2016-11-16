@@ -208,7 +208,7 @@ function juno_custom_css() { ?>
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
         footer #footer-widget-area .widget_categories ul li a {
-            background-color: <?php echo $skin[ 'dark' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
         ul#primary-menu > li.menu-item > ul.sub-menu > li a,
@@ -218,12 +218,12 @@ function juno_custom_css() { ?>
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
         #comments p.logged-in-as, #comments p.logged-in-as a {
-            color: <?php echo $skin[ 'dark' ]; ?>;
+            color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
-            border-bottom: thin solid <?php echo $skin[ 'dark' ]; ?>;
+            border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -239,20 +239,20 @@ function juno_custom_css() { ?>
         .widget_calendar table th,
         div#single-title-box.no-header-img,
         .widget_juno-recent-articles-widget .related-article-title {
-            background-color: <?php echo $skin[ 'primary' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
         .widget_calendar table a {
-            color: <?php echo $skin[ 'primary' ]; ?>;
+            color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
-            border-top: 15px solid <?php echo $skin[ 'primary' ]; ?>;
+            border-top: 15px solid <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         div#single-title-box {
-            background-color: <?php echo hex2rgba( $skin[ 'primary' ], 0.75 ); ?>;
+            background-color: <?php echo esc_attr( hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -260,22 +260,22 @@ function juno_custom_css() { ?>
         #subscribe-module input[type="submit"],
         input.search-submit,
         .error-404 input.search-submit {
-            background-color: <?php echo $skin[ 'accent' ]; ?>;
+            background-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         div#single-title-box .post-meta,
         div#single-title-box .post-meta a { 
-            color: <?php echo $skin[ 'accent' ]; ?>; 
+            color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>; 
         }
         input.search-field,
         .error-404 input.search-field,
         .error-404 input.search-submit {
-            border: thin solid <?php echo $skin[ 'accent' ]; ?>;
+            border: thin solid <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         input.search-submit {
-            border: thin solid <?php echo $skin[ 'accent' ]; ?> !important;
+            border: thin solid <?php echo esc_attr( $skin[ 'accent' ] ); ?> !important;
         }
         hr.accent-divider {
-            border-color: <?php echo $skin[ 'accent' ]; ?>;
+            border-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
         
     </style>
@@ -487,7 +487,7 @@ function juno_render_featured_post_section() { ?>
         
         <div class="row">
             
-            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-featured' ) ? '5' : '12'; ?>">
+            <div class="col-sm-<?php echo is_active_sidebar( 'sidebar-featured' ) ? esc_attr( '5' ) : esc_attr( '12' ); ?>">
                 
                 <?php $about_post = get_theme_mod( 'juno_featured_post_post', null ) == null ? null : get_post( get_theme_mod( 'juno_featured_post_post', null ) ); ?>
                 
@@ -878,11 +878,11 @@ function juno_render_footer() { ?>
 
                                 <span class="site-info">
                                     &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo ' ' . date( 'Y' ); ?>
+                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
                                     |
                                 </span>
 
-                                Designed by Smartcat <img src="<?php echo get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png"; ?>" alt="Smartcat">
+                                Designed by Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="<?php ?>">
 
                             </div>
 

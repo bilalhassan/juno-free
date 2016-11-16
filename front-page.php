@@ -67,9 +67,9 @@ $front = get_option( 'show_on_front' ); ?>
                                 </div>
                             <?php endif; ?>
                                 
-                            <div class="col-sm-<?php echo juno_main_width(); ?>">
+                            <div class="col-sm-<?php echo esc_attr( juno_main_width() ); ?>">
                                 
-                                <?php echo $front == 'posts' ? '<div class="juno-blog-content"><div id="masonry-blog-wrapper"><div class="grid-sizer"></div><div class="gutter-sizer"></div>' : ''; ?>
+                                <?php echo $front == 'posts' ? esc_html( '<div class="juno-blog-content"><div id="masonry-blog-wrapper"><div class="grid-sizer"></div><div class="gutter-sizer"></div>' ) : ''; ?>
 
                                 <?php /* Start the Loop */ ?>
                                 <?php while ( have_posts() ) : the_post(); ?>
@@ -84,7 +84,7 @@ $front = get_option( 'show_on_front' ); ?>
 
                                 <?php endwhile; ?>
 
-                                <?php echo $front == 'posts' ? '</div>' : ''; ?>
+                                <?php echo $front == 'posts' ? esc_html( '</div>' ) : ''; ?>
 
                                 <?php if ( $front == 'posts' ) : ?>
                                     <div class="col-sm-12">
@@ -96,7 +96,7 @@ $front = get_option( 'show_on_front' ); ?>
                                     </div>
                                 <?php endif; ?>
                                 
-                                <?php echo $front == 'posts' ? '</div>' : ''; ?>
+                                <?php echo $front == 'posts' ? esc_html( '</div>' ) : ''; ?>
                                 
                             </div>
 
