@@ -55,7 +55,7 @@
                 </h5>
             <?php endif; ?>
             
-            <div class="image-corner" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/inc/images/blog-corner-skin-1.png' ); ?>);"></div>
+            <div class="image-corner" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/inc/images/hover-corner.png' ); ?>);"></div>
             <a href="<?php the_permalink() ?>">
                 <i class="fa fa-external-link icon"></i>
             </a>

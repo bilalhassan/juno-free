@@ -11,32 +11,27 @@ function juno_scripts() {
     $fonts = juno_fonts();
 
     // Primary Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Rajdhani, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
-    endif;
-
-    // Secondary Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-secondary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif' ) ], array(), JUNO_VERSION );
+    if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
     endif;
 
     // Body Font Enqueue
-    if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Roboto Condensed, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('juno-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
+    if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Lato, sans-serif'), $fonts ) ) :
+        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
     endif;
     
-    wp_enqueue_style( 'juno-bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-animate', get_template_directory_uri() . '/inc/css/animate.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-slick-nav', get_template_directory_uri() . '/inc/css/slicknav.min.css', array(), JUNO_VERSION );
-    wp_enqueue_style( 'juno-camera-style', get_template_directory_uri() . '/inc/css/camera.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'animate', get_template_directory_uri() . '/inc/css/animate.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'slicknav', get_template_directory_uri() . '/inc/css/slicknav.min.css', array(), JUNO_VERSION );
+    wp_enqueue_style( 'camera', get_template_directory_uri() . '/inc/css/camera.css', array(), JUNO_VERSION );
     wp_enqueue_style( 'juno-main-style', get_template_directory_uri() . '/inc/css/style.css', array(), JUNO_VERSION );
 
-    wp_enqueue_script( 'juno-jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.customized.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-camera-script', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'juno-slick-nav-script', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.custom.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'camera-js', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'slicknav-js', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );
     
     // wp_enqueue_script( 'juno-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -185,11 +180,6 @@ function juno_custom_css() { ?>
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ); ?>;
         }
         
-        ul#primary-menu a
-        {
-            /* font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_secondary', 'Abel, sans-serif' ) ); ?>; */
-        }
-        
         body {
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ); ?>;
         }
@@ -252,7 +242,7 @@ function juno_custom_css() { ?>
             border-top: 15px solid <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         div#single-title-box {
-            background-color: <?php echo esc_attr( hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
+            background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -303,34 +293,40 @@ function juno_fonts(){
     $font_family_array = array(
         
         'Abel, sans-serif'                                  => 'Abel',
-        'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
-        'Open Sans, sans-serif'                             => 'Open+Sans:300,400italic,400',
-        'Impact, Charcoal, sans-serif'                      => 'Impact',
-        'Lucida Console, Monaco, monospace'                 => 'Lucida Console',
-        'Lucida Sans Unicode, Lucida Grande, sans-serif'    => 'Lucida Sans Unicode',
-        'MS Sans Serif, Geneva, sans-serif'                 => 'MS Sans Serif',
-        'MS Serif, New York, serif'                         => 'MS Serif',
-        'Palatino Linotype, Book Antiqua, Palatino, serif'  => 'Palatino Linotype',
-        'Voltaire, sans-serif'                              => 'Voltaire',
+        'Arvo, serif'                                       => 'Arvo:400,400i,700',
         'Bangers, cursive'                                  => 'Bangers',
-        'Lobster Two, cursive'                              => 'Lobster+Two',
+        'Courgette, cursive'                                => 'Courgette',
+        'Domine, serif'                                     => 'Domine',
+        'Dosis, sans-serif'                                 => 'Dosis:200,300,400',
+        'Droid Sans, sans-serif'                            => 'Droid+Sans:400,700',
+        'Economica, sans-serif'                             => 'Economica:400,700',
         'Josefin Sans, sans-serif'                          => 'Josefin+Sans:300,400,600,700',
-        'Montserrat, sans-serif'                            => 'Montserrat:400,700',
-        'Poiret One, cursive'                               => 'Poiret+One',
-        'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
+        'Itim, cursive'                                     => 'Itim',
         'Lato, sans-serif'                                  => 'Lato:100,300,400,700,900,300italic,400italic',
-        'Raleway, sans-serif'                               => 'Raleway:200,400,300,500,700',
-        'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
-        'Orbitron, sans-serif'                              => 'Orbitron',
-        'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
+        'Lobster Two, cursive'                              => 'Lobster+Two',
         'Lora, serif'                                       => 'Lora',
-        'Oswald, sans-serif'                                => 'Oswald:300',
-        'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
-        'Teko, sans-serif'                                  => 'Teko:300,400,600',
+        'Lilita One, cursive'                               => 'Lilita+One',
+        'Montserrat, sans-serif'                            => 'Montserrat:400,700',
+        'Noto Serif, serif'                                 => 'Noto+Serif',
+        'Old Standard TT, serif'                            => 'Old+Standard+TT:400,400i,700',
+        'Open Sans, sans-serif'                             => 'Open Sans',
+        'Open Sans Condensed, sans-serif'                   => 'Open+Sans+Condensed:300,300i,700',
+        'Orbitron, sans-serif'                              => 'Orbitron',
+        'Oswald, sans-serif'                                => 'Oswald:300,400',
+        'Poiret One, cursive'                               => 'Poiret+One',
+        'PT Sans Narrow, sans-serif'                        => 'PT+Sans+Narrow',
+        'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
+        'Raleway, sans-serif'                               => 'Raleway:200,300,400,500,700',
         'Roboto, sans-serif'                                => 'Roboto:100,300,400,500',
         'Roboto Condensed, sans-serif'                      => 'Roboto+Condensed:400,300,700',
-        'Economica, sans-serif'                             => 'Economica:400,700',
-        'Rajdhani, sans-serif'                              => 'Rajdhani:300,400,500,600',
+        'Shadows Into Light, cursive'                       => 'Shadows+Into+Light',
+        'Shrikhand, cursive'                                => 'Shrikhand',
+        'Source Sans Pro, sans-serif'                       => 'Source+Sans+Pro:200,400,600',
+        'Teko, sans-serif'                                  => 'Teko:300,400,600',
+        'Titillium Web, sans-serif'                         => 'Titillium+Web:400,200,300,600,700,200italic,300italic,400italic,600italic,700italic',
+        'Ubuntu, sans-serif'                                => 'Ubuntu',
+        'Vollkorn, serif'                                   => 'Vollkorn:400,400i,700',
+        'Voltaire, sans-serif'                              => 'Voltaire',
         
     );
     
@@ -389,7 +385,7 @@ function juno_render_jumbotron() { ?>
 
                         <?php if ( ! is_null( $slider_post_1 ) ) : ?>
 
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_1 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_1 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
                                 <div class="camera_caption wow fadeIn">
                                     <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
                                         <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
@@ -399,7 +395,7 @@ function juno_render_jumbotron() { ?>
 
                         <?php else : ?>
 
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/italy.jpg' ); ?>">
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
                                 <div class="camera_caption wow fadeIn">
                                     <a href="#">
                                         <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
@@ -445,7 +441,7 @@ function juno_render_jumbotron() { ?>
 
                         <?php if ( ! is_null( $slider_post_3 ) ) : ?>
 
-                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                            <div class="camera_lime_skin" data-src="<?php echo has_post_thumbnail( $slider_post_3 ) ? esc_url( get_the_post_thumbnail_url( $slider_post_3 ) ) : esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
                                 <div class="camera_caption wow fadeIn">
                                     <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
                                         <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
@@ -455,7 +451,7 @@ function juno_render_jumbotron() { ?>
 
                         <?php else : ?>
 
-                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/mountains.jpg' ); ?>">
+                            <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
                                 <div class="camera_caption wow fadeIn">
                                     <a href="#">
                                         <?php esc_html_e( 'Welcome to Juno', 'juno' ); ?>
@@ -941,7 +937,7 @@ function juno_get_skin_colors() {
     
 }
 
-function hex2rgba( $color, $opacity = false ) {
+function juno_hex2rgba( $color, $opacity = false ) {
  
     $default = 'rgb(0,0,0)';
 

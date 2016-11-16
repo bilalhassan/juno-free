@@ -83,20 +83,6 @@ $wp_customize->add_section( 'juno_fonts_section', array(
         'choices'               => juno_fonts(),
     ) );
 
-    // Secondary Font Family
-    $wp_customize->add_setting( 'juno_font_secondary', array (
-        'default'               => 'Abel, sans-serif',
-        'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_font'
-    ) );
-    $wp_customize->add_control( 'juno_font_secondary', array(
-        'type'                  => 'select',
-        'section'               => 'juno_fonts_section',
-        'label'                 => __( 'Secondary Font', 'juno' ),
-        'description'           => __( 'Select the secondary font of the theme', 'juno' ),
-        'choices'               => juno_fonts(),
-    ) );
-
     // Body Font Family
     $wp_customize->add_setting( 'juno_font_body', array (
         'default'               => 'Lato, sans-serif',
