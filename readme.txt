@@ -1,7 +1,7 @@
 === Juno ===
 
 Contributors: smartcat
-Tags: one-column, two-column, three-column, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, news, portfolio
+Tags: one-column, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, news, portfolio
 
 Requires at least: 4.4
 Tested up to: 4.6.1
