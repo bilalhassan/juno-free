@@ -5,7 +5,7 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-
 
 Requires at least: 4.4
 Tested up to: 4.6.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -42,6 +42,11 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 * Removed unused files and images
 * Changed name of section under Jumbotron to "Featured Post Section"
 * Changed name of "Subscribe Module" widget area to more appropriate "Color Banner"
+
+= 1.0.2 - Nov 17 2016 =
+* Updated juno.pot
+* Minor CSS adjustments
+* Changed archive and blog pagination functions
 
 == Credits ==
 
