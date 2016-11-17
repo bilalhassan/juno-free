@@ -25,6 +25,9 @@ function juno_customize_register( $wp_customize ) {
     // Front Page
     require_once('customizer/settings-front-page.php');
 
+    // Jumbotron
+    require_once('customizer/settings-jumbotron.php');
+
     // General
     require_once('customizer/settings-general.php');
     
@@ -94,6 +97,21 @@ function juno_sanitize_post( $input ) {
 function juno_sanitize_font( $input ) {
     
     $valid_keys = juno_fonts();
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
+function juno_sanitize_slide_effect( $input ) {
+    
+    $valid_keys = array(
+        'fade'      => __( 'Fade', 'juno' ),
+        'scroll'    => __( 'Scroll', 'juno' ),
+    );
     
     if ( array_key_exists( $input, $valid_keys ) ) {
         return $input;
