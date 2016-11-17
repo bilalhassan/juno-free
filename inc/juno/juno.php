@@ -194,7 +194,8 @@ function juno_custom_css() { ?>
         header#masthead,
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
-        footer #footer-widget-area .widget_categories ul li a {
+        footer #footer-widget-area .widget_categories ul li a,
+        #subscribe-module .widget_calendar table th {
             background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
@@ -204,13 +205,21 @@ function juno_custom_css() { ?>
         .juno-blog-content .blog-roll-item .inner h3.post-title a,
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
-        #comments p.logged-in-as, #comments p.logged-in-as a {
+        #comments p.logged-in-as, #comments p.logged-in-as a, 
+        footer .widget_calendar table td,
+        #subscribe-module .widget_calendar table caption,
+        #subscribe-module .widget_calendar table td {
             color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
             border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
+        }
+        
+        footer .widget_calendar table th, 
+        footer .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -225,14 +234,17 @@ function juno_custom_css() { ?>
         #subscribe-module .widget_categories ul li a,
         .widget_calendar table th,
         div#single-title-box.no-header-img,
-        .widget_juno-recent-articles-widget .related-article-title {
+        .widget_juno-recent-articles-widget .related-article-title,
+        nav.posts-navigation .nav-links a {
             background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
-        .widget_calendar table a {
+        .widget_calendar table a,
+        .widget_calendar caption,
+        footer .widget_calendar caption {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -240,6 +252,10 @@ function juno_custom_css() { ?>
         }
         div#single-title-box {
             background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
+        }
+        #subscribe-module .widget_calendar table th, 
+        #subscribe-module .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -866,7 +882,7 @@ function juno_render_footer() { ?>
 
                                 <span class="site-info">
                                     &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
+                                    <?php echo date_i18n( __('Y', 'juno' ) ); ?>
                                     |
                                 </span>
 

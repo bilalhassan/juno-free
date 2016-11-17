@@ -25,7 +25,9 @@ get_header(); ?>
                                 <h2 class="entry-title">
                                     <?php the_archive_title(); ?>
                                 </h2>
-
+                                    
+                                <?php the_archive_description(); ?>
+                                
                             </div>
 
                         </header><!-- .page-header -->
@@ -64,9 +66,7 @@ get_header(); ?>
 
                                         </div><!-- #masonry-blog-wrapper -->
 
-                                        <div class="pagination-links">
-                                            <?php echo paginate_links(); ?>
-                                        </div>
+                                        <?php the_posts_navigation(); ?>
 
                                     </div><!-- #juno-blog-content -->
 
