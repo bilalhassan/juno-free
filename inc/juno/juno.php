@@ -194,7 +194,8 @@ function juno_custom_css() { ?>
         header#masthead,
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
-        footer #footer-widget-area .widget_categories ul li a {
+        footer #footer-widget-area .widget_categories ul li a,
+        #subscribe-module .widget_calendar table th {
             background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
@@ -204,13 +205,21 @@ function juno_custom_css() { ?>
         .juno-blog-content .blog-roll-item .inner h3.post-title a,
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
-        #comments p.logged-in-as, #comments p.logged-in-as a {
+        #comments p.logged-in-as, #comments p.logged-in-as a,
+        footer .widget_calendar table td,
+        #subscribe-module .widget_calendar table caption,
+        #subscribe-module .widget_calendar table td {
             color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
             border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
+        }
+        
+        footer .widget_calendar table th,
+        footer .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -225,14 +234,17 @@ function juno_custom_css() { ?>
         #subscribe-module .widget_categories ul li a,
         .widget_calendar table th,
         div#single-title-box.no-header-img,
-        .widget_juno-recent-articles-widget .related-article-title {
+        .widget_juno-recent-articles-widget .related-article-title,
+        nav.posts-navigation .nav-links a {
             background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
-        .widget_calendar table a {
+        .widget_calendar table a,
+        .widget_calendar caption,
+        footer .widget_calendar caption {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -240,6 +252,10 @@ function juno_custom_css() { ?>
         }
         div#single-title-box {
             background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
+        }
+        #subscribe-module .widget_calendar table th,
+        #subscribe-module .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -884,7 +900,7 @@ function juno_render_footer() { ?>
 
                                 <span class="site-info">
                                     &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
+                                    <?php echo date_i18n( __( 'Y', 'juno' ) ); ?>
                                     |
                                 </span>
 
@@ -1045,3 +1061,94 @@ function juno_custom_js() { ?>
     
 <?php }
 add_action('wp_head', 'juno_custom_js');
+
+new Smartcat_Juno_Featured_Image_Meta_Box();
+class Smartcat_Juno_Featured_Image_Meta_Box {
+
+    public function __construct() {
+
+        if ( is_admin() ) {
+            add_action( 'load-post.php',        array ( $this, 'init_metabox' ) );
+            add_action( 'load-post-new.php',    array ( $this, 'init_metabox' ) );
+        }
+        
+    }
+
+    public function init_metabox() {
+
+        add_action( 'add_meta_boxes',           array ( $this, 'add_metabox' ) );
+        add_action( 'save_post',                array ( $this, 'save_metabox' ), 10, 2 );
+        
+    }
+
+    public function add_metabox() {
+
+        add_meta_box( 'juno_page_post_banner_meta', __( 'Featured Image Settings', 'juno' ), array ( $this, 'render_juno_page_post_banner_metabox' ), array( 'page', 'post' ), 'normal', 'high' );
+        
+    }
+
+    public function render_juno_page_post_banner_metabox( $post ) {
+
+        // Add nonce for security and authentication.
+        wp_nonce_field( 'juno_banner_meta_box_nonce_action', 'juno_banner_meta_box_nonce' );
+
+        // Retrieve an existing value from the database.
+        $banner_height      = get_post_meta( $post->ID, 'banner_meta_height', true );
+        $banner_img_align   = get_post_meta( $post->ID, 'banner_meta_img_align', true );
+
+        // Set default values.
+        if ( empty( $banner_height ) )      { $banner_height = '500'; } 
+        if ( empty( $banner_img_align ) )   { $banner_img_align = 'middle'; }
+      
+        $alignments = array(
+            'top'       => __( 'Top', 'juno' ),
+            'middle'    => __( 'Middle', 'juno' ),
+            'bottom'    => __( 'Bottom', 'juno' ),
+        );
+        
+        // Form fields
+        echo '<table class="form-table">';
+
+        echo '	<tr>';
+        echo '		<th><label for="banner_meta_height" class="banner_meta_height_label">' . __( 'Banner Height', 'juno' ) . '</label></th>';
+        echo '		<td>';
+        echo '			<input type="number" id="banner_meta_height" name="banner_meta_height" class="banner_meta_height_field" value="' . esc_attr__( $banner_height ) . '" min="150" max="1000" step="50">';
+        echo '		</td>';
+        echo '	</tr>';
+
+        echo '	<tr>';
+        echo '		<th><label for="banner_meta_img_align" class="banner_meta_img_align_label">' . __( 'Location', 'juno' ) . '</label></th>';
+        echo '		<td>';
+        echo '	                <select id="banner_meta_img_align" name="banner_meta_img_align" class="banner_meta_img_align_field">';
+                                    foreach( $alignments as $key => $value ) :
+        echo '                          <option value="' . $key . '" ' . selected( $banner_img_align, $key, false ) . '> ' . $value . '</option>';
+                                    endforeach;
+        echo '	                </select>';
+        echo '		</td>';
+        echo '	</tr>';
+        
+        echo '</table>';
+        
+    }
+    
+    public function save_metabox( $post_id, $post ) {
+
+        // Add nonce for security and authentication.
+        $nonce_name     = isset( $_POST[ 'juno_banner_meta_box_nonce' ] ) ? $_POST[ 'juno_banner_meta_box_nonce' ] : '';
+        $nonce_action   = 'juno_banner_meta_box_nonce_action';
+
+        // Check if a nonce is set and valid
+        if ( !isset( $nonce_name ) ) { return; }
+        if ( !wp_verify_nonce( $nonce_name, $nonce_action ) ) { return; }
+            
+        // Sanitize user input.
+        $banner_height      = isset( $_POST[ 'banner_meta_height' ] ) ? sanitize_text_field( $_POST[ 'banner_meta_height' ] ) : '500';
+        $banner_img_align   = isset( $_POST[ 'banner_meta_img_align' ] ) ? sanitize_text_field( $_POST[ 'banner_meta_img_align' ] ) : 'middle';
+
+        // Update the meta field in the database
+        update_post_meta( $post_id, 'banner_meta_height', $banner_height );
+        update_post_meta( $post_id, 'banner_meta_img_align', $banner_img_align );
+        
+    }
+    
+}

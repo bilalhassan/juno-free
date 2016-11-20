@@ -17,7 +17,36 @@
 
             <div class="col-sm-12">
                 
-                <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ) : ''; ?>);">
+                <?php 
+    
+                    if ( has_post_thumbnail() ) :
+
+                        $position = '50%';
+
+                        switch ( get_post_meta( get_the_ID(), 'banner_meta_img_align', true ) ) :
+
+                            case 'top' :
+                                $position = '0%';
+                                break;
+
+                            case 'bottom' :
+                                $position = '100%';
+                                break;
+
+                            default :
+                                $position = '50%';
+
+                        endswitch; 
+
+                    endif;
+
+                ?>
+
+                <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="
+                    background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ) : ''; ?>); 
+                    height: <?php echo get_post_meta( get_the_ID(), 'banner_meta_height', true ) ? esc_attr( get_post_meta( get_the_ID(), 'banner_meta_height', true ) ) : esc_attr( '500' ); ?>px;
+                    background-position: 50% <?php echo esc_attr( $position ); ?>; 
+                ">
 
                     <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>">
 
