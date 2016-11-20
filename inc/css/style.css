@@ -673,7 +673,8 @@ div#single-title-box .post-meta {
     }
     #archive-blog .sidebar-container,
     #single-post-container .sidebar-container,
-    #single-page-container .sidebar-container {
+    #single-page-container .sidebar-container,
+    .page-template-page-frontpage-blog .sidebar-container {
         margin-top: 15px !important;
     }
     
@@ -841,7 +842,8 @@ a#cancel-comment-reply-link {
 */
 #archive-blog .sidebar-container,
 #single-post-container .sidebar-container,
-#single-page-container .sidebar-container {
+#single-page-container .sidebar-container,
+.page-template-page-frontpage-blog .sidebar-container {
     margin-top: 30px;
 }
 

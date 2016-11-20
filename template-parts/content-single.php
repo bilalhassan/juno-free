@@ -54,11 +54,19 @@
 
                         ?>
 
-                        <div id="single-image-container" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>" style="
-                            background-image: url(<?php echo has_post_thumbnail() ? esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ) : ''; ?>);
-                            height: <?php echo get_post_meta( get_the_ID(), 'banner_meta_height', true ) ? esc_attr( get_post_meta( get_the_ID(), 'banner_meta_height', true ) ) : esc_attr( '500' ); ?>px;
-                            background-position: 50% <?php echo esc_attr( $position ); ?>; 
-                        ">
+                        <?php if ( has_post_thumbnail() ) : ?>
+                
+                            <div id="single-image-container" style="
+                                background-image: url(<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ); ?>); 
+                                height: <?php echo get_post_meta( get_the_ID(), 'banner_meta_height', true ) ? esc_attr( get_post_meta( get_the_ID(), 'banner_meta_height', true ) ) : esc_attr( '500' ); ?>px;
+                                background-position: 50% <?php echo esc_attr( $position ); ?>; 
+                            ">
+
+                        <?php else : ?>
+
+                            <div id="single-image-container" class="no-header-img">
+
+                        <?php endif; ?>
 
                             <div id="single-title-box" class="<?php echo has_post_thumbnail() ? '' : esc_attr( 'no-header-img' ); ?>">
 
