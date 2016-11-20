@@ -194,8 +194,7 @@ function juno_custom_css() { ?>
         header#masthead,
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
-        footer #footer-widget-area .widget_categories ul li a,
-        #subscribe-module .widget_calendar table th {
+        footer #footer-widget-area .widget_categories ul li a {
             background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
@@ -205,21 +204,13 @@ function juno_custom_css() { ?>
         .juno-blog-content .blog-roll-item .inner h3.post-title a,
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
-        #comments p.logged-in-as, #comments p.logged-in-as a, 
-        footer .widget_calendar table td,
-        #subscribe-module .widget_calendar table caption,
-        #subscribe-module .widget_calendar table td {
+        #comments p.logged-in-as, #comments p.logged-in-as a {
             color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
             border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
-        }
-        
-        footer .widget_calendar table th, 
-        footer .widget_calendar table td {
-            border-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -234,17 +225,14 @@ function juno_custom_css() { ?>
         #subscribe-module .widget_categories ul li a,
         .widget_calendar table th,
         div#single-title-box.no-header-img,
-        .widget_juno-recent-articles-widget .related-article-title,
-        nav.posts-navigation .nav-links a {
+        .widget_juno-recent-articles-widget .related-article-title {
             background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
-        .widget_calendar table a,
-        .widget_calendar caption,
-        footer .widget_calendar caption {
+        .widget_calendar table a {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -252,10 +240,6 @@ function juno_custom_css() { ?>
         }
         div#single-title-box {
             background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
-        }
-        #subscribe-module .widget_calendar table th, 
-        #subscribe-module .widget_calendar table td {
-            border-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -280,18 +264,21 @@ function juno_custom_css() { ?>
         hr.accent-divider {
             border-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
         }
+    
+        /* --- JUMBOTRON TITLE --- */
+        #jumbotron-section .camera_caption a {
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_title_size', '28' ) ); ?>px;
+            color: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_title_color', '#ffffff' ) ); ?>; 
+        }
+
+        /* --- JUMBOTRON CONTENT --- */
+        #jumbotron-section .camera_caption p.slide-content {
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_content_size', '18' ) ); ?>px;
+        }
         
     </style>
     
     <?php 
-    
-    if ( get_theme_mod( 'juno_custom_css', false ) ) : ?>
-    
-        <style type="text/css">
-            <?php echo esc_attr( get_theme_mod( 'juno_custom_css', false ) ); ?>
-        </style>
-        
-    <?php endif;
     
 }
 add_action('wp_head', 'juno_custom_css');
@@ -425,6 +412,11 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
                                         </a>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                            <p class="slide-content">
+                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_1->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                            <p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -445,6 +437,11 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
                                         </a>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                            <p class="slide-content">
+                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_2->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                            <p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -463,6 +460,11 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
                                         </a>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                            <p class="slide-content">
+                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_3->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                            <p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -882,7 +884,7 @@ function juno_render_footer() { ?>
 
                                 <span class="site-info">
                                     &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo date_i18n( __('Y', 'juno' ) ); ?>
+                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
                                     |
                                 </span>
 
@@ -1010,17 +1012,23 @@ function juno_custom_js() { ?>
             * Initialize the homepage slider module (only if the element exists on the page)
             */
             if ( $( "#camera_slider" ).length ) {
-
+                
                 var viewport_height = $(window).height(),
-                    header_height = $( 'header#masthead' ).height();
-
-                var jumbotron_height = viewport_height - header_height + 'px';
-
+                    header_height = $( 'header#masthead' ).height(),
+                    jumbotron_height = null;
+                
+                if ( $(window).width() > 767 ) {
+                    jumbotron_height = viewport_height - header_height + 'px';
+                } else {
+                    jumbotron_height = <?php echo esc_js( get_theme_mod( 'juno_jumbotron_mobile_height', '400' ) ); ?> + 'px';
+                }
+                
                 $( "#camera_slider" ).camera({ 
                     height: jumbotron_height,
                     hover: true,
                     transPeriod: 1000,
-                    fx: 'simpleFade',
+                    time: <?php echo esc_js( get_theme_mod( 'juno_jumbotron_slide_delay', '7500' ) ); ?>,
+                    fx: '<?php echo get_theme_mod( 'juno_jumbotron_slide_effect', 'fade' ) == 'fade' ? esc_js( 'simpleFade') : esc_js( 'scrollLeft' ); ?>',
                     pagination: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
                     playPause: false,
                     loader: 'none',
