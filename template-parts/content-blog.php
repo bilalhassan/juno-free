@@ -55,9 +55,9 @@
                 </h5>
             <?php endif; ?>
             
-            <div class="image-corner" style="background-image: url(<?php echo esc_url( get_template_directory_uri() . '/inc/images/hover-corner.png' ); ?>);"></div>
+            <div class="image-corner"></div>
             <a href="<?php the_permalink() ?>">
-                <i class="fa fa-external-link icon"></i>
+                <i class="<?php echo esc_attr(get_theme_mod( 'juno_blog_hover_tab_icon', 'fa fa-share' ) ); ?> icon"></i>
             </a>
             
         </div>

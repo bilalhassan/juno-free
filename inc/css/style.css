@@ -544,13 +544,13 @@ h5.post-meta {
 }
 
 .juno-blog-content .blog-roll-item .inner .image-corner {
-    width: 75px;
-    height: 0px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 0 0;
     position: absolute;
     bottom: 0;
     right: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .juno-blog-content .blog-roll-item .inner i.icon {

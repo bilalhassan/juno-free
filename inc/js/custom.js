@@ -90,7 +90,7 @@ jQuery(document).ready( function( $ ) {
     $( '.blog-roll-item article').mouseenter( function() {
         
         $( this ).find( '.inner .image-corner' ).stop().animate({
-            height: "75px"
+            borderWidth: "0 0 75px 75px"
         }, 200 );
         
         $( this ).find( '.inner .icon' ).stop().animate({
@@ -106,7 +106,7 @@ jQuery(document).ready( function( $ ) {
         }, 200 );
         
         $( this ).find( '.inner .image-corner' ).stop().animate({
-            height: "0px"
+            borderWidth: "0 0 0 0"
         }, 400 );
         
     });

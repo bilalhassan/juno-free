@@ -94,6 +94,18 @@ function juno_sanitize_post( $input ) {
     
 }
 
+function juno_sanitize_tab_icon( $input ) {
+    
+    $valid_keys = juno_link_tab_icons( true );
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
 function juno_sanitize_font( $input ) {
     
     $valid_keys = juno_fonts();

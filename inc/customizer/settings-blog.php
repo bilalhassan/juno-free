@@ -45,3 +45,30 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
         'section'               => 'juno_blog_layout_section',
         'label'                 => __( 'Blog Roll Title', 'juno' ),
     ) );
+    
+    // Corner Hover Tab Color
+    $wp_customize->add_setting( 'juno_blog_hover_tab_color', array (
+        'default'               => '#999999',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_color',
+    ) );
+    $wp_customize->add_control( 
+	new WP_Customize_Color_Control( $wp_customize, 'juno_blog_hover_tab_color', array(
+            'label'      => __( 'Blog Item - Hover Tab Color', 'juno' ),
+            'section'    => 'juno_blog_layout_section',
+            'settings'   => 'juno_blog_hover_tab_color',
+	) ) 
+    );     
+    
+    // Corner Hover Tab Icon
+    $wp_customize->add_setting( 'juno_blog_hover_tab_icon', array (
+        'default'               => 'fa fa-share',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_tab_icon',
+    ) );
+    $wp_customize->add_control( 'juno_blog_hover_tab_icon', array(
+        'type'                  => 'select',
+        'section'               => 'juno_blog_layout_section',
+        'label'                 => __( 'Blog Item - Hover Tab Icon', 'juno' ),
+        'choices'               => juno_link_tab_icons(),
+    ) );

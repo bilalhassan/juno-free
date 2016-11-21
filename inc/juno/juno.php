@@ -291,6 +291,11 @@ function juno_custom_css() { ?>
         #jumbotron-section .camera_caption p.slide-content {
             font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_content_size', '18' ) ); ?>px;
         }
+ 
+        /* --- BLOG ROLL HOVER TAB COLOR --- */
+        .juno-blog-content .blog-roll-item .inner .image-corner {
+            border-color: transparent transparent <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_color', '#999999' ) ); ?> transparent;
+        }
         
     </style>
     
@@ -1150,5 +1155,20 @@ class Smartcat_Juno_Featured_Image_Meta_Box {
         update_post_meta( $post_id, 'banner_meta_img_align', $banner_img_align );
         
     }
+    
+}
+
+
+function juno_link_tab_icons() {
+    
+    return array( 
+        'fa fa-link'                    => __( 'Link', 'juno'), 
+        'fa fa-external-link'           => __( 'External Link', 'juno'), 
+        'fa fa-external-link-square'    => __( 'External Link Square', 'juno'), 
+        'fa fa-share'                   => __( 'Share', 'juno'), 
+        'fa fa-share-square-o'          => __( 'Share Square Outline', 'juno'), 
+        'fa fa-star'                    => __( 'Star', 'juno'), 
+        'fa fa-star-o'                  => __( 'Star Outline', 'juno'), 
+    );
     
 }
