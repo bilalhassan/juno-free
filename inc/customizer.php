@@ -133,6 +133,21 @@ function juno_sanitize_slide_effect( $input ) {
     
 }
 
+function juno_sanitize_blog_cols( $input ) {
+    
+    $valid_keys = array(
+        '2cols'    => __( '2-Column', 'juno' ),
+        '3cols'    => __( '3-Column', 'juno' ),
+    );
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
 function juno_sanitize_show_hide( $input ) {
     
     $valid_keys = array(

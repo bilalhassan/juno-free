@@ -527,7 +527,7 @@ h5.post-meta {
 }
 
 .blog-roll-item .post-content {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #656565;
 }
 
@@ -536,7 +536,7 @@ h5.post-meta {
     font-size: 12px;
     text-transform: uppercase;
     color: #656565;
-    margin-right: 75px;
+    margin-right: 40px;
 }
 
 .blog-roll-item h5.post-meta a {
@@ -558,9 +558,8 @@ h5.post-meta {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    color: #fff;
     opacity: 0;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 /*

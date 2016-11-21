@@ -296,6 +296,29 @@ function juno_custom_css() { ?>
         .juno-blog-content .blog-roll-item .inner .image-corner {
             border-color: transparent transparent <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_color', '#999999' ) ); ?> transparent;
         }
+        .juno-blog-content .blog-roll-item .inner i.icon {
+            color: <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_icon_color', '#ffffff' ) ); ?>;
+        }
+
+        /* --- BLOG ROLL MASONRY COLUMNS --- */
+        .grid-sizer,
+        .blog-roll-item { 
+            width: <?php echo get_theme_mod( 'juno_blog_columns', '3cols' ) == '2cols' ? esc_attr( '48%' ) : esc_attr( '32%' ); ?>; 
+        }
+        
+        /* --- BLOG ROLL TYPOGRAPHY  --- */
+        .juno-blog-content .blog-roll-item .inner h3.post-title { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_title_font_size', '16' ) ); ?>px;
+        }
+        .blog-roll-item .post-content { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_content_font_size', '14' ) ); ?>px;
+        }
+        .juno-blog-content .blog-roll-item .post-category a,
+        .blog-roll-item h5.post-meta { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_meta_font_size', '12' ) ); ?>px;
+        }
+        
+        
         
     </style>
     
@@ -1012,6 +1035,102 @@ function juno_custom_js() { ?>
     <script type="text/javascript">
     
         jQuery(document).ready( function( $ ) {
+            
+            /*
+            * Handle Blog Roll Masonry
+            */
+            function doMasonry() {
+
+                var $grid = $( "#masonry-blog-wrapper" ).imagesLoaded(function () {
+                    $grid.masonry({
+                        itemSelector: '.blog-roll-item',
+                        columnWidth: '.grid-sizer',
+                        percentPosition: true,
+                        gutter: '.gutter-sizer',
+                        transitionDuration: '.75s'
+                    });
+                });
+
+                <?php if ( get_theme_mod( 'juno_blog_columns', '3cols' ) == '2cols' ) : ?>
+
+                    if ( $( window ).width() >= 768 ) {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '48%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '48%');
+
+                    } else {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '0%');
+                        $('.juno-blog-content .grid-sizer').css('width', '100%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '100%');
+
+                    }
+
+                <?php else : ?>
+
+                    if ( $( window ).width() >= 992 ) {  
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '32%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '32%');
+
+                    } else if ( $( window ).width() < 992 && $( window ).width() >= 768 ) {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '48%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '48%');
+
+                    } else {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '0%');
+                        $('.juno-blog-content .grid-sizer').css('width', '100%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '100%');
+
+                    }
+                    
+                <?php endif; ?>
+
+            }
+
+            /**
+            * Call Masonry on window resize and load
+            */
+            $( window ).resize( function() {
+                doMasonry();
+            });
+            doMasonry();
+            
+            <?php if ( get_theme_mod( 'juno_blog_hover_tab_toggle', 'show' ) == 'show' ) : ?>
+            
+                /**
+                * Blog Roll Tab Hover Effect
+                */
+                $( '.blog-roll-item article').mouseenter( function() {
+
+                    $( this ).find( '.inner .image-corner' ).stop().animate({
+                        borderWidth: "0 0 60px 60px"
+                    }, 200 );
+
+                    $( this ).find( '.inner .icon' ).stop().animate({
+                        fontSize: "14px",
+                        opacity: "1" 
+                    }, 400 );
+
+                }).mouseleave( function() {
+
+                    $( this ).find( '.inner .icon' ).stop().animate({
+                        fontSize: "0px",
+                        opacity: "0"
+                    }, 200 );
+
+                    $( this ).find( '.inner .image-corner' ).stop().animate({
+                        borderWidth: "0 0 0 0"
+                    }, 400 );
+
+                });
+                
+            <?php endif; ?>
             
             <?php 
                 
