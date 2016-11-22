@@ -942,9 +942,9 @@ function juno_render_footer() { ?>
                             
                             <div id="footer-branding">
 
-                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', __( '© Your Company', 'juno' ) ) != '' ) : ?>
+                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) != '' ) : ?>
                                     <span class="site-info">
-                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', __( '© Your Company', 'juno' ) ) ); ?>
+                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) ); ?>
                                     </span>
                                     |
                                 <?php endif; ?>
@@ -1253,7 +1253,7 @@ class Smartcat_Juno_Featured_Image_Meta_Box {
         echo '	<tr>';
         echo '		<th><label for="banner_meta_height" class="banner_meta_height_label">' . __( 'Banner Height', 'juno' ) . '</label></th>';
         echo '		<td>';
-        echo '			<input type="number" id="banner_meta_height" name="banner_meta_height" class="banner_meta_height_field" value="' . esc_attr__( $banner_height ) . '" min="150" max="1000" step="50">';
+        echo '			<input type="number" id="banner_meta_height" name="banner_meta_height" class="banner_meta_height_field" value="' . esc_attr( $banner_height ) . '" min="150" max="1000" step="50">';
         echo '		</td>';
         echo '	</tr>';
 
