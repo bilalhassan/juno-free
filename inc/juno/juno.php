@@ -12,12 +12,12 @@ function juno_scripts() {
 
     // Primary Font Enqueue
     if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
+        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ] ), array(), JUNO_VERSION );
     endif;
 
     // Body Font Enqueue
     if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Lato, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
+        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ] ), array(), JUNO_VERSION );
     endif;
     
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
