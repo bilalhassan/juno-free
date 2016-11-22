@@ -173,7 +173,9 @@ function juno_custom_css() { ?>
         #comments p.comment-form-comment label,
         #comments input[type="submit"],
         input.search-submit,
-        .error-404 input.search-submit {
+        .error-404 input.search-submit,
+        #comments .comment-body .reply,
+        span.edit-link a {
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ); ?>;
         }
         
@@ -235,7 +237,8 @@ function juno_custom_css() { ?>
         .widget_calendar table th,
         div#single-title-box.no-header-img,
         .widget_juno-recent-articles-widget .related-article-title,
-        nav.posts-navigation .nav-links a {
+        nav.posts-navigation .nav-links a,
+        #comments .comment-body .reply {
             background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
