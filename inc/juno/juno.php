@@ -318,6 +318,19 @@ function juno_custom_css() { ?>
             font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_meta_font_size', '12' ) ); ?>px;
         }
         
+        /* --- SINGLE POST TYPOGRAPHY  --- */
+        div#single-title-box .entry-title { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_title_font_size', '24' ) ); ?>px;
+        }
+        #single-post-container .entry-content,
+        #single-page-container .entry-content { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_content_font_size', '14' ) ); ?>px;
+        }
+        div#single-title-box .post-meta { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_meta_font_size', '10' ) ); ?>px;
+        }
+        
+        
         
         
     </style>
@@ -926,11 +939,12 @@ function juno_render_footer() { ?>
                             
                             <div id="footer-branding">
 
-                                <span class="site-info">
-                                    &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo date_i18n( __( 'Y', 'juno' ) ); ?>
+                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', __( '© Your Company', 'juno' ) ) != '' ) : ?>
+                                    <span class="site-info">
+                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', __( '© Your Company', 'juno' ) ) ); ?>
+                                    </span>
                                     |
-                                </span>
+                                <?php endif; ?>
 
                                 <?php _e( 'Designed by', 'juno' ); ?> Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="Smartcat <?php _e( 'Logo', 'juno' ); ?>">
 

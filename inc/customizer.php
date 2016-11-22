@@ -19,26 +19,29 @@ function juno_customize_register( $wp_customize ) {
      * Customizer settings and controls, grouped by Panel
      */
     
-    // Header Bar
+    // Site Identity
     require_once('customizer/settings-site-identity-extras.php');
     
     // Front Page
     require_once('customizer/settings-front-page.php');
 
+    // Site Header & Footer
+    require_once('customizer/settings-header-footer.php');
+    
     // Jumbotron
     require_once('customizer/settings-jumbotron.php');
 
-    // General
-    require_once('customizer/settings-general.php');
-    
     // Blog
     require_once('customizer/settings-blog.php');
     
+    // Single Post / Page
+    require_once('customizer/settings-single-post.php');
+    
     // Site Appearance
     require_once('customizer/settings-appearance.php');
-    
-    // Site Branding
-    require_once('customizer/settings-branding.php');
+
+    // Extras
+    require_once('customizer/settings-extras.php');    
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';

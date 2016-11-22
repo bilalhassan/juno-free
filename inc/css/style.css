@@ -691,8 +691,9 @@ div#comments #respond {
     margin: 30px 0;
 /*    border-top: thin solid #d9d9d9;
     border-bottom: thin solid #d9d9d9;*/
-    padding: 30px;
+    padding: 30px 15px;
     background-color: #fff;
+    overflow: hidden;
 }
 
 #comments h3#reply-title {
@@ -740,6 +741,10 @@ div#comments #respond {
 #comments .comment-list li.comment ol.children {
     padding-left: 0;
     margin-left: 30px;
+}
+
+#comments .comment-list > li.comment ol.children ol.children {
+    margin-left: 0;
 }
 
 #comments .comment-author.vcard img {

@@ -3,9 +3,9 @@
 // ---------------------------------------------
 // Theme Branding Panel
 // ---------------------------------------------
-$wp_customize->add_panel( 'juno_branding_panel', array (
-    'title'                 => __( 'Theme Branding', 'juno' ),
-    'description'           => __( 'Customize the theme branding', 'juno' ),
+$wp_customize->add_panel( 'juno_header_footer_panel', array (
+    'title'                 => __( 'Header & Footer', 'juno' ),
+    'description'           => __( 'Customize the header and footer', 'juno' ),
     'priority'              => 10
 ) );
 
@@ -15,18 +15,17 @@ $wp_customize->add_panel( 'juno_branding_panel', array (
 $wp_customize->add_section( 'juno_footer_section', array(
     'title'                 => __( 'Footer Copyright', 'juno'),
     'description'           => __( 'Customize the copyright blurb in the footer of your site', 'juno' ),
-    'panel'                 => 'juno_branding_panel'
+    'panel'                 => 'juno_header_footer_panel'
 ) );
 
-    // Footer Copyright Text
-    $wp_customize->add_setting( 'juno_footer_copyright', array (
-        'default'               => __( 'Your Company Name', 'juno' ),
+    // Copyright Line Company Name
+    $wp_customize->add_setting( 'juno_footer_copyright_area', array (
+        'default'               => __( '© Your Company', 'juno' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_text',
     ) );
-    $wp_customize->add_control( 'juno_footer_copyright', array(
+    $wp_customize->add_control( 'juno_footer_copyright_area', array(
         'type'                  => 'text',
         'section'               => 'juno_footer_section',
-        'label'                 => __( 'Footer Copyright Name', 'juno' ),
-    ) );    
-
+        'label'                 => __( 'Company Name / Copyright', 'juno' ),
+    ) );   

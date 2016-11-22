@@ -73,8 +73,8 @@
                                 <h2 class="entry-title"><?php the_title(); ?></h2>
 
                                 <h6 class="post-meta">
-                                    <?php echo get_theme_mod( 'juno_blog_show_date', 'show' ) == 'show' ? esc_html( juno_posted_on() ) : ''; ?>
-                                    <?php if ( get_theme_mod( 'juno_blog_show_author', 'show' ) == 'show' ) : ?>    
+                                    <?php echo get_theme_mod( 'juno_single_show_date', 'show' ) == 'show' ? esc_html( juno_posted_on() ) : ''; ?>
+                                    <?php if ( get_theme_mod( 'juno_single_show_author', 'show' ) == 'show' ) : ?>    
                                         <?php _e( 'by', 'juno' ); ?> <span class="post-author"><?php the_author_posts_link(); ?></span>
                                     <?php endif; ?>
                                 </h6>
