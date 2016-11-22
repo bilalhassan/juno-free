@@ -19,26 +19,29 @@ function juno_customize_register( $wp_customize ) {
      * Customizer settings and controls, grouped by Panel
      */
     
-    // Header Bar
+    // Site Identity
     require_once('customizer/settings-site-identity-extras.php');
     
     // Front Page
     require_once('customizer/settings-front-page.php');
 
+    // Site Header & Footer
+    require_once('customizer/settings-header-footer.php');
+    
     // Jumbotron
     require_once('customizer/settings-jumbotron.php');
 
-    // General
-    require_once('customizer/settings-general.php');
-    
     // Blog
     require_once('customizer/settings-blog.php');
     
+    // Single Post / Page
+    require_once('customizer/settings-single-post.php');
+    
     // Site Appearance
     require_once('customizer/settings-appearance.php');
-    
-    // Site Branding
-    require_once('customizer/settings-branding.php');
+
+    // Extras
+    require_once('customizer/settings-extras.php');    
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -94,6 +97,18 @@ function juno_sanitize_post( $input ) {
     
 }
 
+function juno_sanitize_tab_icon( $input ) {
+    
+    $valid_keys = juno_link_tab_icons( true );
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
 function juno_sanitize_font( $input ) {
     
     $valid_keys = juno_fonts();
@@ -111,6 +126,21 @@ function juno_sanitize_slide_effect( $input ) {
     $valid_keys = array(
         'fade'      => __( 'Fade', 'juno' ),
         'scroll'    => __( 'Scroll', 'juno' ),
+    );
+    
+    if ( array_key_exists( $input, $valid_keys ) ) {
+        return $input;
+    } else {
+        return '';
+    }  
+    
+}
+
+function juno_sanitize_blog_cols( $input ) {
+    
+    $valid_keys = array(
+        '2cols'    => __( '2-Column', 'juno' ),
+        '3cols'    => __( '3-Column', 'juno' ),
     );
     
     if ( array_key_exists( $input, $valid_keys ) ) {

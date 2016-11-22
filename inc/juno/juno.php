@@ -12,12 +12,12 @@ function juno_scripts() {
 
     // Primary Font Enqueue
     if( array_key_exists ( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ], array(), JUNO_VERSION );
+        wp_enqueue_style('google-font-primary', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ] ), array(), JUNO_VERSION );
     endif;
 
     // Body Font Enqueue
     if( array_key_exists ( get_theme_mod( 'juno_font_body', 'Lato, sans-serif'), $fonts ) ) :
-        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ], array(), JUNO_VERSION );
+        wp_enqueue_style('google-font-body', '//fonts.googleapis.com/css?family=' . esc_attr( $fonts[ get_theme_mod( 'juno_font_body', 'Lato, sans-serif' ) ] ), array(), JUNO_VERSION );
     endif;
     
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), JUNO_VERSION );
@@ -173,7 +173,9 @@ function juno_custom_css() { ?>
         #comments p.comment-form-comment label,
         #comments input[type="submit"],
         input.search-submit,
-        .error-404 input.search-submit {
+        .error-404 input.search-submit,
+        #comments .comment-body .reply,
+        span.edit-link a {
             font-family: <?php echo esc_attr( get_theme_mod( 'juno_font_primary', 'Montserrat, sans-serif' ) ); ?>;
         }
         
@@ -194,7 +196,8 @@ function juno_custom_css() { ?>
         header#masthead,
         .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span,
         footer#colophon #footer-sidebar-wrapper,
-        footer #footer-widget-area .widget_categories ul li a {
+        footer #footer-widget-area .widget_categories ul li a,
+        #subscribe-module .widget_calendar table th {
             background-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         ul.slicknav_nav ul.sub-menu li a,
@@ -204,13 +207,21 @@ function juno_custom_css() { ?>
         .juno-blog-content .blog-roll-item .inner h3.post-title a,
         #single-page-container nav.navigation.post-navigation a,
         #single-post-container nav.navigation.post-navigation a,
-        #comments p.logged-in-as, #comments p.logged-in-as a {
+        #comments p.logged-in-as, #comments p.logged-in-as a,
+        footer .widget_calendar table td,
+        #subscribe-module .widget_calendar table caption,
+        #subscribe-module .widget_calendar table td {
             color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         .widgettitle,
         .widget-title,
         #front-page-blog div#frontpage-page .entry-title {
             border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
+        }
+        
+        footer .widget_calendar table th,
+        footer .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
         }
         
         /* --- PRIMARY COLOR --- */
@@ -225,14 +236,18 @@ function juno_custom_css() { ?>
         #subscribe-module .widget_categories ul li a,
         .widget_calendar table th,
         div#single-title-box.no-header-img,
-        .widget_juno-recent-articles-widget .related-article-title {
+        .widget_juno-recent-articles-widget .related-article-title,
+        nav.posts-navigation .nav-links a,
+        #comments .comment-body .reply {
             background-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         ul#primary-menu > li.menu-item > ul.sub-menu > li a:hover,
         .juno-blog-content .blog-roll-item .post-category a,
         div.social-bubble:hover i,
         div#footer-widget-area a,
-        .widget_calendar table a {
+        .widget_calendar table a,
+        .widget_calendar caption,
+        footer .widget_calendar caption {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -240,6 +255,10 @@ function juno_custom_css() { ?>
         }
         div#single-title-box {
             background-color: <?php echo esc_attr( juno_hex2rgba( $skin[ 'primary' ], 0.75 ) ); ?>;
+        }
+        #subscribe-module .widget_calendar table th,
+        #subscribe-module .widget_calendar table td {
+            border-color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         
         /* --- ACCENT COLOR --- */
@@ -275,6 +294,47 @@ function juno_custom_css() { ?>
         #jumbotron-section .camera_caption p.slide-content {
             font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_content_size', '18' ) ); ?>px;
         }
+ 
+        /* --- BLOG ROLL HOVER TAB COLOR --- */
+        .juno-blog-content .blog-roll-item .inner .image-corner {
+            border-color: transparent transparent <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_color', '#999999' ) ); ?> transparent;
+        }
+        .juno-blog-content .blog-roll-item .inner i.icon {
+            color: <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_icon_color', '#ffffff' ) ); ?>;
+        }
+
+        /* --- BLOG ROLL MASONRY COLUMNS --- */
+        .grid-sizer,
+        .blog-roll-item { 
+            width: <?php echo get_theme_mod( 'juno_blog_columns', '3cols' ) == '2cols' ? esc_attr( '48%' ) : esc_attr( '32%' ); ?>; 
+        }
+        
+        /* --- BLOG ROLL TYPOGRAPHY  --- */
+        .juno-blog-content .blog-roll-item .inner h3.post-title { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_title_font_size', '16' ) ); ?>px;
+        }
+        .blog-roll-item .post-content { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_content_font_size', '14' ) ); ?>px;
+        }
+        .juno-blog-content .blog-roll-item .post-category a,
+        .blog-roll-item h5.post-meta { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_meta_font_size', '12' ) ); ?>px;
+        }
+        
+        /* --- SINGLE POST TYPOGRAPHY  --- */
+        div#single-title-box .entry-title { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_title_font_size', '24' ) ); ?>px;
+        }
+        #single-post-container .entry-content,
+        #single-page-container .entry-content { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_content_font_size', '14' ) ); ?>px;
+        }
+        div#single-title-box .post-meta { 
+            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_meta_font_size', '10' ) ); ?>px;
+        }
+        
+        
+        
         
     </style>
     
@@ -882,11 +942,12 @@ function juno_render_footer() { ?>
                             
                             <div id="footer-branding">
 
-                                <span class="site-info">
-                                    &copy; <?php echo esc_html( get_theme_mod( 'juno_footer_copyright', __( 'Your Company Name', 'juno' ) ) ); ?>
-                                    <?php echo esc_html( ' ' . date( 'Y' ) ); ?>
+                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) != '' ) : ?>
+                                    <span class="site-info">
+                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) ); ?>
+                                    </span>
                                     |
-                                </span>
+                                <?php endif; ?>
 
                                 <?php _e( 'Designed by', 'juno' ); ?> Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="Smartcat <?php _e( 'Logo', 'juno' ); ?>">
 
@@ -992,6 +1053,102 @@ function juno_custom_js() { ?>
     
         jQuery(document).ready( function( $ ) {
             
+            /*
+            * Handle Blog Roll Masonry
+            */
+            function doMasonry() {
+
+                var $grid = $( "#masonry-blog-wrapper" ).imagesLoaded(function () {
+                    $grid.masonry({
+                        itemSelector: '.blog-roll-item',
+                        columnWidth: '.grid-sizer',
+                        percentPosition: true,
+                        gutter: '.gutter-sizer',
+                        transitionDuration: '.75s'
+                    });
+                });
+
+                <?php if ( get_theme_mod( 'juno_blog_columns', '3cols' ) == '2cols' ) : ?>
+
+                    if ( $( window ).width() >= 768 ) {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '48%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '48%');
+
+                    } else {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '0%');
+                        $('.juno-blog-content .grid-sizer').css('width', '100%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '100%');
+
+                    }
+
+                <?php else : ?>
+
+                    if ( $( window ).width() >= 992 ) {  
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '32%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '32%');
+
+                    } else if ( $( window ).width() < 992 && $( window ).width() >= 768 ) {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '2%');
+                        $('.juno-blog-content .grid-sizer').css('width', '48%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '48%');
+
+                    } else {
+
+                        $('.juno-blog-content .gutter-sizer').css('width', '0%');
+                        $('.juno-blog-content .grid-sizer').css('width', '100%');
+                        $('.juno-blog-content .blog-roll-item').css('width', '100%');
+
+                    }
+                    
+                <?php endif; ?>
+
+            }
+
+            /**
+            * Call Masonry on window resize and load
+            */
+            $( window ).resize( function() {
+                doMasonry();
+            });
+            doMasonry();
+            
+            <?php if ( get_theme_mod( 'juno_blog_hover_tab_toggle', 'show' ) == 'show' ) : ?>
+            
+                /**
+                * Blog Roll Tab Hover Effect
+                */
+                $( '.blog-roll-item article').mouseenter( function() {
+
+                    $( this ).find( '.inner .image-corner' ).stop().animate({
+                        borderWidth: "0 0 60px 60px"
+                    }, 200 );
+
+                    $( this ).find( '.inner .icon' ).stop().animate({
+                        fontSize: "14px",
+                        opacity: "1" 
+                    }, 400 );
+
+                }).mouseleave( function() {
+
+                    $( this ).find( '.inner .icon' ).stop().animate({
+                        fontSize: "0px",
+                        opacity: "0"
+                    }, 200 );
+
+                    $( this ).find( '.inner .image-corner' ).stop().animate({
+                        borderWidth: "0 0 0 0"
+                    }, 400 );
+
+                });
+                
+            <?php endif; ?>
+            
             <?php 
                 
                 $single_slide = false;
@@ -1045,3 +1202,109 @@ function juno_custom_js() { ?>
     
 <?php }
 add_action('wp_head', 'juno_custom_js');
+
+new Smartcat_Juno_Featured_Image_Meta_Box();
+class Smartcat_Juno_Featured_Image_Meta_Box {
+
+    public function __construct() {
+
+        if ( is_admin() ) {
+            add_action( 'load-post.php',        array ( $this, 'init_metabox' ) );
+            add_action( 'load-post-new.php',    array ( $this, 'init_metabox' ) );
+        }
+        
+    }
+
+    public function init_metabox() {
+
+        add_action( 'add_meta_boxes',           array ( $this, 'add_metabox' ) );
+        add_action( 'save_post',                array ( $this, 'save_metabox' ), 10, 2 );
+        
+    }
+
+    public function add_metabox() {
+
+        add_meta_box( 'juno_page_post_banner_meta', __( 'Featured Image Settings', 'juno' ), array ( $this, 'render_juno_page_post_banner_metabox' ), array( 'page', 'post' ), 'normal', 'high' );
+        
+    }
+
+    public function render_juno_page_post_banner_metabox( $post ) {
+
+        // Add nonce for security and authentication.
+        wp_nonce_field( 'juno_banner_meta_box_nonce_action', 'juno_banner_meta_box_nonce' );
+
+        // Retrieve an existing value from the database.
+        $banner_height      = get_post_meta( $post->ID, 'banner_meta_height', true );
+        $banner_img_align   = get_post_meta( $post->ID, 'banner_meta_img_align', true );
+
+        // Set default values.
+        if ( empty( $banner_height ) )      { $banner_height = '500'; } 
+        if ( empty( $banner_img_align ) )   { $banner_img_align = 'middle'; }
+      
+        $alignments = array(
+            'top'       => __( 'Top', 'juno' ),
+            'middle'    => __( 'Middle', 'juno' ),
+            'bottom'    => __( 'Bottom', 'juno' ),
+        );
+        
+        // Form fields
+        echo '<table class="form-table">';
+
+        echo '	<tr>';
+        echo '		<th><label for="banner_meta_height" class="banner_meta_height_label">' . __( 'Banner Height', 'juno' ) . '</label></th>';
+        echo '		<td>';
+        echo '			<input type="number" id="banner_meta_height" name="banner_meta_height" class="banner_meta_height_field" value="' . esc_attr( $banner_height ) . '" min="150" max="1000" step="50">';
+        echo '		</td>';
+        echo '	</tr>';
+
+        echo '	<tr>';
+        echo '		<th><label for="banner_meta_img_align" class="banner_meta_img_align_label">' . __( 'Location', 'juno' ) . '</label></th>';
+        echo '		<td>';
+        echo '	                <select id="banner_meta_img_align" name="banner_meta_img_align" class="banner_meta_img_align_field">';
+                                    foreach( $alignments as $key => $value ) :
+        echo '                          <option value="' . $key . '" ' . selected( $banner_img_align, $key, false ) . '> ' . $value . '</option>';
+                                    endforeach;
+        echo '	                </select>';
+        echo '		</td>';
+        echo '	</tr>';
+        
+        echo '</table>';
+        
+    }
+    
+    public function save_metabox( $post_id, $post ) {
+
+        // Add nonce for security and authentication.
+        $nonce_name     = isset( $_POST[ 'juno_banner_meta_box_nonce' ] ) ? $_POST[ 'juno_banner_meta_box_nonce' ] : '';
+        $nonce_action   = 'juno_banner_meta_box_nonce_action';
+
+        // Check if a nonce is set and valid
+        if ( !isset( $nonce_name ) ) { return; }
+        if ( !wp_verify_nonce( $nonce_name, $nonce_action ) ) { return; }
+            
+        // Sanitize user input.
+        $banner_height      = isset( $_POST[ 'banner_meta_height' ] ) ? sanitize_text_field( $_POST[ 'banner_meta_height' ] ) : '500';
+        $banner_img_align   = isset( $_POST[ 'banner_meta_img_align' ] ) ? sanitize_text_field( $_POST[ 'banner_meta_img_align' ] ) : 'middle';
+
+        // Update the meta field in the database
+        update_post_meta( $post_id, 'banner_meta_height', $banner_height );
+        update_post_meta( $post_id, 'banner_meta_img_align', $banner_img_align );
+        
+    }
+    
+}
+
+
+function juno_link_tab_icons() {
+    
+    return array( 
+        'fa fa-link'                    => __( 'Link', 'juno'), 
+        'fa fa-external-link'           => __( 'External Link', 'juno'), 
+        'fa fa-external-link-square'    => __( 'External Link Square', 'juno'), 
+        'fa fa-share'                   => __( 'Share', 'juno'), 
+        'fa fa-share-square-o'          => __( 'Share Square Outline', 'juno'), 
+        'fa fa-star'                    => __( 'Star', 'juno'), 
+        'fa fa-star-o'                  => __( 'Star Outline', 'juno'), 
+    );
+    
+}

@@ -5,7 +5,7 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-
 
 Requires at least: 4.4
 Tested up to: 4.6.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -47,6 +47,15 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 * Updated juno.pot
 * Minor CSS adjustments
 * Changed archive and blog pagination functions
+
+= 1.0.3 - Nov 21 2016 =
+* Added toggles for displaying Author, Date Posted etc. on Single and Blog layouts
+* Many theme mods added for Blog, including customization of hover tab color/icon
+* Can now choose between 2 or 3 column blog
+* Many typography font size theme mods added
+* Metabox added to Page/Post to allow customization of Featured Image header height and alignment
+* Two New Frontpage Page Templates added: 'Default' and 'With Blog'
+* General style adjustments
 
 == Credits ==
 
@@ -121,7 +130,7 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
     - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en    
 
 14. Icons & Images
-   - Files                 hover-corner.png, sc-emblem-skyblue.png
+   - Files                 sc-emblem-skyblue.png
    - URL                   Personal images created by Smartcat
    - License               CC0
    - License URL           http://creativecommons.org/publicdomain/zero/1.0/deed.en

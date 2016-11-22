@@ -3,9 +3,9 @@
 // ---------------------------------------------
 // General Panel
 // ---------------------------------------------
-$wp_customize->add_panel( 'juno_general_panel', array (
-    'title'                 => __( 'General', 'juno' ),
-    'description'           => __( 'Customize the general settings of your site', 'juno' ),
+$wp_customize->add_panel( 'juno_extras_panel', array (
+    'title'                 => __( 'Extras', 'juno' ),
+    'description'           => __( 'Customize the extras of your site', 'juno' ),
     'priority'              => 10
 ) );
 
@@ -15,7 +15,7 @@ $wp_customize->add_panel( 'juno_general_panel', array (
 $wp_customize->add_section( 'juno_error_page_section', array(
     'title'                 => __( '404 Error Page', 'juno'),
     'description'           => __( 'Customize the 404 error page appearance', 'juno' ),
-    'panel'                 => 'juno_general_panel'
+    'panel'                 => 'juno_extras_panel'
 ) );
  
     // Error Page Primary Heading

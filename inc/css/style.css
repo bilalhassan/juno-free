@@ -527,7 +527,7 @@ h5.post-meta {
 }
 
 .blog-roll-item .post-content {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #656565;
 }
 
@@ -536,7 +536,7 @@ h5.post-meta {
     font-size: 12px;
     text-transform: uppercase;
     color: #656565;
-    margin-right: 75px;
+    margin-right: 40px;
 }
 
 .blog-roll-item h5.post-meta a {
@@ -544,13 +544,13 @@ h5.post-meta {
 }
 
 .juno-blog-content .blog-roll-item .inner .image-corner {
-    width: 75px;
-    height: 0px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 0 0;
     position: absolute;
     bottom: 0;
     right: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .juno-blog-content .blog-roll-item .inner i.icon {
@@ -558,9 +558,8 @@ h5.post-meta {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    color: #fff;
     opacity: 0;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 /*
@@ -673,7 +672,8 @@ div#single-title-box .post-meta {
     }
     #archive-blog .sidebar-container,
     #single-post-container .sidebar-container,
-    #single-page-container .sidebar-container {
+    #single-page-container .sidebar-container,
+    .page-template-page-frontpage-blog .sidebar-container {
         margin-top: 15px !important;
     }
     
@@ -691,8 +691,9 @@ div#comments #respond {
     margin: 30px 0;
 /*    border-top: thin solid #d9d9d9;
     border-bottom: thin solid #d9d9d9;*/
-    padding: 30px;
+    padding: 30px 15px;
     background-color: #fff;
+    overflow: hidden;
 }
 
 #comments h3#reply-title {
@@ -740,6 +741,10 @@ div#comments #respond {
 #comments .comment-list li.comment ol.children {
     padding-left: 0;
     margin-left: 30px;
+}
+
+#comments .comment-list > li.comment ol.children ol.children {
+    margin-left: 0;
 }
 
 #comments .comment-author.vcard img {
@@ -792,7 +797,6 @@ span.edit-link a {
     display: inline-block;
     color: #333;
     border-radius: 5px;
-    font-family: 'Montserrat';
     font-size: 10px;
     text-transform: uppercase;
 }
@@ -810,9 +814,7 @@ a#cancel-comment-reply-link:hover { color: #fff; }
 
 #comments .comment-body .reply {
     margin-top: 10px;
-    background-color: #72c4c0;
     display: inline-block;
-    font-family: 'Montserrat';
     text-transform: uppercase;
     font-size: 10px;
     border-radius: 5px;
@@ -841,7 +843,8 @@ a#cancel-comment-reply-link {
 */
 #archive-blog .sidebar-container,
 #single-post-container .sidebar-container,
-#single-page-container .sidebar-container {
+#single-page-container .sidebar-container,
+.page-template-page-frontpage-blog .sidebar-container {
     margin-top: 30px;
 }
 
