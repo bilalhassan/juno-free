@@ -51,7 +51,7 @@ $wp_customize->add_section( 'juno_featured_post_section', array(
     $wp_customize->add_setting( 'juno_featured_post_section_button_label', array (
         'default'               => __( 'Show Me More', 'juno' ),
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_featured_post_section_button_label', array(
         'type'                  => 'text',
@@ -126,7 +126,7 @@ $wp_customize->add_section( 'juno_social_section', array(
     $wp_customize->add_setting( 'juno_social_message', array (
         'default'               => __( 'Stay Connected', 'juno' ),
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_social_message', array(
         'type'                  => 'text',

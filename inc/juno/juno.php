@@ -949,8 +949,9 @@ function juno_render_footer() { ?>
                                     |
                                 <?php endif; ?>
 
-                                <?php _e( 'Designed by', 'juno' ); ?> Smartcat <img src="<?php echo esc_url( get_template_directory_uri() . "/inc/images/sc-emblem-skyblue.png" ); ?>" alt="Smartcat <?php _e( 'Logo', 'juno' ); ?>">
+                                <?php printf( esc_html__( 'Designed by %s', 'juno' ), 'Smartcat' ); ?> 
 
+                                <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/sc-emblem-skyblue.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'juno' ), 'Smartcat' ); ?>" />
                             </div>
 
                         </div>

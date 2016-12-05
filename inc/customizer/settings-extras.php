@@ -22,7 +22,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     $wp_customize->add_setting( 'juno_error_page_heading', array (
         'default'               => __( 'Oops!', 'juno' ),
         'transport'             => 'postMessage',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_error_page_heading', array(
         'type'                  => 'text',
@@ -34,7 +34,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     $wp_customize->add_setting( 'juno_error_page_subheading', array (
         'default'               => __( 'It looks like nothing was found at this location, please check the address and try again!', 'juno' ),
         'transport'             => 'postMessage',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_error_page_subheading', array(
         'type'                  => 'text',
@@ -46,7 +46,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     $wp_customize->add_setting( 'juno_error_page_search_heading', array (
         'default'               => __( 'Search for something new?', 'juno' ),
         'transport'             => 'postMessage',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_error_page_search_heading', array(
         'type'                  => 'text',
