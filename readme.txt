@@ -13,7 +13,7 @@ Copyright 2016 Smartcat
 
 == Description ==
 
-Juno is a professional, multi-purpose theme with many customizable features and a crisp, clean, and modern design. With the emphasis placed on an uncluttered yet elegant design, Juno ensures your site looks great with minimal customization work.
+Juno is a professional, multi-purpose theme with tons of customizable features, widgets and a crisp, clean, and modern design. With the emphasis placed on an uncluttered yet elegant design, Juno ensures your site looks great with minimal customization work. Juno allows you to easily customize colors, fonts, sizes, as well as feature Woocommerce products, posts or pages.
 
 == Installation ==
 
