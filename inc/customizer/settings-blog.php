@@ -38,7 +38,7 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
     $wp_customize->add_setting( 'juno_blog_title', array (
         'default'               => __( 'Blog', 'juno' ),
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_blog_title', array(
         'type'                  => 'text',
@@ -80,7 +80,7 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
     $wp_customize->add_setting( 'juno_blog_hover_tab_color', array (
         'default'               => '#999999',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_blog_hover_tab_color', array(
@@ -94,7 +94,7 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
     $wp_customize->add_setting( 'juno_blog_hover_icon_color', array (
         'default'               => '#ffffff',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_blog_hover_icon_color', array(

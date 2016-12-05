@@ -22,7 +22,7 @@ $wp_customize->add_section( 'juno_footer_section', array(
     $wp_customize->add_setting( 'juno_footer_copyright_area', array (
         'default'               => __( 'Your Company', 'juno' ),
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_text',
+        'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_footer_copyright_area', array(
         'type'                  => 'text',

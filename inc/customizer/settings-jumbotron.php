@@ -119,7 +119,7 @@ $wp_customize->add_section( 'juno_jumbotron_appearance_section', array(
     $wp_customize->add_setting( 'juno_jumbotron_title_color', array (
         'default'               => '#ffffff',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_jumbotron_title_color', array(

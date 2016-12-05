@@ -22,7 +22,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_primary', array (
         'default'               => '#72c4c0',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_primary', array(
@@ -36,7 +36,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_accent', array (
         'default'               => '#ffc859',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_accent', array(
@@ -50,7 +50,7 @@ $wp_customize->add_section( 'juno_colors_section', array(
     $wp_customize->add_setting( 'juno_theme_color_dark', array (
         'default'               => '#1f2933',
         'transport'             => 'refresh',
-        'sanitize_callback'     => 'juno_sanitize_color',
+        'sanitize_callback'     => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( 
 	new WP_Customize_Color_Control( $wp_customize, 'juno_theme_color_dark', array(

@@ -61,17 +61,6 @@ add_action( 'customize_preview_init', 'juno_customize_preview_js' );
 /**
  * Sanitization Functions
  */
-function juno_sanitize_text( $input ) {
-    
-    return sanitize_text_field( $input );
-    
-}
-
-function juno_sanitize_color( $input ) {
-    
-    return sanitize_hex_color( $input );
-    
-}
 
 function juno_sanitize_integer( $input ) {
     
