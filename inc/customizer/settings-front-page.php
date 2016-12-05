@@ -14,7 +14,7 @@ $wp_customize->add_panel( 'juno_front_page_panel', array (
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_featured_post_section', array(
     'title'                 => __( 'Featured Post Section', 'juno'),
-    'description'           => __( 'Customize the front page "Featured Post" section', 'juno' ),
+    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -64,7 +64,7 @@ $wp_customize->add_section( 'juno_featured_post_section', array(
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_color_banner_section', array(
     'title'                 => __( 'Colored Widget Area', 'juno'),
-    'description'           => __( 'Customize the front page Colored widget area', 'juno' ),
+    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -88,7 +88,7 @@ $wp_customize->add_section( 'juno_color_banner_section', array(
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_social_section', array(
     'title'                 => __( 'Social Links', 'juno'),
-    'description'           => __( 'Customize the front page Social Link section', 'juno' ),
+    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 

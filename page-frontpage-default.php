@@ -21,7 +21,7 @@ get_header(); ?>
 
         <?php do_action( 'juno_homepage_widget_areas' ); ?>
 
-        <?php if ( get_theme_mod( 'juno_social_visibility_toggle', 'hide' ) == 'show' ) { do_action( 'juno_social' ); } ?>
+        <?php if ( get_theme_mod( 'juno_social_visibility_toggle', 'show' ) == 'show' ) { do_action( 'juno_social' ); } ?>
        
         <div id="front-page-content" class="container">
 
