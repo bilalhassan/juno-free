@@ -71,7 +71,7 @@
 
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom">
 
-                                        <a href="<?php echo admin_url( 'nav-menus.php' ); ?>">
+                                        <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>">
                                            <?php _e( 'Add a Primary Menu?', 'juno' ); ?>
                                         </a>
 

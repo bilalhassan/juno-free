@@ -5,7 +5,7 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-
 
 Requires at least: 4.4
 Tested up to: 4.6.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -56,6 +56,9 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 * Metabox added to Page/Post to allow customization of Featured Image header height and alignment
 * Two New Frontpage Page Templates added: 'Default' and 'With Blog'
 * General style adjustments
+
+= 1.0.4 - Dec 5 2016 =
+* code cleanup
 
 == Credits ==
 
