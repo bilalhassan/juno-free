@@ -57,7 +57,7 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 * Two New Frontpage Page Templates added: 'Default' and 'With Blog'
 * General style adjustments
 
-= 1.0.4 - Nov 21 2016 =
+= 1.0.4 - Dec 5 2016 =
 * code cleanup
 
 == Credits ==
