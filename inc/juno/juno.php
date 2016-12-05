@@ -634,7 +634,7 @@ add_action( 'juno_color_banner', 'juno_render_color_banner_section' );
 function juno_render_homepage_widget_areas() { ?>
     
     <!-- Homepage Area A -->
-    <?php if ( get_theme_mod( 'juno_toggle_widget_area_a', 'on' ) == 'on' ) : ?>
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_a', 'show' ) == 'show' ) : ?>
     
         <?php if ( ! is_active_sidebar( 'sidebar-front-a' ) ) : ?>
 
@@ -682,7 +682,7 @@ function juno_render_homepage_widget_areas() { ?>
     <?php endif; ?>
 
     <!-- Homepage Area B -->
-    <?php if ( get_theme_mod( 'juno_toggle_widget_area_b', 'on' ) == 'on' ) : ?>
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_b', 'show' ) == 'show' ) : ?>
     
         <?php if ( ! is_active_sidebar( 'sidebar-front-b' ) ) : ?>
 
@@ -730,7 +730,7 @@ function juno_render_homepage_widget_areas() { ?>
     <?php endif; ?>
     
     <!-- Homepage Area C -->
-    <?php if ( get_theme_mod( 'juno_toggle_widget_area_c', 'on' ) == 'on' ) : ?>
+    <?php if ( get_theme_mod( 'juno_toggle_widget_area_c', 'show' ) == 'show' ) : ?>
     
         <?php if ( ! is_active_sidebar( 'sidebar-front-c' ) ) : ?>
 

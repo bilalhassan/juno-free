@@ -60,6 +60,60 @@ $wp_customize->add_section( 'juno_featured_post_section', array(
     ) );
    
 // ---------------------------------------------
+// Frontpage Widget Areas Section
+// ---------------------------------------------
+$wp_customize->add_section( 'juno_widget_areas_section', array(
+    'title'                 => __( 'Frontpage Widget Areas', 'juno'),
+    'description'           => __( 'These Widget Areas appear on the Frontpage, but can be toggled off and hidden', 'juno' ),
+    'panel'                 => 'juno_front_page_panel'
+) );
+
+    // Widget Area A
+    $wp_customize->add_setting( 'juno_toggle_widget_area_a', array (
+        'default'               => 'show',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_show_hide',
+    ) );
+    $wp_customize->add_control( 'juno_toggle_widget_area_a', array(
+        'type'                  => 'radio',
+        'section'               => 'juno_widget_areas_section',
+        'label'                 => __( 'Show the Frontpage Widget Area A?', 'juno' ),
+        'choices'               => array(
+            'show'      => __( 'Show', 'juno' ),
+            'hide'      => __( 'Hide', 'juno' ),
+    ) ) );
+    
+    // Widget Area B
+    $wp_customize->add_setting( 'juno_toggle_widget_area_b', array (
+        'default'               => 'show',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_show_hide',
+    ) );
+    $wp_customize->add_control( 'juno_toggle_widget_area_b', array(
+        'type'                  => 'radio',
+        'section'               => 'juno_widget_areas_section',
+        'label'                 => __( 'Show the Frontpage Widget Area B?', 'juno' ),
+        'choices'               => array(
+            'show'      => __( 'Show', 'juno' ),
+            'hide'      => __( 'Hide', 'juno' ),
+    ) ) );
+    
+    // Widget Area C
+    $wp_customize->add_setting( 'juno_toggle_widget_area_c', array (
+        'default'               => 'show',
+        'transport'             => 'refresh',
+        'sanitize_callback'     => 'juno_sanitize_show_hide',
+    ) );
+    $wp_customize->add_control( 'juno_toggle_widget_area_c', array(
+        'type'                  => 'radio',
+        'section'               => 'juno_widget_areas_section',
+        'label'                 => __( 'Show the Frontpage Widget Area C?', 'juno' ),
+        'choices'               => array(
+            'show'      => __( 'Show', 'juno' ),
+            'hide'      => __( 'Hide', 'juno' ),
+    ) ) );
+
+// ---------------------------------------------
 // Color Banner Section
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_color_banner_section', array(
