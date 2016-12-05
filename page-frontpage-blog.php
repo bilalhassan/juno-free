@@ -59,7 +59,7 @@ get_header(); ?>
                                     <div id="blog-title-box">
 
                                         <h2 class="entry-title">
-                                            <?php echo get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ); ?>
+                                            <?php echo esc_html( get_theme_mod( 'juno_blog_title', __( 'Blog', 'juno' ) ) ); ?>
                                         </h2>
 
                                     </div>

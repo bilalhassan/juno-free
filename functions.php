@@ -18,7 +18,7 @@ if ( ! function_exists( 'juno_setup' ) ) :
 function juno_setup() {
     
         if( !defined( 'JUNO_VERSION' ) ) :
-            define( 'JUNO_VERSION', '1.0.3' );
+            define( 'JUNO_VERSION', '1.0.4' );
         endif;
     
 	/*
@@ -81,7 +81,7 @@ add_action( 'after_setup_theme', 'juno_setup' );
  * @global int $content_width
  */
 function juno_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'juno_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'juno_content_width', 1170 );
 }
 add_action( 'after_setup_theme', 'juno_content_width', 0 );
 

@@ -142,20 +142,20 @@ function juno_custom_css() { ?>
         /* ---------- FONT SIZES ---------- */
         
         body {
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_font_body_size', '14') ); ?>px; 
+            font-size: <?php echo intval( get_theme_mod( 'juno_font_body_size', 14 ) ); ?>px; 
         }
                 
         #site-branding a {
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_title_font_size', '36') ); ?>px; 
+            font-size: <?php echo intval( get_theme_mod( 'juno_title_font_size', 36) ); ?>px; 
         }
         
         ul#primary-menu > li > a,
         .slicknav_nav a {
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_nav_menu_font_size', '10') ); ?>px; 
+            font-size: <?php echo intval( get_theme_mod( 'juno_nav_menu_font_size', 10 ) ); ?>px; 
         }
         
         header#masthead img.custom-logo { 
-            height: <?php echo esc_attr( get_theme_mod( 'juno_custom_logo_height', '50' ) ); ?>px;
+            height: <?php echo intval( get_theme_mod( 'juno_custom_logo_height', 50 ) ); ?>px;
         }
         
         /* ---------- FONT FAMILIES ---------- */
@@ -286,13 +286,13 @@ function juno_custom_css() { ?>
     
         /* --- JUMBOTRON TITLE --- */
         #jumbotron-section .camera_caption a {
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_title_size', '28' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_jumbotron_title_size', 28 ) ); ?>px;
             color: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_title_color', '#ffffff' ) ); ?>; 
         }
 
         /* --- JUMBOTRON CONTENT --- */
         #jumbotron-section .camera_caption p.slide-content {
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_jumbotron_content_size', '18' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_jumbotron_content_size', 18 ) ); ?>px;
         }
  
         /* --- BLOG ROLL HOVER TAB COLOR --- */
@@ -311,26 +311,26 @@ function juno_custom_css() { ?>
         
         /* --- BLOG ROLL TYPOGRAPHY  --- */
         .juno-blog-content .blog-roll-item .inner h3.post-title { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_title_font_size', '16' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_blog_item_title_font_size', 16 ) ); ?>px;
         }
         .blog-roll-item .post-content { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_content_font_size', '14' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_blog_item_content_font_size', 14 ) ); ?>px;
         }
         .juno-blog-content .blog-roll-item .post-category a,
         .blog-roll-item h5.post-meta { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_blog_item_meta_font_size', '12' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_blog_item_meta_font_size', 12 ) ); ?>px;
         }
         
         /* --- SINGLE POST TYPOGRAPHY  --- */
         div#single-title-box .entry-title { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_title_font_size', '24' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_single_post_title_font_size', 24 ) ); ?>px;
         }
         #single-post-container .entry-content,
         #single-page-container .entry-content { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_content_font_size', '14' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_single_post_content_font_size', 14 ) ); ?>px;
         }
         div#single-title-box .post-meta { 
-            font-size: <?php echo esc_attr( get_theme_mod( 'juno_single_post_meta_font_size', '10' ) ); ?>px;
+            font-size: <?php echo intval( get_theme_mod( 'juno_single_post_meta_font_size', 10 ) ); ?>px;
         }
         
         
