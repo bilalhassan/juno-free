@@ -1313,3 +1313,7 @@ footer .widget_calendar table tfoot td {
     padding: 0 15px 15px 15px;
     background-color: #fff;
 }
+
+#jumbotron-section {
+    height: 1000px;
+}
