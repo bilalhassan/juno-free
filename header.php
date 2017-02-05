@@ -42,6 +42,12 @@
                         <a href="<?php echo esc_url( home_url() ); ?>">
                             <?php echo esc_html( get_bloginfo( 'name' ) ); ?>
                         </a>
+                    
+                        <?php if ( get_bloginfo ( 'description' ) ) : ?>
+                            <h5 class="site-description">
+                                <?php echo get_bloginfo ( 'description' ); ?>
+                            </h5>
+                        <?php endif; ?>
 
                     <?php } ?>
 

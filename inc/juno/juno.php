@@ -154,7 +154,7 @@ function juno_custom_css() { ?>
         }
         
         header#masthead img.custom-logo { 
-            max-height: <?php echo intval( get_theme_mod( 'juno_custom_logo_height', 50 ) ); ?>px;
+            max-height: <?php echo intval( get_theme_mod( 'juno_custom_logo_height', 300 ) ); ?>px;
         }
         
         /* ---------- FONT FAMILIES ---------- */

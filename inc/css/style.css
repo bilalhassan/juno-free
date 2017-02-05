@@ -54,6 +54,12 @@ header#masthead img.custom-logo {
     margin-bottom: 30px;
 }
 
+h5.site-description {
+    letter-spacing: .125em;
+    margin-bottom: 0;
+    color: #fff;
+}
+
 /*
 ** Main Navigation -------------------------------------------------------------
 */
