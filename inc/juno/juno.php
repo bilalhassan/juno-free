@@ -155,7 +155,7 @@ function juno_custom_css() { ?>
         }
         
         header#masthead img.custom-logo { 
-            height: <?php echo intval( get_theme_mod( 'juno_custom_logo_height', 50 ) ); ?>px;
+            max-height: <?php echo intval( get_theme_mod( 'juno_custom_logo_height', 50 ) ); ?>px;
         }
         
         /* ---------- FONT FAMILIES ---------- */
@@ -215,8 +215,10 @@ function juno_custom_css() { ?>
         }
         .widgettitle,
         .widget-title,
-        #front-page-blog div#frontpage-page .entry-title {
-            border-bottom: thin solid <?php echo esc_attr( $skin[ 'dark' ] ); ?>;
+        #front-page-blog div#frontpage-page .entry-title,
+        .front-page-widget h6.feature-title,
+        .sidebar-container h6.feature-title {
+            border-bottom: #333;
         }
         
         footer .widget_calendar table th,
@@ -247,7 +249,8 @@ function juno_custom_css() { ?>
         div#footer-widget-area a,
         .widget_calendar table a,
         .widget_calendar caption,
-        footer .widget_calendar caption {
+        footer .widget_calendar caption,
+        .widget a:hover {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -267,10 +270,6 @@ function juno_custom_css() { ?>
         input.search-submit,
         .error-404 input.search-submit {
             background-color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>;
-        }
-        div#single-title-box .post-meta,
-        div#single-title-box .post-meta a { 
-            color: <?php echo esc_attr( $skin[ 'accent' ] ); ?>; 
         }
         input.search-field,
         .error-404 input.search-field,

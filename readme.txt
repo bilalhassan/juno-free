@@ -4,8 +4,8 @@ Contributors: smartcat
 Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-layout, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog, news, portfolio
 
 Requires at least: 4.4
-Tested up to: 4.6.1
-Stable tag: 1.0.5
+Tested up to: 4.7.2
+Stable tag: 1.0.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 

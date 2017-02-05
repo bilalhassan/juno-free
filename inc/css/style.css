@@ -9,11 +9,20 @@ a {
     text-decoration: none !important;
 }
 
-a.accent-button {
+a.accent-button,
+input.accent-button {
     text-transform: uppercase;
     padding: 15px 30px;
     color: #fff;
     border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+input.accent-button {
+    border: none;
+    box-shadow: none !important;
+    text-shadow: none !important;
 }
 
 *:focus {
@@ -37,10 +46,12 @@ div#site-branding {
     text-transform: uppercase;
     letter-spacing: .5em;
     font-size: 40px;
+    display: block;
 }
 
 header#masthead img.custom-logo {
     width: auto;
+    margin-bottom: 30px;
 }
 
 /*
@@ -283,7 +294,7 @@ a.slicknav_btn {
 }
 
 .camera_caption p.slide-content {
-    font-weight: 100;
+    font-weight: 300;
     font-size: 16px;
     width: 70%;
     margin: 20px auto;
@@ -365,6 +376,7 @@ div#about-section {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 20px;
+    padding-bottom: 3px;
 }
 
 #about-section .widget {
@@ -389,15 +401,17 @@ div#subscribe-module {
 }
 
 #subscribe-module input[type="text"], 
-#subscribe-module input[type="email"] {
-    height: 50px;
+#subscribe-module input[type="email"],
+#subscribe-module textarea {
+/*    height: 50px;
     box-shadow: none;
     text-shadow: none;
     border: none;
     padding: 0 15px;
     border-radius: 5px;
     min-width: 50%;
-    margin-right: 5px;
+    margin-right: 5px;*/
+    border-color: #fff;
 }
 
 #subscribe-module input[type="submit"] {
@@ -410,7 +424,6 @@ div#subscribe-module {
     box-shadow: none;
     text-shadow: none;
     border: none;
-    height: 50px;
 } 
 
 #subscribe-module .widget .widget-title {
@@ -648,6 +661,11 @@ div#single-title-box .post-meta {
     margin-top: 5px;
 }
 
+div#single-title-box .post-meta,
+div#single-title-box .post-meta a {
+    color: #fff;
+}
+
 #single-post-container .entry-content {
     margin: 0;
     padding: 30px;
@@ -841,6 +859,7 @@ a#cancel-comment-reply-link {
 /*
 ** Left and Right Sidebars -----------------------------------------------------
 */
+.home.blog .sidebar-container,
 #archive-blog .sidebar-container,
 #single-post-container .sidebar-container,
 #single-page-container .sidebar-container,
@@ -850,10 +869,12 @@ a#cancel-comment-reply-link {
 
 .sidebar-container aside#secondary.widget-area {
     background: #f5f5f5;
+    padding-top: 30px;
 }
 
 .sidebar-container .widget {
-    padding: 30px;
+    padding: 0 30px;
+    margin-bottom: 30px;
 }
 
 /*
@@ -874,7 +895,11 @@ a#cancel-comment-reply-link {
 }
 
 .widgettitle,
-.widget-title {
+.widget-title,
+#subscribe-module h6.feature-title,
+.front-page-widget h6.feature-title,
+#footer-widget-area h6.feature-title,
+.sidebar-container h6.feature-title {
     margin-top: 5px;
     text-transform: uppercase;
     font-weight: 700;
@@ -922,6 +947,9 @@ div.social-bubble {
     line-height: 40px;
     font-size: 14px;
     border: 2px solid #fff;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
 }
 
 div.social-bubble i {
@@ -1037,7 +1065,7 @@ footer#colophon div#footer-branding {
     text-align: center;
     color: #fff;
     font-size: 12px;
-    padding: 15px 0 0 0;
+    padding: 15px 0 15px 0;
 }
 
 footer#colophon div#footer-branding img {
@@ -1059,12 +1087,18 @@ div#footer-jumper span {
     cursor: pointer;
     border-radius: 3px;
     border: 2px solid rgba(255,255,255,.75);
-    margin: 10px 0;
+    margin: 0 0 10px 0;
 }
 
 div#footer-jumper span:hover {
     color: #fff;
     border-color: #fff;
+}
+
+div#footer-jumper span.word-jumper {
+    border: none;
+    display: inline-block;
+    width: 120px;
 }
 
 /*
@@ -1317,3 +1351,117 @@ footer .widget_calendar table tfoot td {
 #jumbotron-section {
     height: 1000px;
 }
+
+/*
+ * Widgets New Spacing --------------------------------------------------------
+ */
+
+.widget .detail {
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+#subscribe-module h6.feature-title {
+    border-bottom: thin solid;
+}
+#footer-widget-area h6.feature-title {
+    border-bottom: thin solid #fff;
+}
+
+#about-section .widget a.accent-button {
+    margin: 0px 0px;
+}
+
+#subscribe-module .widget,
+#footer-widget-area .widget,
+section.front-page-widget .widget {
+    margin-bottom: 30px;
+}
+
+.widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget ul a {
+    font-weight: 400;
+    color: #333;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+.widget_categories ul a {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+}
+
+.widget_tag_cloud a {
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;   
+    color: #333;
+}
+
+.widget_search label, .widget_search input.search-field {
+    width: 100%;
+}
+
+.widget_search input.search-field {
+    border-radius: 0;
+    padding: 5px;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+    color: #666;
+    border: 1px solid #ccc;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.widget_search input.search-field:focus {
+    border-color: #333;
+}
+
+.widget_search input.search-submit {
+    margin: 0;
+}
+
+#subscribe-module .widget ul a {
+    color: #fff;
+}
+#subscribe-module .widget ul a:hover {
+    color: #333;
+}
+
+#subscribe-module .widget_search input.search-field,
+#footer-widget-area .widget_search input.search-field {
+    border: 1px solid #fff;
+}
+
+#subscribe-module .widget_search input.search-field:focus,
+#footer-widget-area .widget_search input.search-field:focus {
+    border-color: #333;
+}
+
+#subscribe-module .widget_search input[type="submit"] {
+    padding: 0 20px;
+}
+
+#subscribe-module .widget_tag_cloud a {
+    color: #fff;
+}
+
+#subscribe-module .widget_tag_cloud a:hover {
+    color: #333;
+}
+
+.widget.widget_search form.search-form {
+    padding-top: 0;
+}
+
+#footer-widget-area .widget ul a:hover,
+#footer-widget-area .widget_tag_cloud a:hover {
+    color: #fff;
+}
+
