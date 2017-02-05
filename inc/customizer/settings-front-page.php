@@ -14,7 +14,7 @@ $wp_customize->add_panel( 'juno_front_page_panel', array (
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_featured_post_section', array(
     'title'                 => __( 'Featured Post Section', 'juno'),
-    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
+    'description'           => __( 'This section appears on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -118,7 +118,7 @@ $wp_customize->add_section( 'juno_widget_areas_section', array(
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_color_banner_section', array(
     'title'                 => __( 'Colored Widget Area', 'juno'),
-    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
+    'description'           => __( 'This section appears on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
@@ -142,13 +142,13 @@ $wp_customize->add_section( 'juno_color_banner_section', array(
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_social_section', array(
     'title'                 => __( 'Social Links', 'juno'),
-    'description'           => __( 'This section appeas on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
+    'description'           => __( 'This section appears on the Frontpage when Static Frontpage option is set to "A static page" from Customize -> Static Frontpage', 'juno' ),
     'panel'                 => 'juno_front_page_panel'
 ) );
 
     // Social Section Visibility Toggle
     $wp_customize->add_setting( 'juno_social_visibility_toggle', array (
-        'default'               => 'hide',
+        'default'               => 'show',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_show_hide',
     ) );

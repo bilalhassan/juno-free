@@ -48,7 +48,7 @@
             
             <?php if ( $words > 0 ) : ?>
                 <div class="post-content">
-                    <?php echo esc_html( wp_trim_words( strip_tags( get_the_content() ), $words ) ); ?>
+                    <?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_content() ), $words ) ); ?>
                 </div>
             <?php endif; ?>
 
