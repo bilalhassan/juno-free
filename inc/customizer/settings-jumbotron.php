@@ -197,7 +197,7 @@ $wp_customize->add_section( 'juno_jumbotron_appearance_section', array(
     
     // Jumbotron Slides - Transition Effect
     $wp_customize->add_setting( 'juno_jumbotron_slide_effect', array (
-        'default'               => 'fade',
+        'default'               => 'simpleFade',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_slide_effect',
     ) );
@@ -206,6 +206,6 @@ $wp_customize->add_section( 'juno_jumbotron_appearance_section', array(
         'section'               => 'juno_jumbotron_appearance_section',
         'label'                 => __( 'Select your slide transition Effect', 'juno' ),
         'choices'               => array(
-            'fade'      => __( 'Fade', 'juno' ),
-            'scroll'    => __( 'Scroll', 'juno' ),
+            'simpleFade'    => __( 'Fade', 'juno' ),
+            'scrollLeft'    => __( 'Scroll Left', 'juno' ),
     ) ) );

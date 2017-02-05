@@ -1348,9 +1348,9 @@ footer .widget_calendar table tfoot td {
     background-color: #fff;
 }
 
-
-
-
+#jumbotron-section {
+    height: 1000px;
+}
 
 /*
  * Widgets New Spacing --------------------------------------------------------

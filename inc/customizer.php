@@ -113,8 +113,8 @@ function juno_sanitize_font( $input ) {
 function juno_sanitize_slide_effect( $input ) {
     
     $valid_keys = array(
-        'fade'      => __( 'Fade', 'juno' ),
-        'scroll'    => __( 'Scroll', 'juno' ),
+        'simpleFade'    => __( 'Fade', 'juno' ),
+        'scrollLeft'    => __( 'Scroll Left', 'juno' ),
     );
     
     if ( array_key_exists( $input, $valid_keys ) ) {
