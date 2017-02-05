@@ -29,9 +29,8 @@ function juno_scripts() {
 
     wp_enqueue_script( 'jquery-easing', get_template_directory_uri() . '/inc/js/jquery.easing.1.3.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'jquery-mobile', get_template_directory_uri() . '/inc/js/jquery.mobile.custom.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/inc/js/jquery-ui.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'camera-js', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery'), JUNO_VERSION, true );
-    wp_enqueue_script( 'slicknav-js', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
+    wp_enqueue_script( 'camera', get_template_directory_uri() . '/inc/js/camera.min.js', array('jquery', 'jquery-ui-core'), JUNO_VERSION, true );
+    wp_enqueue_script( 'slicknav', get_template_directory_uri() . '/inc/js/jquery.slicknav.min.js', array('jquery'), JUNO_VERSION, true );
     wp_enqueue_script( 'juno-main-script', get_template_directory_uri() . '/inc/js/custom.js', array('jquery', 'jquery-masonry'), JUNO_VERSION, true );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -457,7 +456,7 @@ function juno_render_jumbotron() { ?>
                                 <div class="camera_lime_skin" data-src="<?php echo esc_url( get_template_directory_uri() . '/inc/images/jumbotron.jpg' ); ?>">
                                     <div class="camera_caption wow fadeIn">
                                         <a href="#">
-                                            <?php esc_html_e( 'Juno WordPress Theme', 'juno' ); ?>
+                                            <?php bloginfo( 'name' ); ?>
                                         </a>
                                     </div>
                                 </div>
@@ -473,7 +472,7 @@ function juno_render_jumbotron() { ?>
                                         </a>
                                         <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_1->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_1->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -498,7 +497,7 @@ function juno_render_jumbotron() { ?>
                                         </a>
                                         <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_2->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_2->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -521,7 +520,7 @@ function juno_render_jumbotron() { ?>
                                         </a>
                                         <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( strip_tags( strip_shortcodes( $slider_post_3->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_3->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -557,19 +556,38 @@ function juno_render_featured_post_section() { ?>
                 <?php $about_post = get_theme_mod( 'juno_featured_post_post', null ) == null ? null : get_post( get_theme_mod( 'juno_featured_post_post', null ) ); ?>
                 
                 <h2 id="about-primary">
-                    <?php echo is_null( $about_post ) ? esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ) : esc_html( get_the_title( $about_post ) ); ?>                    
+                    
+                    <?php if( is_null( $about_post ) ) : ?>
+                        <?php if( current_user_can( 'manage_options') ) : ?>
+                            <?php echo esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ); ?>
+                        <?php else : ?>
+                            <?php echo bloginfo( 'name' ); ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <?php echo esc_html( get_the_title( $about_post ) ); ?>
+                    <?php endif; ?>
                 </h2>
                 
                 <hr class="accent-divider">
                 
                 <p id="about-secondary">
-                    <?php echo is_null( $about_post ) ? esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ) : esc_html( $about_post->post_content ); ?>                    
+                    
+                    <?php if( is_null( $about_post ) ) : ?>
+                        <?php if( current_user_can( 'manage_options') ) : ?>
+                            <?php echo esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ); ?>
+                        <?php else : ?>
+                            <?php echo bloginfo( 'description' ); ?>
+                        <?php endif; ?>
+                    <?php else : ?>
+                        <?php echo esc_html( $about_post->post_content ); ?>
+                    <?php endif; ?>
+                    
                 </p>
                 
                 <?php if ( get_theme_mod( 'juno_featured_post_section_button_label', __( 'Show Me More', 'juno' ) ) != '' ) : ?>
                 
                     <a class="accent-button" href="<?php echo esc_url( get_the_permalink( $about_post ) ); ?>">
-                        <?php echo esc_html( get_theme_mod( 'juno_featured_post_section_button_label', '' ) ); ?>
+                        <?php echo esc_html( get_theme_mod( 'juno_featured_post_section_button_label', __( 'Continue reading', 'juno' ) ) ); ?>
                     </a>
                 
                 <?php endif; ?>
@@ -621,7 +639,46 @@ function juno_render_color_banner_section() { ?>
             </div>
 
         </div>
+    
+    <?php else : ?>
 
+        <div id="subscribe-module" class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="container">
+
+                        <div class="row">
+
+                            <?php if( current_user_can( 'manage_options' ) ) :  ?>
+                            <h6 class="default-text">
+                                <?php _e( 'Colored Widget Area', 'juno' ); ?>
+                            </h6>
+                            <div class="textwidget">
+                                <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Colored Widget Area. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
+                            </div>
+                            <?php else : ?>
+                                <h6 class="default-text">
+                                    <?php echo bloginfo( 'name' ); ?>
+                                </h6>
+                                <div class="textwidget">
+                                    <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    
+        
     <?php endif; ?>
     
 <?php }
@@ -650,13 +707,21 @@ function juno_render_homepage_widget_areas() { ?>
                                 <div class="row">
 
                                     <div class="col-sm-12">
-
+                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage A Widget Area', 'juno' ); ?>
                                         </h6>
                                         <div class="textwidget">
                                             <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget A. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
                                         </div>
+                                        <?php else : ?>
+                                            <h6 class="default-text">
+                                                <?php echo bloginfo( 'name' ); ?>
+                                            </h6>
+                                            <div class="textwidget">
+                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                            </div>
+                                        <?php endif; ?>
 
                                     </div>
 
@@ -699,12 +764,21 @@ function juno_render_homepage_widget_areas() { ?>
 
                                     <div class="col-sm-12">
 
+                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage B Widget Area', 'juno' ); ?>
                                         </h6>
                                         <div class="textwidget">
                                             <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget B. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
                                         </div>
+                                        <?php else : ?>
+                                            <h6 class="default-text">
+                                                <?php echo bloginfo( 'name' ); ?>
+                                            </h6>
+                                            <div class="textwidget">
+                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                            </div>
+                                        <?php endif; ?>
 
                                     </div>
 
@@ -747,12 +821,21 @@ function juno_render_homepage_widget_areas() { ?>
 
                                     <div class="col-sm-12">
 
+                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage C Widget Area', 'juno' ); ?>
                                         </h6>
                                         <div class="textwidget">
                                             <p class="default-text"><?php _e( 'You can enable/disable this widget area from Customizer - Frontpage - Homepage Widget C. This is a widget placeholder, and you can add any widget to it from Customizer - Widgets.', 'juno' ); ?></p>
                                         </div>
+                                        <?php else : ?>
+                                            <h6 class="default-text">
+                                                <?php echo bloginfo( 'name' ); ?>
+                                            </h6>
+                                            <div class="textwidget">
+                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                            </div>
+                                        <?php endif; ?>
 
                                     </div>
 
@@ -798,7 +881,8 @@ function juno_render_social_module() { ?>
 
                             <?php if ( get_theme_mod( 'juno_social_message_toggle', 'show' ) == 'show' ) : ?>
                                 <div id="social-message">
-                                    <?php echo esc_html( get_theme_mod( 'juno_social_message', __( 'Stay Connected','juno') ) ); ?>
+                                    <?php $social_output = current_user_can( 'manage_options' ) ? __( 'Social links section', 'juno' ) : ''; ?>
+                                    <?php echo esc_html( get_theme_mod( 'juno_social_message', $social_output ) ); ?>
                                 </div>
                             <?php endif; ?>
                             
@@ -941,9 +1025,9 @@ function juno_render_footer() { ?>
                             
                             <div id="footer-branding">
 
-                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) != '' ) : ?>
+                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', true ) != '' ) : ?>
                                     <span class="site-info">
-                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', __( 'Your Company', 'juno' ) ) ); ?>
+                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', bloginfo( 'name' ) ) ); ?>
                                     </span>
                                     |
                                 <?php endif; ?>

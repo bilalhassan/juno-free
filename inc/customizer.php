@@ -20,28 +20,28 @@ function juno_customize_register( $wp_customize ) {
      */
     
     // Site Identity
-    require_once('customizer/settings-site-identity-extras.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-site-identity-extras.php';
     
     // Front Page
-    require_once('customizer/settings-front-page.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-front-page.php';
 
     // Site Header & Footer
-    require_once('customizer/settings-header-footer.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-header-footer.php';
     
     // Jumbotron
-    require_once('customizer/settings-jumbotron.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-jumbotron.php';
 
     // Blog
-    require_once('customizer/settings-blog.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-blog.php';
     
     // Single Post / Page
-    require_once('customizer/settings-single-post.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-single-post.php';
     
     // Site Appearance
-    require_once('customizer/settings-appearance.php');
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-appearance.php';
 
     // Extras
-    require_once('customizer/settings-extras.php');    
+    require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-extras.php';    
     
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';

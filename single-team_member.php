@@ -62,7 +62,7 @@ endif;
                                 
                                 $content .= '<div>';
                                 
-                                if (get_the_post_thumbnail($post1->ID, 'medium')) :
+                                if ( has_post_thumbnail($post1->ID ) ) :
                                     $content .= '<div class="col-sm-3">' . get_the_post_thumbnail($post1->ID, 'medium') . '</div>';
                                 endif;
 
@@ -76,7 +76,7 @@ endif;
                                 
                                 $content .= '<div>';
                                 
-                                if (get_the_post_thumbnail($post2->ID, 'medium')) :
+                                if ( has_post_thumbnail($post2->ID ) ) :
                                     $content .= '<div class="col-sm-3">' . get_the_post_thumbnail($post2->ID, 'medium') . '</div>';
                                 endif;
 
@@ -90,7 +90,7 @@ endif;
                                 
                                 $content .= '<div>';
                                 
-                                if (get_the_post_thumbnail($post3->ID, 'medium')) :
+                                if ( has_post_thumbnail($post3->ID ) ) :
                                     $content .= '<div class="col-sm-3">' . get_the_post_thumbnail($post3->ID, 'medium') . '</div>';
                                 endif;
 

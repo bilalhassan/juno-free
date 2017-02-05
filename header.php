@@ -35,7 +35,7 @@
                 
                     <?php if ( function_exists( 'has_custom_logo' ) && has_custom_logo() ) {
 
-                        if ( function_exists( 'the_custom_logo' ) ) { the_custom_logo(); }
+                        the_custom_logo();
 
                     } else { ?>
 
@@ -72,7 +72,9 @@
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom">
 
                                         <a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>">
-                                           <?php _e( 'Add a Primary Menu?', 'juno' ); ?>
+                                            <?php if( current_user_can( 'edit_posts' ) ) : ?>
+                                               <?php _e( 'Add a Primary Menu?', 'juno' ); ?>
+                                            <?php endif; ?>
                                         </a>
 
                                     </li>
