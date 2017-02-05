@@ -1181,12 +1181,16 @@ function juno_custom_js() { ?>
                     jumbotron_height = <?php echo esc_js( get_theme_mod( 'juno_jumbotron_mobile_height', '400' ) ); ?> + 'px';
                 }
                 
+                $('#jumbotron-section').animate({
+                    height: jumbotron_height
+                });
+                
                 $( "#camera_slider" ).camera({ 
                     height: jumbotron_height,
                     hover: true,
                     transPeriod: 1000,
                     time: <?php echo esc_js( get_theme_mod( 'juno_jumbotron_slide_delay', '7500' ) ); ?>,
-                    fx: '<?php echo get_theme_mod( 'juno_jumbotron_slide_effect', 'fade' ) == 'fade' ? esc_js( 'simpleFade') : esc_js( 'scrollLeft' ); ?>',
+                    fx: '<?php echo esc_js( get_theme_mod( 'juno_jumbotron_slide_effect', 'simpleFade' ) ); ?>',
                     pagination: <?php echo $single_slide ? esc_js( 'false') : esc_js( 'true' ); ?>,
                     playPause: false,
                     loader: 'none',
