@@ -1,22 +1,13 @@
 <?php
 
 // ---------------------------------------------
-// Single Post Panel
-// ---------------------------------------------
-$wp_customize->add_panel( 'juno_single_panel', array (
-    'title'                 => __( 'Single Post', 'juno' ),
-    'description'           => __( 'Customize the appearance of the Single Post', 'juno' ),
-    'priority'              => 10
-) );
-
-// ---------------------------------------------
 // Layout Section
 // ---------------------------------------------
 
 $wp_customize->add_section( 'juno_single_layout_section', array (
-    'title'                 => __( 'Layout', 'juno' ),
+    'title'                 => __( 'Single Post', 'juno' ),
     'description'           => __( 'Customize the layout of your single Post template', 'juno' ),
-    'panel'                 => 'juno_single_panel',
+    'priority'              => 5
 ) );
 
     // Show Author?

@@ -6,7 +6,7 @@
 $wp_customize->add_panel( 'juno_front_page_panel', array (
     'title'                 => __( 'Frontpage Content', 'juno' ),
     'description'           => __( 'Customize the appearance of your front page', 'juno' ),
-    'priority'              => 10
+    'priority'              => 3
 ) );
     
 // ---------------------------------------------

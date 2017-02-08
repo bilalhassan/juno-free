@@ -6,7 +6,7 @@
 $wp_customize->add_panel( 'juno_jumbotron_panel', array (
     'title'                 => __( 'Jumbotron', 'juno' ),
     'description'           => __( 'Customize the appearance of the large frontpage slider', 'juno' ),
-    'priority'              => 10
+    'priority'              => 2
 ) );
     
 // ---------------------------------------------
@@ -14,7 +14,7 @@ $wp_customize->add_panel( 'juno_jumbotron_panel', array (
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_jumbotron_general_section', array(
     'title'                 => __( 'General Settings & Post Selection', 'juno'),
-    'description'           => __( 'Customize the front page Jumbotron. To update the pictures that show up in the slider, please edit the post and set the featured image.', 'juno' ),
+    'description'           => __( 'Customize the front page Jumbotron. To update the pictures that show up in the slider, please edit the post and set the featured image from within the post edit screen.', 'juno' ),
     'panel'                 => 'juno_jumbotron_panel'
 ) );
 
