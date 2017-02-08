@@ -9,7 +9,7 @@ Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-Copyright 2016 Smartcat
+Copyright 2017 Smartcat
 
 == Description ==
 
