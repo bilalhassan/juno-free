@@ -9,7 +9,7 @@ Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-Copyright 2016 Smartcat
+Copyright 2017 Smartcat
 
 == Description ==
 
@@ -62,6 +62,15 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 
 = 1.0.5 - Dec 5 2016 =
 * code cleanup
+
+= 1.1.0 - Feb 5 2016 =
+* code cleanup
+* updated defaults
+
+= 1.1.1 - Feb 8 2017 =
+* Removed blog page template
+* updated POT file
+* Clean up to customizer options
 
 == Credits ==
 
