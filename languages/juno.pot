@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Juno\n"
-"POT-Creation-Date: 2017-02-08 08:48-0500\n"
+"POT-Creation-Date: 2017-02-08 08:55-0500\n"
 "PO-Revision-Date: 2017-02-08 08:48-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -485,11 +485,11 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:116 inc/customizer/settings-jumbotron.php:209
+#: inc/customizer.php:116 inc/customizer/settings-jumbotron.php:213
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer.php:117 inc/customizer/settings-jumbotron.php:210
+#: inc/customizer.php:117 inc/customizer/settings-jumbotron.php:214
 msgid "Scroll Left"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgid "Hide"
 msgstr ""
 
 #: inc/customizer/settings-appearance.php:7
-#: inc/customizer/settings-jumbotron.php:79
+#: inc/customizer/settings-jumbotron.php:83
 msgid "Appearance"
 msgstr ""
 
@@ -857,7 +857,7 @@ msgid "Company Name / Copyright"
 msgstr ""
 
 #: inc/customizer/settings-jumbotron.php:7
-msgid "Jumbotron"
+msgid "Jumbotron ( Slider )"
 msgstr ""
 
 #: inc/customizer/settings-jumbotron.php:8
@@ -865,89 +865,95 @@ msgid "Customize the appearance of the large frontpage slider"
 msgstr ""
 
 #: inc/customizer/settings-jumbotron.php:16
-msgid "General Settings & Post Selection"
+msgid "Slides"
 msgstr ""
 
 #: inc/customizer/settings-jumbotron.php:17
 msgid ""
-"Customize the front page Jumbotron. To update the pictures that show up in "
-"the slider, please edit the post and set the featured image from within the "
-"post edit screen."
+"The Jumbotron Slider will only show up on the Frontpage. Set your Frontpage "
+"from Customizer-Static Frontpage to a Static Page."
 msgstr ""
 
 #: inc/customizer/settings-jumbotron.php:30
 msgid "Show the Jumbotron section?"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:45
+#: inc/customizer/settings-jumbotron.php:46
 msgid "Jumbotron Post #1"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:58
+#: inc/customizer/settings-jumbotron.php:47
+#: inc/customizer/settings-jumbotron.php:61
+#: inc/customizer/settings-jumbotron.php:75
+msgid ""
+"To select the image, Edit the page/post you selected and Set Featured Image"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:60
 msgid "Jumbotron Post #2"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:71
+#: inc/customizer/settings-jumbotron.php:74
 msgid "Jumbotron Post #3"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:80
+#: inc/customizer/settings-jumbotron.php:84
 msgid "Customize the Jumbotron appearance"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:93
+#: inc/customizer/settings-jumbotron.php:97
 msgid "Mobile Height of Jumbotron"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:94
+#: inc/customizer/settings-jumbotron.php:98
 msgid ""
 "If the page is loaded on a mobile device, this value will be used to set the "
 "Jumbotron height"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:110
+#: inc/customizer/settings-jumbotron.php:114
 msgid "Dark Tinted Slide Overlay"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:111
+#: inc/customizer/settings-jumbotron.php:115
 msgid ""
 "Adjust the amount of dark tint to apply to slider images, from 0.0 for no "
 "tint to 1.0 for solid black, or anything in between"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:126
+#: inc/customizer/settings-jumbotron.php:130
 msgid "Title - Text Color"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:141
+#: inc/customizer/settings-jumbotron.php:145
 msgid "Title - Font Size"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:157
+#: inc/customizer/settings-jumbotron.php:161
 msgid "Trim the Post Content"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:158
+#: inc/customizer/settings-jumbotron.php:162
 msgid ""
 "This value will limit the number of words from the Post Content that will be "
 "displayed. Set to zero to show only the title. PLEASE NOTE: Post Content in "
 "the Jumbotron will not be visible on mobile."
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:174
+#: inc/customizer/settings-jumbotron.php:178
 msgid "Post Content - Font Size"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:190
+#: inc/customizer/settings-jumbotron.php:194
 msgid "Slide Duration"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:191
+#: inc/customizer/settings-jumbotron.php:195
 msgid ""
 "How long to wait before switching slides, in milliseconds. (1000 = 1 second)"
 msgstr ""
 
-#: inc/customizer/settings-jumbotron.php:207
+#: inc/customizer/settings-jumbotron.php:211
 msgid "Select your slide transition Effect"
 msgstr ""
 

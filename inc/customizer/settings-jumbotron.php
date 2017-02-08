@@ -4,7 +4,7 @@
 // Jumbotron Panel
 // ---------------------------------------------
 $wp_customize->add_panel( 'juno_jumbotron_panel', array (
-    'title'                 => __( 'Jumbotron', 'juno' ),
+    'title'                 => __( 'Jumbotron ( Slider )', 'juno' ),
     'description'           => __( 'Customize the appearance of the large frontpage slider', 'juno' ),
     'priority'              => 2
 ) );
@@ -13,8 +13,8 @@ $wp_customize->add_panel( 'juno_jumbotron_panel', array (
 // Jumbotron General & Post Selection
 // ---------------------------------------------
 $wp_customize->add_section( 'juno_jumbotron_general_section', array(
-    'title'                 => __( 'General Settings & Post Selection', 'juno'),
-    'description'           => __( 'Customize the front page Jumbotron. To update the pictures that show up in the slider, please edit the post and set the featured image from within the post edit screen.', 'juno' ),
+    'title'                 => __( 'Slides', 'juno'),
+    'description'           => __( 'The Jumbotron Slider will only show up on the Frontpage. Set your Frontpage from Customizer-Static Frontpage to a Static Page.', 'juno' ),
     'panel'                 => 'juno_jumbotron_panel'
 ) );
 
@@ -38,11 +38,13 @@ $wp_customize->add_section( 'juno_jumbotron_general_section', array(
         'default'               => null,
         'transport'             => 'refresh',
         'sanitize_callback'     => 'juno_sanitize_post',
+        
     ) );
     $wp_customize->add_control( 'juno_jumbotron_post_1', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_general_section',
         'label'                 => __( 'Jumbotron Post #1', 'juno' ),
+        'description'           => __( 'To select the image, Edit the page/post you selected and Set Featured Image', 'juno' ),
         'choices'               => juno_all_posts_array( true ),
     ) );
 
@@ -56,6 +58,7 @@ $wp_customize->add_section( 'juno_jumbotron_general_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_general_section',
         'label'                 => __( 'Jumbotron Post #2', 'juno' ),
+        'description'           => __( 'To select the image, Edit the page/post you selected and Set Featured Image', 'juno' ),
         'choices'               => juno_all_posts_array( true ),
     ) );
 
@@ -69,6 +72,7 @@ $wp_customize->add_section( 'juno_jumbotron_general_section', array(
         'type'                  => 'select',
         'section'               => 'juno_jumbotron_general_section',
         'label'                 => __( 'Jumbotron Post #3', 'juno' ),
+        'description'           => __( 'To select the image, Edit the page/post you selected and Set Featured Image', 'juno' ),
         'choices'               => juno_all_posts_array( true ),
     ) );
     
