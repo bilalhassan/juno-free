@@ -63,6 +63,15 @@ Juno supports an unlimited number of menu items, though it has been optimized fo
 = 1.0.5 - Dec 5 2016 =
 * code cleanup
 
+= 1.1.0 - Feb 5 2016 =
+* code cleanup
+* updated defaults
+
+= 1.1.1 - Feb 8 2017 =
+* Removed blog page template
+* updated POT file
+* Clean up to customizer options
+
 == Credits ==
 
 * Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
