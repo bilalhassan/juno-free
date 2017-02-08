@@ -6,7 +6,19 @@
 $wp_customize->add_panel( 'juno_header_footer_panel', array (
     'title'                 => __( 'Header & Footer', 'juno' ),
     'description'           => __( 'Customize the header and footer', 'juno' ),
-    'priority'              => 10
+    'priority'              => 1
+) );
+
+
+
+
+// ---------------------------------------------
+// Logo & title
+// ---------------------------------------------
+$wp_customize->add_section( 'title_tagline', array(
+    'title'                 => __( 'Logo & title', 'juno'),
+    'description'           => __( 'Customize the logo & site title', 'juno' ),
+    'panel'                 => 'juno_header_footer_panel'
 ) );
 
 // ---------------------------------------------
@@ -20,7 +32,6 @@ $wp_customize->add_section( 'juno_footer_section', array(
 
     // Copyright Line Company Name
     $wp_customize->add_setting( 'juno_footer_copyright_area', array (
-        'default'               => __( 'Your Company', 'juno' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'sanitize_text_field',
     ) );

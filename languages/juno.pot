@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Juno\n"
-"POT-Creation-Date: 2016-11-17 10:56-0500\n"
-"PO-Revision-Date: 2016-11-17 10:55-0500\n"
+"POT-Creation-Date: 2017-02-08 08:55-0500\n"
+"PO-Revision-Date: 2017-02-08 08:48-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: style.css\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,11 +20,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:27 inc/customizer/settings-general.php:23
+#: 404.php:27 inc/customizer/settings-extras.php:23
 msgid "Oops!"
 msgstr ""
 
-#: 404.php:31 inc/customizer/settings-general.php:35
+#: 404.php:31 inc/customizer/settings-extras.php:35
 msgid ""
 "It looks like nothing was found at this location, please check the address "
 "and try again!"
@@ -54,8 +54,8 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: front-page.php:53 inc/customizer/settings-blog.php:7
-#: inc/customizer/settings-blog.php:39 index.php:31
+#: front-page.php:53 inc/customizer/settings-blog.php:8
+#: inc/customizer/settings-blog.php:30 index.php:31
 msgid "Blog"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:75
+#: header.php:82
 msgid "Add a Primary Menu?"
 msgstr ""
 
@@ -485,25 +485,56 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:109 inc/customizer/settings-blog.php:33
+#: inc/customizer.php:116 inc/customizer/settings-jumbotron.php:213
+msgid "Fade"
+msgstr ""
+
+#: inc/customizer.php:117 inc/customizer/settings-jumbotron.php:214
+msgid "Scroll Left"
+msgstr ""
+
+#: inc/customizer.php:131 inc/customizer/settings-blog.php:51
+msgid "2-Column"
+msgstr ""
+
+#: inc/customizer.php:132 inc/customizer/settings-blog.php:52
+msgid "3-Column"
+msgstr ""
+
+#: inc/customizer.php:146 inc/customizer/settings-blog.php:24
+#: inc/customizer/settings-blog.php:66 inc/customizer/settings-blog.php:170
+#: inc/customizer/settings-blog.php:185 inc/customizer/settings-blog.php:200
 #: inc/customizer/settings-front-page.php:32
+#: inc/customizer/settings-front-page.php:82
+#: inc/customizer/settings-front-page.php:97
 #: inc/customizer/settings-front-page.php:112
-#: inc/customizer/settings-front-page.php:162
-#: inc/customizer/settings-front-page.php:186
-#: inc/customizer/settings-front-page.php:201
+#: inc/customizer/settings-front-page.php:136
+#: inc/customizer/settings-front-page.php:160
+#: inc/customizer/settings-front-page.php:175
+#: inc/customizer/settings-jumbotron.php:32
+#: inc/customizer/settings-single-post.php:24
+#: inc/customizer/settings-single-post.php:39
 msgid "Show"
 msgstr ""
 
-#: inc/customizer.php:110 inc/customizer/settings-blog.php:34
+#: inc/customizer.php:147 inc/customizer/settings-blog.php:25
+#: inc/customizer/settings-blog.php:67 inc/customizer/settings-blog.php:171
+#: inc/customizer/settings-blog.php:186 inc/customizer/settings-blog.php:201
 #: inc/customizer/settings-front-page.php:33
+#: inc/customizer/settings-front-page.php:83
+#: inc/customizer/settings-front-page.php:98
 #: inc/customizer/settings-front-page.php:113
-#: inc/customizer/settings-front-page.php:163
-#: inc/customizer/settings-front-page.php:187
-#: inc/customizer/settings-front-page.php:202
+#: inc/customizer/settings-front-page.php:137
+#: inc/customizer/settings-front-page.php:161
+#: inc/customizer/settings-front-page.php:176
+#: inc/customizer/settings-jumbotron.php:33
+#: inc/customizer/settings-single-post.php:25
+#: inc/customizer/settings-single-post.php:40
 msgid "Hide"
 msgstr ""
 
 #: inc/customizer/settings-appearance.php:7
+#: inc/customizer/settings-jumbotron.php:83
 msgid "Appearance"
 msgstr ""
 
@@ -579,48 +610,96 @@ msgstr ""
 msgid "Adjust the font size of most generic text content in pixels"
 msgstr ""
 
-#: inc/customizer/settings-blog.php:8
-msgid "Customize the appearance of the Blog"
-msgstr ""
-
-#: inc/customizer/settings-blog.php:17
-msgid "Layout"
-msgstr ""
-
-#: inc/customizer/settings-blog.php:18
+#: inc/customizer/settings-blog.php:9
 msgid "Customize the layout of your blog template"
 msgstr ""
 
-#: inc/customizer/settings-blog.php:31
+#: inc/customizer/settings-blog.php:22
 msgid "Show Blog Roll Title?"
 msgstr ""
 
-#: inc/customizer/settings-blog.php:46
+#: inc/customizer/settings-blog.php:37
 msgid "Blog Roll Title"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:7
-msgid "Theme Branding"
+#: inc/customizer/settings-blog.php:49
+msgid "Blog Columns"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:8
-msgid "Customize the theme branding"
+#: inc/customizer/settings-blog.php:64
+msgid "Show Link Tab Effect on Hover?"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:16
-msgid "Footer Copyright"
+#: inc/customizer/settings-blog.php:78
+msgid "Blog Item - Hover Tab Background Color"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:17
-msgid "Customize the copyright blurb in the footer of your site"
+#: inc/customizer/settings-blog.php:92
+msgid "Blog Item - Hover Tab Icon Color"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:23 inc/juno/juno.php:884
-msgid "Your Company Name"
+#: inc/customizer/settings-blog.php:107
+msgid "Blog Item - Hover Tab Icon"
 msgstr ""
 
-#: inc/customizer/settings-branding.php:30
-msgid "Footer Copyright Name"
+#: inc/customizer/settings-blog.php:120
+msgid "Blog Item Title Size"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:136
+msgid "Blog Item Content Size"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:152
+msgid "Blog Item Meta Size"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:168
+msgid "Show Category in Blog Items?"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:183
+msgid "Show Author in Blog Items?"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:198
+msgid "Show Date Posted in Blog Items?"
+msgstr ""
+
+#: inc/customizer/settings-blog.php:213
+msgid "Trim Sample to How Many Words?"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:7
+msgid "Extras"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:8
+msgid "Customize the extras of your site"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:16
+msgid "404 Error Page"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:17
+msgid "Customize the 404 error page appearance"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:30
+msgid "The primary error page heading"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:42
+msgid "The secondary, smaller error page heading"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:47
+msgid "Search for something new?"
+msgstr ""
+
+#: inc/customizer/settings-extras.php:54
+msgid "The error page heading over the Search Bar"
 msgstr ""
 
 #: inc/customizer/settings-front-page.php:7
@@ -631,171 +710,279 @@ msgstr ""
 msgid "Customize the appearance of your front page"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:16
-msgid "Jumbotron"
+#: inc/customizer/settings-front-page.php:16 inc/juno/juno.php:71
+msgid "Featured Post Section"
 msgstr ""
 
 #: inc/customizer/settings-front-page.php:17
-msgid "Customize the front page Jumbotron"
+#: inc/customizer/settings-front-page.php:121
+#: inc/customizer/settings-front-page.php:145
+msgid ""
+"This section appears on the Frontpage when Static Frontpage option is set to "
+"\"A static page\" from Customize -> Static Frontpage"
 msgstr ""
 
 #: inc/customizer/settings-front-page.php:30
-msgid "Show the Jumbotron section?"
+msgid "Show the \"Featured Post\" section?"
 msgstr ""
 
 #: inc/customizer/settings-front-page.php:45
-msgid "Dark Tinted Slide Overlay"
+msgid "\"Featured Post\" section - Post"
 msgstr ""
 
 #: inc/customizer/settings-front-page.php:46
+msgid ""
+"Select a Post or Page. The title and content will be drawn in automatically."
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:52 inc/juno/juno.php:587
+msgid "Show Me More"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:59
+msgid "Button Label"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:66
+msgid "Frontpage Widget Areas"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:67
+msgid ""
+"These Widget Areas appear on the Frontpage, but can be toggled off and hidden"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:80
+msgid "Show the Frontpage Widget Area A?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:95
+msgid "Show the Frontpage Widget Area B?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:110
+msgid "Show the Frontpage Widget Area C?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:120 inc/juno/juno.php:657
+msgid "Colored Widget Area"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:134
+msgid "Show the Colored widget area?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:144
+msgid "Social Links"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:158
+msgid "Show the Social Links section?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:173
+msgid "Include a title message?"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:181
+msgid "Stay Connected"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:188
+msgid "Title message text"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:200
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:212
+msgid "Twitter"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:224
+msgid "Google+"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:236
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:248
+msgid "Behance"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:260
+msgid "Instagram"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:272
+msgid "Pinterest"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:284
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer/settings-front-page.php:296
+msgid "Vimeo"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:7
+msgid "Header & Footer"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:8
+msgid "Customize the header and footer"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:19
+msgid "Logo & title"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:20
+msgid "Customize the logo & site title"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:28
+msgid "Footer Copyright"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:29
+msgid "Customize the copyright blurb in the footer of your site"
+msgstr ""
+
+#: inc/customizer/settings-header-footer.php:41
+msgid "Company Name / Copyright"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:7
+msgid "Jumbotron ( Slider )"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:8
+msgid "Customize the appearance of the large frontpage slider"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:16
+msgid "Slides"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:17
+msgid ""
+"The Jumbotron Slider will only show up on the Frontpage. Set your Frontpage "
+"from Customizer-Static Frontpage to a Static Page."
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:30
+msgid "Show the Jumbotron section?"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:46
+msgid "Jumbotron Post #1"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:47
+#: inc/customizer/settings-jumbotron.php:61
+#: inc/customizer/settings-jumbotron.php:75
+msgid ""
+"To select the image, Edit the page/post you selected and Set Featured Image"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:60
+msgid "Jumbotron Post #2"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:74
+msgid "Jumbotron Post #3"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:84
+msgid "Customize the Jumbotron appearance"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:97
+msgid "Mobile Height of Jumbotron"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:98
+msgid ""
+"If the page is loaded on a mobile device, this value will be used to set the "
+"Jumbotron height"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:114
+msgid "Dark Tinted Slide Overlay"
+msgstr ""
+
+#: inc/customizer/settings-jumbotron.php:115
 msgid ""
 "Adjust the amount of dark tint to apply to slider images, from 0.0 for no "
 "tint to 1.0 for solid black, or anything in between"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:62
-msgid "Jumbotron Post #1"
+#: inc/customizer/settings-jumbotron.php:130
+msgid "Title - Text Color"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:75
-msgid "Jumbotron Post #2"
+#: inc/customizer/settings-jumbotron.php:145
+msgid "Title - Font Size"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:88
-msgid "Jumbotron Post #3"
+#: inc/customizer/settings-jumbotron.php:161
+msgid "Trim the Post Content"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:96 inc/juno/juno.php:72
-msgid "Featured Post Section"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:97
-msgid "Customize the front page \"Featured Post\" section"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:110
-msgid "Show the \"Featured Post\" section?"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:125
-msgid "\"Featured Post\" section - Post"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:126
+#: inc/customizer/settings-jumbotron.php:162
 msgid ""
-"Select a Post or Page. The title and content will be drawn in automatically."
+"This value will limit the number of words from the Post Content that will be "
+"displayed. Set to zero to show only the title. PLEASE NOTE: Post Content in "
+"the Jumbotron will not be visible on mobile."
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:132 inc/juno/juno.php:508
-msgid "Show Me More"
+#: inc/customizer/settings-jumbotron.php:178
+msgid "Post Content - Font Size"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:139
-msgid "Button Label"
+#: inc/customizer/settings-jumbotron.php:194
+msgid "Slide Duration"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:146
-msgid "Colored Widget Area"
+#: inc/customizer/settings-jumbotron.php:195
+msgid ""
+"How long to wait before switching slides, in milliseconds. (1000 = 1 second)"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:147
-msgid "Customize the front page Colored widget area"
+#: inc/customizer/settings-jumbotron.php:211
+msgid "Select your slide transition Effect"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:160
-msgid "Show the Colored widget area?"
+#: inc/customizer/settings-single-post.php:8
+msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:170
-msgid "Social Links"
+#: inc/customizer/settings-single-post.php:9
+msgid "Customize the layout of your single Post template"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:171
-msgid "Customize the front page Social Link section"
+#: inc/customizer/settings-single-post.php:22
+msgid "Show Author in Single Posts?"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:184
-msgid "Show the Social Links section?"
+#: inc/customizer/settings-single-post.php:37
+msgid "Show Date Posted in Single Posts?"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:199
-msgid "Include a title message?"
+#: inc/customizer/settings-single-post.php:52
+msgid "Single Post/Page Title Size"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:207 inc/juno/juno.php:740
-msgid "Stay Connected"
+#: inc/customizer/settings-single-post.php:68
+msgid "Single Post/Page Content Size"
 msgstr ""
 
-#: inc/customizer/settings-front-page.php:214
-msgid "Title message text"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:226
-msgid "Facebook"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:238
-msgid "Twitter"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:250
-msgid "Google+"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:262
-msgid "LinkedIn"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:274
-msgid "Behance"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:286
-msgid "Instagram"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:298
-msgid "Pinterest"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:310
-msgid "YouTube"
-msgstr ""
-
-#: inc/customizer/settings-front-page.php:322
-msgid "Vimeo"
-msgstr ""
-
-#: inc/customizer/settings-general.php:7
-msgid "General"
-msgstr ""
-
-#: inc/customizer/settings-general.php:8
-msgid "Customize the general settings of your site"
-msgstr ""
-
-#: inc/customizer/settings-general.php:16
-msgid "404 Error Page"
-msgstr ""
-
-#: inc/customizer/settings-general.php:17
-msgid "Customize the 404 error page appearance"
-msgstr ""
-
-#: inc/customizer/settings-general.php:30
-msgid "The primary error page heading"
-msgstr ""
-
-#: inc/customizer/settings-general.php:42
-msgid "The secondary, smaller error page heading"
-msgstr ""
-
-#: inc/customizer/settings-general.php:47
-msgid "Search for something new?"
-msgstr ""
-
-#: inc/customizer/settings-general.php:54
-msgid "The error page heading over the Search Bar"
+#: inc/customizer/settings-single-post.php:84
+msgid "Single Post Meta Size"
 msgstr ""
 
 #: inc/customizer/settings-site-identity-extras.php:16
@@ -807,99 +994,160 @@ msgid ""
 "Set in pixels. Width will automatically maintain the image aspect ratio."
 msgstr ""
 
-#: inc/juno/juno.php:52
+#: inc/juno/juno.php:51
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/juno/juno.php:54 inc/juno/juno.php:64 inc/juno/juno.php:74
-#: inc/juno/juno.php:84 inc/juno/juno.php:94 inc/juno/juno.php:104
-#: inc/juno/juno.php:114 inc/juno/juno.php:124
+#: inc/juno/juno.php:53 inc/juno/juno.php:63 inc/juno/juno.php:73
+#: inc/juno/juno.php:83 inc/juno/juno.php:93 inc/juno/juno.php:103
+#: inc/juno/juno.php:113 inc/juno/juno.php:123
 msgid "Add widgets here."
 msgstr ""
 
-#: inc/juno/juno.php:62
+#: inc/juno/juno.php:61
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/juno/juno.php:82
+#: inc/juno/juno.php:81
 msgid "Color Banner"
 msgstr ""
 
-#: inc/juno/juno.php:92
+#: inc/juno/juno.php:91
 msgid "Footer"
 msgstr ""
 
-#: inc/juno/juno.php:102
+#: inc/juno/juno.php:101
 msgid "Homepage A"
 msgstr ""
 
-#: inc/juno/juno.php:112
+#: inc/juno/juno.php:111
 msgid "Homepage B"
 msgstr ""
 
-#: inc/juno/juno.php:122
+#: inc/juno/juno.php:121
 msgid "Homepage C"
 msgstr ""
 
-#: inc/juno/juno.php:367
+#: inc/juno/juno.php:412
 msgid "None"
 msgstr ""
 
-#: inc/juno/juno.php:414
-msgid "Juno WordPress Theme"
-msgstr ""
-
-#: inc/juno/juno.php:499
+#: inc/juno/juno.php:562
 msgid "Users can select any Post or Page, and the title will be output here."
 msgstr ""
 
-#: inc/juno/juno.php:505
+#: inc/juno/juno.php:577
 msgid "The content of the selected Post or Page will be displayed here."
 msgstr ""
 
-#: inc/juno/juno.php:594
+#: inc/juno/juno.php:590
+msgid "Continue reading"
+msgstr ""
+
+#: inc/juno/juno.php:660
+msgid ""
+"You can enable/disable this widget area from Customizer - Frontpage - "
+"Colored Widget Area. This is a widget placeholder, and you can add any "
+"widget to it from Customizer - Widgets."
+msgstr ""
+
+#: inc/juno/juno.php:712
 msgid "Homepage A Widget Area"
 msgstr ""
 
-#: inc/juno/juno.php:597
+#: inc/juno/juno.php:715
 msgid ""
 "You can enable/disable this widget area from Customizer - Frontpage - "
 "Homepage Widget A. This is a widget placeholder, and you can add any widget "
 "to it from Customizer - Widgets."
 msgstr ""
 
-#: inc/juno/juno.php:642
+#: inc/juno/juno.php:769
 msgid "Homepage B Widget Area"
 msgstr ""
 
-#: inc/juno/juno.php:645
+#: inc/juno/juno.php:772
 msgid ""
 "You can enable/disable this widget area from Customizer - Frontpage - "
 "Homepage Widget B. This is a widget placeholder, and you can add any widget "
 "to it from Customizer - Widgets."
 msgstr ""
 
-#: inc/juno/juno.php:690
+#: inc/juno/juno.php:826
 msgid "Homepage C Widget Area"
 msgstr ""
 
-#: inc/juno/juno.php:693
+#: inc/juno/juno.php:829
 msgid ""
 "You can enable/disable this widget area from Customizer - Frontpage - "
 "Homepage Widget C. This is a widget placeholder, and you can add any widget "
 "to it from Customizer - Widgets."
 msgstr ""
 
-#: inc/juno/juno.php:885
-msgid "Y"
+#: inc/juno/juno.php:884
+msgid "Social links section"
 msgstr ""
 
-#: inc/juno/juno.php:889
-msgid "Designed by"
+#: inc/juno/juno.php:1035
+#, php-format
+msgid "Designed by %s"
 msgstr ""
 
-#: inc/juno/juno.php:889
-msgid "Logo"
+#: inc/juno/juno.php:1037
+#, php-format
+msgid "%s Logo"
+msgstr ""
+
+#: inc/juno/juno.php:1315
+msgid "Featured Image Settings"
+msgstr ""
+
+#: inc/juno/juno.php:1333
+msgid "Top"
+msgstr ""
+
+#: inc/juno/juno.php:1334
+msgid "Middle"
+msgstr ""
+
+#: inc/juno/juno.php:1335
+msgid "Bottom"
+msgstr ""
+
+#: inc/juno/juno.php:1342
+msgid "Banner Height"
+msgstr ""
+
+#: inc/juno/juno.php:1349
+msgid "Location"
+msgstr ""
+
+#: inc/juno/juno.php:1389
+msgid "Link"
+msgstr ""
+
+#: inc/juno/juno.php:1390
+msgid "External Link"
+msgstr ""
+
+#: inc/juno/juno.php:1391
+msgid "External Link Square"
+msgstr ""
+
+#: inc/juno/juno.php:1392
+msgid "Share"
+msgstr ""
+
+#: inc/juno/juno.php:1393
+msgid "Share Square Outline"
+msgstr ""
+
+#: inc/juno/juno.php:1394
+msgid "Star"
+msgstr ""
+
+#: inc/juno/juno.php:1395
+msgid "Star Outline"
 msgstr ""
 
 #: inc/template-tags.php:28
@@ -943,7 +1191,7 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-blog.php:53 template-parts/content-single.php:41
+#: template-parts/content-blog.php:59 template-parts/content-single.php:78
 msgid "by"
 msgstr ""
 
@@ -969,8 +1217,8 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page-home.php:17 template-parts/content-page.php:52
-#: template-parts/content-single.php:59
+#: template-parts/content-page-home.php:17 template-parts/content-page.php:89
+#: template-parts/content-single.php:96
 msgid "Pages:"
 msgstr ""
 
@@ -984,10 +1232,15 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Juno is a professional, multi-purpose theme with many customizable features "
-"and a crisp, clean, and modern design. With the emphasis placed on an "
-"uncluttered yet elegant design, Juno ensures your site looks great with "
-"minimal customization work."
+"Juno is a professional, multi-purpose theme with tons of customizable "
+"features, widgets and a crisp, clean, and modern design. With the emphasis "
+"placed on an uncluttered yet elegant design, Juno ensures your site looks "
+"great with minimal customization work. Juno allows you to easily customize "
+"colors, fonts, sizes, as well as feature Woocommerce products, posts or "
+"pages. Juno includes features such as a slider jumbotron area, masonry style "
+"blog, fully responsive design, customizable colors and widget areas, left "
+"and right sidebars, customizable fonts and a lot more features that are not "
+"usually found in a free theme."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -995,5 +1248,5 @@ msgid "Smartcat"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://smartcat.ca"
+msgid "https://smartcatdesign.net/"
 msgstr ""

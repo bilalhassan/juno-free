@@ -5,7 +5,7 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, grid-
 
 Requires at least: 4.4
 Tested up to: 4.7.2
-Stable tag: 1.0.6
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -13,7 +13,7 @@ Copyright 2016 Smartcat
 
 == Description ==
 
-Juno is a professional, multi-purpose theme with tons of customizable features, widgets and a crisp, clean, and modern design. With the emphasis placed on an uncluttered yet elegant design, Juno ensures your site looks great with minimal customization work. Juno allows you to easily customize colors, fonts, sizes, as well as feature Woocommerce products, posts or pages.
+Juno is a professional, multi-purpose theme with tons of customizable features, widgets and a crisp, clean, and modern design. With the emphasis placed on an uncluttered yet elegant design, Juno ensures your site looks great with minimal customization work. Juno allows you to easily customize colors, fonts, sizes, as well as feature Woocommerce products, posts or pages. Juno includes features such as a slider jumbotron area, masonry style blog, fully responsive design, customizable colors and widget areas, left and right sidebars, customizable fonts and a lot more features that are not usually found in a free theme.
 
 == Installation ==
 

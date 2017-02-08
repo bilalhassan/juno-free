@@ -1,22 +1,13 @@
 <?php
 
 // ---------------------------------------------
-// Blog Panel
-// ---------------------------------------------
-$wp_customize->add_panel( 'juno_blog_panel', array (
-    'title'                 => __( 'Blog', 'juno' ),
-    'description'           => __( 'Customize the appearance of the Blog', 'juno' ),
-    'priority'              => 10
-) );
-
-// ---------------------------------------------
 // Layout Section
 // ---------------------------------------------
 
 $wp_customize->add_section( 'juno_blog_layout_section', array (
-    'title'                 => __( 'Layout', 'juno' ),
+    'title'                 => __( 'Blog', 'juno' ),
     'description'           => __( 'Customize the layout of your blog template', 'juno' ),
-    'panel'                 => 'juno_blog_panel',
+    'priority'              => 5
 ) );
 
     // Blog Section Title Toggle
