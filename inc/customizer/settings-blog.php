@@ -69,7 +69,7 @@ $wp_customize->add_section( 'juno_blog_layout_section', array (
     
     // Corner Hover Tab Color
     $wp_customize->add_setting( 'juno_blog_hover_tab_color', array (
-        'default'               => '#999999',
+        'default'               => '#ffc859',
         'transport'             => 'refresh',
         'sanitize_callback'     => 'sanitize_hex_color',
     ) );
