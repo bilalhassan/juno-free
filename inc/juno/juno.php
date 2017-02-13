@@ -289,7 +289,7 @@ function juno_custom_css() { ?>
         }
 
         /* --- JUMBOTRON CONTENT --- */
-        #jumbotron-section .camerjuno_blog_hover_tab_colora_caption p.slide-content {
+        #jumbotron-section .camera_caption p.slide-content {
             font-size: <?php echo intval( get_theme_mod( 'juno_jumbotron_content_size', 18 ) ); ?>px;
         }
  
