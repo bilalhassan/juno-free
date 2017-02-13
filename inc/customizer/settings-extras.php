@@ -21,7 +21,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     // Error Page Primary Heading
     $wp_customize->add_setting( 'juno_error_page_heading', array (
         'default'               => __( 'Oops!', 'juno' ),
-        'transport'             => 'postMessage',
+        'transport'             => 'refresh',
         'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_error_page_heading', array(
@@ -33,7 +33,7 @@ $wp_customize->add_section( 'juno_error_page_section', array(
     // Error Page Secondary Heading
     $wp_customize->add_setting( 'juno_error_page_subheading', array (
         'default'               => __( 'It looks like nothing was found at this location, please check the address and try again!', 'juno' ),
-        'transport'             => 'postMessage',
+        'transport'             => 'refresh',
         'sanitize_callback'     => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'juno_error_page_subheading', array(
@@ -41,17 +41,3 @@ $wp_customize->add_section( 'juno_error_page_section', array(
         'section'               => 'juno_error_page_section',
         'label'                 => __( 'The secondary, smaller error page heading', 'juno' ),
     ) );   
-
-    // Error Page Search Heading
-    $wp_customize->add_setting( 'juno_error_page_search_heading', array (
-        'default'               => __( 'Search for something new?', 'juno' ),
-        'transport'             => 'postMessage',
-        'sanitize_callback'     => 'sanitize_text_field',
-    ) );
-    $wp_customize->add_control( 'juno_error_page_search_heading', array(
-        'type'                  => 'text',
-        'section'               => 'juno_error_page_section',
-        'label'                 => __( 'The error page heading over the Search Bar', 'juno' ),
-    ) );   
-    
-    

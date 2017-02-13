@@ -40,12 +40,12 @@
                     } else { ?>
 
                         <a href="<?php echo esc_url( home_url() ); ?>">
-                            <?php echo ( get_bloginfo( 'name' ) ); ?>
+                            <?php echo get_bloginfo( 'name' ); ?>
                         </a>
                     
-                        <?php if ( get_bloginfo ( 'description' ) ) : ?>
+                        <?php if ( get_bloginfo( 'description' ) ) : ?>
                             <h5 class="site-description">
-                                <?php echo get_bloginfo ( 'description' ); ?>
+                                <?php echo get_bloginfo( 'description' ); ?>
                             </h5>
                         <?php endif; ?>
 

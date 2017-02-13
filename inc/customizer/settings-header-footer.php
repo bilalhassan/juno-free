@@ -32,6 +32,7 @@ $wp_customize->add_section( 'juno_footer_section', array(
 
     // Copyright Line Company Name
     $wp_customize->add_setting( 'juno_footer_copyright_area', array (
+        'default'               => get_bloginfo( 'name' ),
         'transport'             => 'refresh',
         'sanitize_callback'     => 'sanitize_text_field',
     ) );

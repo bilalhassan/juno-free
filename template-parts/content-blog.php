@@ -63,7 +63,7 @@
             
             <div class="image-corner"></div>
             <a href="<?php the_permalink() ?>">
-                <i class="<?php echo esc_attr(get_theme_mod( 'juno_blog_hover_tab_icon', 'fa fa-share' ) ); ?> icon"></i>
+                <i class="<?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_icon', 'fa fa-share' ) ); ?> icon"></i>
             </a>
             
         </div>
