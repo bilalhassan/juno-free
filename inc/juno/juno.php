@@ -561,7 +561,7 @@ function juno_render_featured_post_section() { ?>
                         <?php if( current_user_can( 'manage_options') ) : ?>
                             <?php echo esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ); ?>
                         <?php else : ?>
-                            <?php echo bloginfo( 'name' ); ?>
+                            <?php echo get_bloginfo( 'name' ); ?>
                         <?php endif; ?>
                     <?php else : ?>
                         <?php echo esc_html( get_the_title( $about_post ) ); ?>
@@ -576,7 +576,7 @@ function juno_render_featured_post_section() { ?>
                         <?php if( current_user_can( 'manage_options') ) : ?>
                             <?php echo esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ); ?>
                         <?php else : ?>
-                            <?php echo bloginfo( 'description' ); ?>
+                            <?php echo get_bloginfo( 'description' ); ?>
                         <?php endif; ?>
                     <?php else : ?>
                         <?php echo esc_html( $about_post->post_content ); ?>
@@ -661,10 +661,10 @@ function juno_render_color_banner_section() { ?>
                             </div>
                             <?php else : ?>
                                 <h6 class="default-text">
-                                    <?php echo bloginfo( 'name' ); ?>
+                                    <?php echo get_bloginfo( 'name' ); ?>
                                 </h6>
                                 <div class="textwidget">
-                                    <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                    <p class="default-text"><?php echo get_bloginfo( 'description' ); ?></p>
                                 </div>
                             <?php endif; ?>
 
@@ -716,10 +716,10 @@ function juno_render_homepage_widget_areas() { ?>
                                         </div>
                                         <?php else : ?>
                                             <h6 class="default-text">
-                                                <?php echo bloginfo( 'name' ); ?>
+                                                <?php echo get_bloginfo( 'name' ); ?>
                                             </h6>
                                             <div class="textwidget">
-                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                                <p class="default-text"><?php echo get_bloginfo( 'description' ); ?></p>
                                             </div>
                                         <?php endif; ?>
 
@@ -773,10 +773,10 @@ function juno_render_homepage_widget_areas() { ?>
                                         </div>
                                         <?php else : ?>
                                             <h6 class="default-text">
-                                                <?php echo bloginfo( 'name' ); ?>
+                                                <?php echo get_bloginfo( 'name' ); ?>
                                             </h6>
                                             <div class="textwidget">
-                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                                <p class="default-text"><?php echo get_bloginfo( 'description' ); ?></p>
                                             </div>
                                         <?php endif; ?>
 
@@ -830,10 +830,10 @@ function juno_render_homepage_widget_areas() { ?>
                                         </div>
                                         <?php else : ?>
                                             <h6 class="default-text">
-                                                <?php echo bloginfo( 'name' ); ?>
+                                                <?php echo get_bloginfo( 'name' ); ?>
                                             </h6>
                                             <div class="textwidget">
-                                                <p class="default-text"><?php echo bloginfo( 'description' ); ?></p>
+                                                <p class="default-text"><?php echo get_bloginfo( 'description' ); ?></p>
                                             </div>
                                         <?php endif; ?>
 
@@ -1027,7 +1027,7 @@ function juno_render_footer() { ?>
 
                                 <?php if ( get_theme_mod( 'juno_footer_copyright_area', true ) != '' ) : ?>
                                     <span class="site-info">
-                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', bloginfo( 'name' ) ) ); ?>
+                                        <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', get_bloginfo( 'name' ) ) ); ?>
                                     </span>
                                     |
                                 <?php endif; ?>
