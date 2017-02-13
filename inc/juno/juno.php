@@ -558,7 +558,7 @@ function juno_render_featured_post_section() { ?>
                 <h2 id="about-primary">
                     
                     <?php if( is_null( $about_post ) ) : ?>
-                        <?php if( current_user_can( 'manage_options') ) : ?>
+                        <?php if( current_user_can( 'edit_theme_options') ) : ?>
                             <?php echo esc_html__( 'Users can select any Post or Page, and the title will be output here.', 'juno' ); ?>
                         <?php else : ?>
                             <?php echo get_bloginfo( 'name' ); ?>
@@ -573,7 +573,7 @@ function juno_render_featured_post_section() { ?>
                 <p id="about-secondary">
                     
                     <?php if( is_null( $about_post ) ) : ?>
-                        <?php if( current_user_can( 'manage_options') ) : ?>
+                        <?php if( current_user_can( 'edit_theme_options') ) : ?>
                             <?php echo esc_html__( 'The content of the selected Post or Page will be displayed here.', 'juno' ); ?>
                         <?php else : ?>
                             <?php echo get_bloginfo( 'description' ); ?>
@@ -652,7 +652,7 @@ function juno_render_color_banner_section() { ?>
 
                         <div class="row">
 
-                            <?php if( current_user_can( 'manage_options' ) ) :  ?>
+                            <?php if( current_user_can( 'edit_theme_options' ) ) :  ?>
                             <h6 class="default-text">
                                 <?php _e( 'Colored Widget Area', 'juno' ); ?>
                             </h6>
@@ -707,7 +707,7 @@ function juno_render_homepage_widget_areas() { ?>
                                 <div class="row">
 
                                     <div class="col-sm-12">
-                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
+                                        <?php if( current_user_can( 'edit_theme_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage A Widget Area', 'juno' ); ?>
                                         </h6>
@@ -764,7 +764,7 @@ function juno_render_homepage_widget_areas() { ?>
 
                                     <div class="col-sm-12">
 
-                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
+                                        <?php if( current_user_can( 'edit_theme_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage B Widget Area', 'juno' ); ?>
                                         </h6>
@@ -821,7 +821,7 @@ function juno_render_homepage_widget_areas() { ?>
 
                                     <div class="col-sm-12">
 
-                                        <?php if( current_user_can( 'manage_options' ) ) :  ?>
+                                        <?php if( current_user_can( 'edit_theme_options' ) ) :  ?>
                                         <h6 class="default-text">
                                             <?php _e( 'Homepage C Widget Area', 'juno' ); ?>
                                         </h6>
@@ -881,7 +881,7 @@ function juno_render_social_module() { ?>
 
                             <?php if ( get_theme_mod( 'juno_social_message_toggle', 'show' ) == 'show' ) : ?>
                                 <div id="social-message">
-                                    <?php $social_output = current_user_can( 'manage_options' ) ? __( 'Social links section', 'juno' ) : ''; ?>
+                                    <?php $social_output = current_user_can( 'edit_theme_options' ) ? __( 'Social links section', 'juno' ) : ''; ?>
                                     <?php echo esc_html( get_theme_mod( 'juno_social_message', $social_output ) ); ?>
                                 </div>
                             <?php endif; ?>
@@ -1025,7 +1025,7 @@ function juno_render_footer() { ?>
                             
                             <div id="footer-branding">
 
-                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', true ) != '' ) : ?>
+                                <?php if ( get_theme_mod( 'juno_footer_copyright_area', get_bloginfo( 'name' ) ) != '' ) : ?>
                                     <span class="site-info">
                                         <?php echo esc_html( get_theme_mod( 'juno_footer_copyright_area', get_bloginfo( 'name' ) ) ); ?>
                                     </span>
