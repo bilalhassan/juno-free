@@ -249,7 +249,7 @@ function juno_custom_css() { ?>
         .widget_calendar table a,
         .widget_calendar caption,
         footer .widget_calendar caption,
-        .widget a:hover {
+        .widget a:hover,a,a:visited {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -289,13 +289,13 @@ function juno_custom_css() { ?>
         }
 
         /* --- JUMBOTRON CONTENT --- */
-        #jumbotron-section .camera_caption p.slide-content {
+        #jumbotron-section .camerjuno_blog_hover_tab_colora_caption p.slide-content {
             font-size: <?php echo intval( get_theme_mod( 'juno_jumbotron_content_size', 18 ) ); ?>px;
         }
  
         /* --- BLOG ROLL HOVER TAB COLOR --- */
         .juno-blog-content .blog-roll-item .inner .image-corner {
-            border-color: transparent transparent <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_color', '#999999' ) ); ?> transparent;
+            border-color: transparent transparent <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_tab_color', '#ffc859' ) ); ?> transparent;
         }
         .juno-blog-content .blog-roll-item .inner i.icon {
             color: <?php echo esc_attr( get_theme_mod( 'juno_blog_hover_icon_color', '#ffffff' ) ); ?>;
@@ -470,9 +470,9 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_1 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_1 ) ); ?>
                                         </a>
-                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_1->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_1->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -495,9 +495,9 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_2 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_2 ) ); ?>
                                         </a>
-                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_2->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_2->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -518,9 +518,9 @@ function juno_render_jumbotron() { ?>
                                         <a href="<?php echo esc_url( get_the_permalink( $slider_post_3 ) ); ?>">
                                             <?php echo esc_html( get_the_title( $slider_post_3 ) ); ?>
                                         </a>
-                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) > 0 ) : ?>
+                                        <?php if ( get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) > 0 ) : ?>
                                             <p class="slide-content">
-                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_3->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', '50' ) ); ?>
+                                                <?php echo wp_trim_words( wp_strip_all_tags ( strip_shortcodes( $slider_post_3->post_content ) ), get_theme_mod( 'juno_jumbotron_content_trim_value', 50 ) ); ?>
                                             <p>
                                         <?php endif; ?>
                                     </div>
@@ -1031,10 +1031,12 @@ function juno_render_footer() { ?>
                                     </span>
                                     |
                                 <?php endif; ?>
+                                
+                                <a href="https://smartcatdesign.net" rel="designer">
+                                    <?php printf( esc_html__( 'Designed by %s', 'juno' ), 'Smartcat' ); ?> 
 
-                                <?php printf( esc_html__( 'Designed by %s', 'juno' ), 'Smartcat' ); ?> 
-
-                                <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/sc-emblem-skyblue.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'juno' ), 'Smartcat' ); ?>" />
+                                    <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/sc-emblem-skyblue.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'juno' ), 'Smartcat' ); ?>" />
+                                </a>
                             </div>
 
                         </div>
