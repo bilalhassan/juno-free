@@ -249,7 +249,7 @@ function juno_custom_css() { ?>
         .widget_calendar table a,
         .widget_calendar caption,
         footer .widget_calendar caption,
-        .widget a:hover,a,a:visited {
+        .widget a:hover {
             color: <?php echo esc_attr( $skin[ 'primary' ] ); ?>;
         }
         footer#colophon #footer-sidebar-wrapper {
@@ -1032,7 +1032,7 @@ function juno_render_footer() { ?>
                                     |
                                 <?php endif; ?>
                                 
-                                <a href="https://smartcatdesign.net" rel="designer">
+                                <a href="https://smartcatdesign.net">
                                     <?php printf( esc_html__( 'Designed by %s', 'juno' ), 'Smartcat' ); ?> 
 
                                     <img src="<?php echo trailingslashit( get_template_directory_uri() ) . 'inc/images/sc-emblem-skyblue.png'; ?>" alt="<?php printf( esc_attr__( '%s Logo', 'juno' ), 'Smartcat' ); ?>" />

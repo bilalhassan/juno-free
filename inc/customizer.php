@@ -12,12 +12,45 @@
  */
 function juno_customize_register( $wp_customize ) {
     
-    // Resets
+    class JunoCustomizerPanel extends WP_Customize_Control {
+
+        public function render_content() { ?>
+            <a class="button-primary" href="<?php echo esc_url( 'http://juno.smartcatdev.wpengine.com/' ); ?>" title="<?php esc_attr_e( 'Juno Pro Demo', 'juno' ); ?>" target="_blank">
+            <?php _e( 'View theme demo', 'juno' ); ?>
+            </a>
+            <p><?php _e( 'Thank you for using the free version of Juno! We have loaded this theme with many options, so use it to create something beautiful!', 'juno' ); ?></p>
+            <p><?php _e( 'If you are looking for more customization options, you can check out the Pro version of Juno, which includes additiona features, such as:', 'juno' ); ?></p>
+            <ol>
+                <li><?php _e( 'Up to 5 slides in the slider', 'juno' ); ?></li>
+                <li><?php _e( 'Custom widgets such as Contact Info, Call to Action, Contact Form, Pricing Tables.', 'juno' ); ?></li>
+                <li><?php _e( 'Custom Post Types: Clients, Events, Gallery, Projects & Testimonials.', 'juno' ); ?></li>
+                
+            </ol>
+        <?php }
+
+    }
     
-    /**
-     * Use require_once to load the individual files containing the 
-     * Customizer settings and controls, grouped by Panel
-     */
+$wp_customize->add_section('juno_demo', array(
+    'title'     => __( 'Juno Pro', 'juno'),
+    'priority'  => 0,
+));
+
+    $wp_customize->add_setting( 'juno_demo_details', array(
+        'default'           => false,
+        'capability'        => 'edit_theme_options',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
+    ));
+    $wp_customize->add_control(
+        new JunoCustomizerPanel(
+        $wp_customize,
+        'juno_demo',
+            array(
+                'label'     => __('Juno Pro','juno'),
+                'section'   => 'juno_demo',
+                'settings'  => 'juno_demo_details',
+            )
+        )
+    );
     
     // Site Identity
     require_once trailingslashit( get_template_directory() ) . 'inc/customizer/settings-site-identity-extras.php';
