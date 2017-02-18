@@ -15,7 +15,7 @@ function juno_customize_register( $wp_customize ) {
     class JunoCustomizerPanel extends WP_Customize_Control {
 
         public function render_content() { ?>
-            <a class="button-primary" href="<?php echo esc_url( 'http://juno.smartcatdev.wpengine.com/' ); ?>" title="<?php esc_attr_e( 'Juno Pro Demo', 'juno' ); ?>" target="_blank">
+            <a class="button-primary" href="<?php echo esc_url( 'http://juno-demo.smartcatdev.wpengine.com/' ); ?>" title="<?php esc_attr_e( 'Juno Pro Demo', 'juno' ); ?>" target="_blank">
             <?php _e( 'View theme demo', 'juno' ); ?>
             </a>
             <p><?php _e( 'Thank you for using the free version of Juno! We have loaded this theme with many options, so use it to create something beautiful!', 'juno' ); ?></p>
@@ -24,7 +24,7 @@ function juno_customize_register( $wp_customize ) {
                 <li><?php _e( 'Up to 5 slides in the slider', 'juno' ); ?></li>
                 <li><?php _e( 'Custom widgets such as Contact Info, Call to Action, Contact Form, Pricing Tables.', 'juno' ); ?></li>
                 <li><?php _e( 'Custom Post Types: Clients, Events, Gallery, Projects & Testimonials.', 'juno' ); ?></li>
-                
+                <li><?php _e( 'Remove the "Designed by Smartcat" from the footer') ?></li>
             </ol>
         <?php }
 
@@ -90,6 +90,15 @@ function juno_customize_preview_js() {
 	wp_enqueue_script( 'juno_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'juno_customize_preview_js' );
+
+
+function juno_customize_enqueue() {
+    
+    wp_enqueue_style('juno_customizer_css', get_template_directory_uri() . '/inc/css/customizer.css', array(), JUNO_VERSION );
+    
+}
+add_action( 'customize_controls_enqueue_scripts', 'juno_customize_enqueue' );
+
 
 /**
  * Sanitization Functions
