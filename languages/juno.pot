@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Juno\n"
-"POT-Creation-Date: 2017-02-08 08:55-0500\n"
-"PO-Revision-Date: 2017-02-08 08:48-0500\n"
+"POT-Creation-Date: 2017-02-14 08:23-0500\n"
+"PO-Revision-Date: 2017-02-14 08:23-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -485,23 +485,61 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:116 inc/customizer/settings-jumbotron.php:213
+#: inc/customizer.php:18
+msgid "Juno Pro Demo"
+msgstr ""
+
+#: inc/customizer.php:19
+msgid "View theme demo"
+msgstr ""
+
+#: inc/customizer.php:21
+msgid ""
+"Thank you for using the free version of Juno! We have loaded this theme with "
+"many options, so use it to create something beautiful!"
+msgstr ""
+
+#: inc/customizer.php:22
+msgid ""
+"If you are looking for more customization options, you can check out the Pro "
+"version of Juno, which includes additiona features, such as:"
+msgstr ""
+
+#: inc/customizer.php:24
+msgid "Up to 5 slides in the slider"
+msgstr ""
+
+#: inc/customizer.php:25
+msgid ""
+"Custom widgets such as Contact Info, Call to Action, Contact Form, Pricing "
+"Tables."
+msgstr ""
+
+#: inc/customizer.php:26
+msgid "Custom Post Types: Clients, Events, Gallery, Projects & Testimonials."
+msgstr ""
+
+#: inc/customizer.php:34 inc/customizer.php:48
+msgid "Juno Pro"
+msgstr ""
+
+#: inc/customizer.php:149 inc/customizer/settings-jumbotron.php:213
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer.php:117 inc/customizer/settings-jumbotron.php:214
+#: inc/customizer.php:150 inc/customizer/settings-jumbotron.php:214
 msgid "Scroll Left"
 msgstr ""
 
-#: inc/customizer.php:131 inc/customizer/settings-blog.php:51
+#: inc/customizer.php:164 inc/customizer/settings-blog.php:51
 msgid "2-Column"
 msgstr ""
 
-#: inc/customizer.php:132 inc/customizer/settings-blog.php:52
+#: inc/customizer.php:165 inc/customizer/settings-blog.php:52
 msgid "3-Column"
 msgstr ""
 
-#: inc/customizer.php:146 inc/customizer/settings-blog.php:24
+#: inc/customizer.php:179 inc/customizer/settings-blog.php:24
 #: inc/customizer/settings-blog.php:66 inc/customizer/settings-blog.php:170
 #: inc/customizer/settings-blog.php:185 inc/customizer/settings-blog.php:200
 #: inc/customizer/settings-front-page.php:32
@@ -517,7 +555,7 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: inc/customizer.php:147 inc/customizer/settings-blog.php:25
+#: inc/customizer.php:180 inc/customizer/settings-blog.php:25
 #: inc/customizer/settings-blog.php:67 inc/customizer/settings-blog.php:171
 #: inc/customizer/settings-blog.php:186 inc/customizer/settings-blog.php:201
 #: inc/customizer/settings-front-page.php:33
@@ -694,14 +732,6 @@ msgstr ""
 msgid "The secondary, smaller error page heading"
 msgstr ""
 
-#: inc/customizer/settings-extras.php:47
-msgid "Search for something new?"
-msgstr ""
-
-#: inc/customizer/settings-extras.php:54
-msgid "The error page heading over the Search Bar"
-msgstr ""
-
 #: inc/customizer/settings-front-page.php:7
 msgid "Frontpage Content"
 msgstr ""
@@ -852,7 +882,7 @@ msgstr ""
 msgid "Customize the copyright blurb in the footer of your site"
 msgstr ""
 
-#: inc/customizer/settings-header-footer.php:41
+#: inc/customizer/settings-header-footer.php:42
 msgid "Company Name / Copyright"
 msgstr ""
 
@@ -1088,65 +1118,65 @@ msgstr ""
 msgid "Social links section"
 msgstr ""
 
-#: inc/juno/juno.php:1035
+#: inc/juno/juno.php:1036
 #, php-format
 msgid "Designed by %s"
 msgstr ""
 
-#: inc/juno/juno.php:1037
+#: inc/juno/juno.php:1038
 #, php-format
 msgid "%s Logo"
 msgstr ""
 
-#: inc/juno/juno.php:1315
+#: inc/juno/juno.php:1317
 msgid "Featured Image Settings"
 msgstr ""
 
-#: inc/juno/juno.php:1333
+#: inc/juno/juno.php:1335
 msgid "Top"
 msgstr ""
 
-#: inc/juno/juno.php:1334
+#: inc/juno/juno.php:1336
 msgid "Middle"
 msgstr ""
 
-#: inc/juno/juno.php:1335
+#: inc/juno/juno.php:1337
 msgid "Bottom"
 msgstr ""
 
-#: inc/juno/juno.php:1342
+#: inc/juno/juno.php:1344
 msgid "Banner Height"
 msgstr ""
 
-#: inc/juno/juno.php:1349
+#: inc/juno/juno.php:1351
 msgid "Location"
 msgstr ""
 
-#: inc/juno/juno.php:1389
+#: inc/juno/juno.php:1391
 msgid "Link"
 msgstr ""
 
-#: inc/juno/juno.php:1390
+#: inc/juno/juno.php:1392
 msgid "External Link"
 msgstr ""
 
-#: inc/juno/juno.php:1391
+#: inc/juno/juno.php:1393
 msgid "External Link Square"
 msgstr ""
 
-#: inc/juno/juno.php:1392
+#: inc/juno/juno.php:1394
 msgid "Share"
 msgstr ""
 
-#: inc/juno/juno.php:1393
+#: inc/juno/juno.php:1395
 msgid "Share Square Outline"
 msgstr ""
 
-#: inc/juno/juno.php:1394
+#: inc/juno/juno.php:1396
 msgid "Star"
 msgstr ""
 
-#: inc/juno/juno.php:1395
+#: inc/juno/juno.php:1397
 msgid "Star Outline"
 msgstr ""
 
